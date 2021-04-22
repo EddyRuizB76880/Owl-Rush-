@@ -16,3 +16,5 @@
 - Sistema de comodines: Las cartas de colores y las cartas de sol no serían las únicas que aparecerían en el juego. Distintos tipos de modificadores (comodines) aparecerían en la baraja. Modificadores tipos cartas que dieran a elegir el color que el jugador movería, cartas que permitieran al jugador mover 2 o más búhos, recargas al reloj mágico (en caso de que fuera viable mantener comodines y reloj), entre otros.
 
 - Sun-Counter: El sistema sun counter consistiría en una barra que se llenaría progresivamente a lo largo de la partida. En cada turno, el jugador tiene la posibilidad de llenar la barra si decide rápidamente cuál carta usar para los búhos. Cuanto más rápido actúe, más progreso hará la barra. Cuando la barra se llena, el jugador tiene la oportunidad de anular una carta sol. 
+
+-  El tablero puede tener comodines escondidos que afectan el maso de cartas: se puede ver las primeras 3 cartas del maso, barajar el maso, o poder escoger una carta aleatoria del maso. Esto es para añadir al sistema de comodines. 

@@ -53,3 +53,15 @@ poder usar el Sun Counter.
 - Permite determinar el tiempo de respuesta dada al jugador para
 poder usar el Simón Dice.
 
+## Tablero
+- La barra sun-counter y su progreso actual se encuentra a la izquierda.
+- En la esquina inferior izquierda, se encuentra el tiempo que posee el usuario para tomar una decisión, así como la cantidad de progreso de sun counter que tomará al terminar su movida.
+- La espiral en el centro representa las casillas del tablero. La cajita con x representa al búho al comienzo de la partida.
+- Las barritas a la derecha indican el progreso del sol. La cajita x al lado de las barritas, una imagen de un sol.
+- En la parte inferior de la pantalla están las cartas que el jugador posee, así como la baraja de cartas de donde el jugador toma al inicio de cada turno.
+
+## Resultados finales
+- El mensaje entre corchetes dirá si los jugadores perdieron o ganaron.
+- Los mensajes crit entre corchetes serán los criterios que determinarán qué jugadores rindieron mejor.
+- El jugador tendrá la posibilidad de de volver a jugar otra partida o de volver al menú principal
+

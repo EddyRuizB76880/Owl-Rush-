@@ -31,3 +31,25 @@
 - El listado en la izquierda indica cuántos jugadores se han unido a la sesión, junto con sus nombres de usuario.
 ![Pantalla del invitado](img/SalaEspera2.svg)
 
+
+## Configuraciones
+-El anfitrión podra acceder a la configuración para cambios esteticos del sitio por el botón Configuración del Sitio, y para cambios en modo de juego por el botón Configuración del Juego.
+
+## Configuración del sitio
+-Anfitrión podrá cambiar colores y tamaño de varios textos en el sitio.
+-Anfitrión podrá cambiar los colores de varios elementos del 
+tablero.
+-Cambios serán aceptados por el botón aceptar, y no se realizaran 
+por el botón cancelar
+
+## Configuración del juego
+-Anfitrión podra realizar varios cambios al modo de juego en el 
+tablero.
+- Permite cambio a una cantidad de búhos en el juego, limitado a una selección.
+- Permite habilitar o deshabilitar el Sun Counter para el juego.
+- Permite habilitar o deshabilitar el Simón Dice para el juego.
+- Permite determinar el tiempo de respuesta dada al jugador para
+poder usar el Sun Counter.
+- Permite determinar el tiempo de respuesta dada al jugador para
+poder usar el Simón Dice.
+

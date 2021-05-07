@@ -3,17 +3,17 @@
 ## Inicio
 - En esta pantalla el usuario puede navegar a los otros sitios que se encuentran en la página. 
 - El usuario va a poder escoger entre: crear una sesión nueva, unirse a una sesión ya existente, o salirse. 
-![Pantalla de Inicio](http://design/img/Inicio.svg)
+![Pantalla de Inicio](img/Inicio.svg)
 
 ## Acerca de 
 - En esta pantalla se despliega información acerca del juego, quiénes son los integrantes. 
-![Pantalla acerca de](http://design/img/AcercaDe.svg)
+![Pantalla acerca de](img/AcercaDe.svg)
 
 ## Cómo jugar 
 - En esta pantalla se despliegan las reglas del juego. 
 - La idea es que el usuario pueda ver la relga del juego con una imagen asociada. 
 - El usuario puede navegar a través de las reglas con las flechas presentadas en el carrusel. 
-![Pantalla sobre cómo jugar](http://design/img/ComoJugar.svg)
+![Pantalla sobre cómo jugar](img/ComoJugar.svg)
 
 
 ## Sala de espera: Invitado

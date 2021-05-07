@@ -29,21 +29,23 @@
 - El anfitrión usaría el botón "Iniciar partida" para comenzar a jugar. El botón sólo se habilita cuando el anfitrión consigue que una mínimo un jugador aparte de él. Una alerta aparece bajo el botón cuando esta condición no se cumple.
 - En la esquina superior derecha, está el botón "Regresar", que le permite al anfitrión abandonar la sesión.
 - El listado en la izquierda indica cuántos jugadores se han unido a la sesión, junto con sus nombres de usuario.
-![Pantalla del invitado](img/SalaEspera2.svg)
+![Pantalla de sala de espera del anfitrión](img/SalaEspera2.svg)
 
 
 ## Configuraciones
--El anfitrión podra acceder a la configuración para cambios esteticos del sitio por el botón Configuración del Sitio, y para cambios en modo de juego por el botón Configuración del Juego.
+- El anfitrión podra acceder a la configuración para cambios esteticos del sitio por el botón Configuración del Sitio, y para cambios en modo de juego por el botón Configuración del Juego.
+![Pantalla de las Configuraciones](img/Configuracion.svg)
 
 ## Configuración del sitio
--Anfitrión podrá cambiar colores y tamaño de varios textos en el sitio.
--Anfitrión podrá cambiar los colores de varios elementos del 
+- Anfitrión podrá cambiar colores y tamaño de varios textos en el sitio.
+- Anfitrión podrá cambiar los colores de varios elementos del 
 tablero.
--Cambios serán aceptados por el botón aceptar, y no se realizaran 
+- Cambios serán aceptados por el botón aceptar, y no se realizaran 
 por el botón cancelar
+![Pantalla de las configuraciones del sitio](img/ConfiguracionDelSitio.svg)
 
 ## Configuración del juego
--Anfitrión podra realizar varios cambios al modo de juego en el 
+- Anfitrión podra realizar varios cambios al modo de juego en el 
 tablero.
 - Permite cambio a una cantidad de búhos en el juego, limitado a una selección.
 - Permite habilitar o deshabilitar el Sun Counter para el juego.
@@ -52,6 +54,7 @@ tablero.
 poder usar el Sun Counter.
 - Permite determinar el tiempo de respuesta dada al jugador para
 poder usar el Simón Dice.
+![Pantalla de las configuraciones del juego](img/ConfiguracionDelJuego.svg)
 
 ## Tablero
 - La barra sun-counter y su progreso actual se encuentra a la izquierda.
@@ -59,9 +62,12 @@ poder usar el Simón Dice.
 - La espiral en el centro representa las casillas del tablero. La cajita con x representa al búho al comienzo de la partida.
 - Las barritas a la derecha indican el progreso del sol. La cajita x al lado de las barritas, una imagen de un sol.
 - En la parte inferior de la pantalla están las cartas que el jugador posee, así como la baraja de cartas de donde el jugador toma al inicio de cada turno.
+![Pantalla de las configuraciones del juego](img/Tablero.svg)
 
 ## Resultados finales
 - El mensaje entre corchetes dirá si los jugadores perdieron o ganaron.
 - Los mensajes crit entre corchetes serán los criterios que determinarán qué jugadores rindieron mejor.
 - El jugador tendrá la posibilidad de de volver a jugar otra partida o de volver al menú principal
+![Pantalla de las configuraciones del juego](img/Resultados.svg)
+
 

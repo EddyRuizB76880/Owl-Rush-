@@ -6,7 +6,7 @@
 
 <p>Owl Rush es un juego de mesa en línea en el que un jugador accede como anfitrión e invita a sus amigos a jugar bajo las reglas de Hoot Owl Hoot!, con unas cuantas [modificaciones](#Modifications) hechas con el fin de darle un nuevo giro al juego.</p>
 
-<p>Este juego fue creado como el proyecto grupal para el curso de [Desarollo de Aplicaciones Web de la Universidad de Costa Rica] (http://jeisson.ecci.ucr.ac.cr/appweb/2021a/), en el cual los [desarrolladores](#Developers) de Owl Rush están matriculados. Reiteramos que **este proyecto no tiene fin de lucro alguno** ni pretende representar competencia alguna al juego en el que se basa</p>
+<p>Este juego fue creado como el proyecto grupal para el curso de [Desarollo de Aplicaciones Web de la Universidad de Costa Rica](http://jeisson.ecci.ucr.ac.cr/appweb/2021a/), en el cual los [desarrolladores](#Developers) de Owl Rush están matriculados. Reiteramos que**este proyecto no tiene fin de lucro alguno**ni pretende representar competencia alguna al juego en el que se basa</p>
 
 ### Desarrolladores: <a name="Developers"></a>
 - Eddy Ruiz

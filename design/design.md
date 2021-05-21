@@ -1,3 +1,18 @@
+# Mapa de sitio.
+1. Página principal.
+    1. Desde ella se accede a los overlays Créditos e Instrucciones.
+    2. Desde ella se puede acceder a la sala de espera como anfitrión que organiza o como invitado que ingresa
+2. Sala de espera.
+    1. Desde ella se accede al tablero para todos los jugadores que se hayan unido a la sesión, cuando el anfitrión haga click en Iniciar partida.
+    2. Desde ella se accede a los overlays Ajustes de juego e Instrucciones.
+    3. Desde ella se puede regresar a la página principal. (Haciendo click en Finalizar sesión en el caso de anfitriones o en Salir de la sesión en el caso de invitados)
+3. Tablero de juego.
+    1. Una vez en el juego, el anfitrión puede volver a la sala de espera en caso de quiera hacer algún ajuste adicional. También volverá a la sala de espera junto con el resto de jugadores si hace click en Jugar de nuevo cuando se acaba la partida.
+    2. El anfitrión y sus invitados volverán a la pagina principal si el primero hace click en Finalizar partida en cualquier momento o a Volver al menú principal cuando se acabe la partida.
+    3. Desde él se accede a los overlays Resultado de la partida (que aparece cuando se acaba el juego) e Instrucciones.
+
+![Mapa de sitio](img/sitemap.svg)
+
 # Explicación: Diseño de wireframes
 
 ## Inicio

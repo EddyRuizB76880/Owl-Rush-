@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html id="owl-rush-lobby-hostview" xmlns="http://www.w3.org/1999/xhtml" lang="es">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Eddy Ruiz-Soto" />
+    <meta name="generator" content="Eddy Ruiz-Soto" />
+    <meta name="keywords" content="settings lobby host" />
+    <title>Sala de espera: Anfitrión</title>
+    <link rel="icon" type="image/svg+xml" href="../img/favicon.svg" />
+   <link rel="stylesheet" media="screen" href="../css/owl_rush_styles.ccs" />
+  </head>
+
+  <body>
+    <header id="website_header">
+      <img id="website_logo" src="../img/favicon.svg" alt="Site logo" height="50"/>
+      <div id="website_title_tagline">
+        <h1 id="website_title">Owl Rush!</h1>
+        <p id="current_page">Sala de espera</p>
+        <a href="instrucciones" class="instructions_button"> Instrucciones </a>
+      </div>
+
+      <hr/>
+    </header>
+    
+    <main id="lobby_for_host">
+      <h2>Ajustes de juego</h2>
+      <article id="game_settings">
+        <h3>Ajustes generales</h3>
+          <section id="general_settings">
+            <label for="sun_counter_gracetime">Tiempo de gracia de Sun-Counter</label>
+        <input type="number" id="sun_counter_gracetime" name="general_setting" min="0" max="10"></input> <button class="question_mark_button">?</button> <br />
+            <label for="simon_says_gracetime">Tiempo de gracia de Simón Dice</label>
+        <input type="number" id="simon_says_gracetime" name="general_setting" min="0" max="10"></input>  <button class="question_mark_button">?</button> <br />
+    
+      </section>
+      <h3>Ajustes de Sun-Counter</h3>
+      <section id="sun_counter_settings">
+        <label for="sun_counter_slider">Valor inicial de Sun-Counter Boost</label>
+        <input type="range" min="1" max="100" value="10" id="sun_counter_slider" class= "settings_slider"> </input>  <button class="question_mark_button">?</button> <br />
+      </section>
+      <h3>Ajustes de Simón Dice</h3>
+      <section id="simon_says_settings">
+        <label for="simon_says_steps_slider">Pasos en secuencia de Simón Dice</label>
+        <input type="range" min="1" max="10" value="4" id="simon_says_steps_slider" class= "settings_slider"> </input> <button class="question_mark_button">?</button>  <br />
+        <label for="simon_says_punishment_for_failing">Castigos por fallar Simón Dice</label>
+        <input type="checkbox" id="lose_sun_boost_punishment" class="simon_says_punishment_for_failing"> </input>
+        <input type="checkbox" id="dawn_gets_closer_punishment" class="simon_says_punishment_for_failing"> </input>
+        <input type="checkbox" id="lose_turn_punishment" class="simon_says_punishment_for_failing"> </input>  <button class="question_mark_button">?</button> <br />
+        <label for="lose_sun_boost_punishment" class= "punishment_label">Perder Sun-Counter boost</label>
+        <label for="dawn_gets_closer_punishment" class= "punishment_label">Sol avanza un paso</label>
+        <label for="lose_turn_punishment" class= "punishment_label">Perder turno</label>
+      </section>
+      <a href="main_page.xhtml" class= "go_back_button"> Finalizar Sesión </a>
+      <a href="board.xhtml" class= "continue_button"> Iniciar Partida </a>
+      </article>
+    </main>
+  </body>
+</html>

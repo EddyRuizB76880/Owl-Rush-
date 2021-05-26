@@ -1,0 +1,53 @@
+html{
+   font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  display: inline;
+  text-decoration:none;
+  color:black;
+  padding: 5px;
+}
+
+a:hover, .question_mark_button:hover{
+  filter:brightness(75%);
+}
+
+h5 {
+  display:inline;
+  font-size: 20px;
+}
+
+.settings_slider{
+  margin-bottom: -8px;
+}
+
+.instructions_button{
+  background-color:#fcf14c;
+}
+
+.go_back_button{
+  background-color:#fc4c4c;
+}
+
+.continue_button{
+  background-color:#3dfc03;
+}
+
+/* 
+  Code taken from an example found in W3Schools website. Available at: 
+  https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_round_buttons 
+*/
+.question_mark_button {
+  background-color:white; /* */
+  border: solid;
+  border-width:1px;
+  padding: 7px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 8px;
+  margin: 2px 2px;
+  cursor: pointer;
+  border-radius: 45%;
+}

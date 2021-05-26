@@ -1,0 +1,61 @@
+
+a {
+  display: inline;
+  text-decoration:none;
+  color:black;
+  padding: 5px;
+}
+
+#website_image{
+  text-align: center;
+  max-width: 3%;
+  height: auto;
+}
+
+#website_title{
+  display:inline;
+
+}
+
+.center{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.instructions_button{
+  background-color:#fcf14c;
+  float: right;
+}
+
+
+@media screen and (min-width: 1021px) {
+  .instructions_button {
+    font-size: 44px;
+  }
+}
+
+@media screen and (max-width: 1020px) {
+  .instructions_button {
+    font-size: 38px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .instructions_button {
+    font-size: 33px;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .instructions_button {
+    font-size: 26px;
+  }
+}
+
+@media screen and (max-width: 362px) {
+  .instructions_button {
+    font-size: 17px;
+  }
+}

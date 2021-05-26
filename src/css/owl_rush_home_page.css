@@ -36,26 +36,32 @@ a {
   }
 }
 
-@media screen and (max-width: 1020px) {
+@media screen and (max-width: 1700px) {
   .instructions_button {
-    font-size: 38px;
+    font-size: 40px;
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1550px) {
   .instructions_button {
-    font-size: 33px;
+    font-size: 36px;
   }
 }
 
-@media screen and (max-width: 460px) {
+@media screen and (max-width: 1330px) {
   .instructions_button {
-    font-size: 26px;
+    font-size: 32px;
   }
 }
 
-@media screen and (max-width: 362px) {
+@media screen and (max-width: 1150px) {
   .instructions_button {
-    font-size: 17px;
+    font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .instructions_button {
+    font-size: 20px;
   }
 }

@@ -10,6 +10,7 @@ a {
   text-align: center;
   max-width: 3%;
   height: auto;
+  vertical-align: text-bottom;
 }
 
 #website_title{
@@ -17,23 +18,53 @@ a {
 
 }
 
+#home_page_image {
+  height: 50%;
+  margin-top: 2em;
+}
+
+#start_button {
+  background-color: #3dfc03;
+  color: black;
+  padding: 1em 1.5em;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+#join_button {
+  background-color: #fcf14c;
+  color: black;
+  padding: 1em 1.5em;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+
 .center{
+  word-wrap: break-word;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  width: 40%;
+  padding-bottom: 2em;
+  margin-bottom: 1em;
 }
 
 .instructions_button{
   background-color:#fcf14c;
   float: right;
+  margin-top: 1px;
 }
+
 
 
 @media screen and (min-width: 1021px) {
   .instructions_button {
     font-size: 44px;
   }
+
 }
 
 @media screen and (max-width: 1700px) {
@@ -63,5 +94,11 @@ a {
 @media screen and (max-width: 420px) {
   .instructions_button {
     font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .instructions_button {
+    font-size: 16px;
   }
 }

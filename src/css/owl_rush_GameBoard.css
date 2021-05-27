@@ -161,7 +161,7 @@ a:hover {
 }
 
 #CartasAgarrarStack{
-  background-image: url( './Pasatiempos e intereses de estudiantes de web de la ECCI_files/CartasAgarrarStack.svg' );
+  background-image: url( '../img/CartasAgarrarStack.svg' );
   height: 50px;  
   width: 50px;
 }
@@ -201,7 +201,7 @@ a:hover {
 
 
 #close-CSS {
-  background-image: url( './Pasatiempos e intereses de estudiantes de web de la ECCI_files/CartasAgarrarStack.svg' );
+  background-image: url( '../img/CartasAgarrarStack.svg' );
   height: 134px;  
   width: 104px;
 }

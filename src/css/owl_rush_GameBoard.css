@@ -67,21 +67,10 @@
   width: 20px;
 }
 
-#ManoCompartidaInterrogacion {
-  height: 20px;  
-  width: 20px;
-}
-
 .buttonCartasSeleccion{
   height: 60px;  
   width: 30px;
 }
-
-#buttonInstrucciones{
-  background-color: #DDDA8C;
-  border: none;
-}
-
 
 .progressVertical{
   background-color: gray;
@@ -113,3 +102,15 @@
   height: 60px;  
   width: 30px;
 }
+
+.button-container {
+  display:flex;
+  align-items:center;
+  flex-direction: row;
+  margin: 4px
+}
+
+#FinalizarSesion{
+  margin-right: 45px;
+}
+

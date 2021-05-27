@@ -43,7 +43,6 @@
 }
 
 #CartasAgarrarStack{
-  background-image: url( '../img/CartasAgarrarStack.svg' );
   height: 50px;  
   width: 50px;
 }
@@ -74,10 +73,8 @@
 }
 
 .buttonCartasSeleccion{
- 
   height: 60px;  
   width: 30px;
- 
 }
 
 #buttonInstrucciones{

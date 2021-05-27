@@ -14,14 +14,15 @@
     <header id="website_header">
       <img id="website_logo" src="../img/favicon.svg" alt="Logo de Owl Rush!" height="50"/>
       <h1 id="website_title">Owl Rush!</h1>
-      <p id="current_page">Sala de espera</p>
+      <p id="current_page">Tablero de Juego</p>
       <a href="instrucciones" class="instructions_button"> Instrucciones </a>
 
   </header>
  <hr/>
   
     <main id="main_content">
-      <section class="elements-container">
+      <!-- Tablero de juego -->
+      <section class="image-txt-container">
         <img  src="../img/122-owl.svg" alt="Ficha de Jugador" height="25" />
         <img  src="../img/122-owl.svg" alt="Ficha de Jugador" height="25" />
         <img  src="../img/122-owl.svg" alt="Ficha de Jugador" height="25" />
@@ -132,14 +133,15 @@
                     <button id="CartasAgarrarStack" type="button" value = "myimage">
                       <img class="img-center" src='../img/CartasAgarrarStack.svg'/></button>
             </section>
-            
+
+            <!-- Seleccion para opcion de compartir manos con otros jugadores  -->
             <section class="image-txt-container">
                   <p>Mano Compartida </p>
                   <button id="ManoCompartidaSeleccion" ></button>
                   <button class="question_mark_button">?</button>
             </section>
 
-
+            <!-- Barras de progreso usadas para el Sun-Counter y el contador para pensar rápido movimiento en turno  -->
             <section  class="image-txt-container">
                  <section class="image-txt-container">
                       <progress class="progressVertical" id="file" value="32" max="100"> 32% </progress>
@@ -154,8 +156,8 @@
                  </section>
             </section>
 
-            
-            <section class="button-container">
+            <!-- Botones para volver a pagina principal y volver a sala de espera  -->
+            <section class="image-txt-container">
                   <a id="FinalizarSesion" href="home_page.xhtml" class="go_back_button">Finalizar Sesión</a>
                   <a id="VolverSalaDeEspera" href="lobby_hostview.xhtml" class="go_back_button">Volver a Sala de Espera</a>
                  

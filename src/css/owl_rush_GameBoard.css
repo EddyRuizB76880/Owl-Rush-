@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200&display=swap');
 
-#website_footer {
-  border-top: 1px solid black;
-}
-
 
 .grid-containerMainTable {
   display: inline-grid;
@@ -18,15 +14,10 @@
 
 .grid-containerSunVector {
 
-  display: inline-grid;
-  
-  column-count: 1;
-  /*grid-template-columns: auto auto auto;*/
+    display: inline-grid;
+    column-count: 1;
     background-color: #343148;
     padding: 10px;
-    /*grid-template-columns: 100px 50px 100px;*/
-    /*grid-template-rows: 80px auto 80px; */
-    
     row-gap: 15px;
 }
 .grid-containerSunVector:hover {
@@ -36,7 +27,6 @@
 
 .grid-itemCamino {
   background-color: #88B04B;
-  /*background-color: rgba(255, 255, 255, 0.8);*/
   border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 20px;
   font-size: 30px;

@@ -1,48 +1,10 @@
 
-a {
-  display: inline;
-  text-decoration:none;
-  color:black;
-  padding: 5px;
-}
-
-#website_image{
-  text-align: center;
-  max-width: 3%;
-  height: auto;
-  vertical-align: text-bottom;
-}
-
-#website_title{
-  display:inline;
-
-}
-
 #home_page_image {
   height: 50%;
   margin-top: 2em;
 }
 
-#start_button {
-  background-color: #3dfc03;
-  color: black;
-  padding: 1em 1.5em;
-  text-decoration: none;
-  text-transform: uppercase;
-  text-align: center;
-}
-
-#join_button {
-  background-color: #fcf14c;
-  color: black;
-  padding: 1em 1.5em;
-  text-decoration: none;
-  text-transform: uppercase;
-  text-align: center;
-}
-
-
-.center{
+#join_button,#start_button, #home_page_image{
   word-wrap: break-word;
   display: block;
   margin-left: auto;
@@ -50,15 +12,11 @@ a {
   width: 40%;
   padding-bottom: 2em;
   margin-bottom: 1em;
+  color: black;
+  padding: 1em 1.5em;
+  text-decoration: none;
+  text-align: center;
 }
-
-.instructions_button{
-  background-color:#fcf14c;
-  float: right;
-  margin-top: 1px;
-}
-
-
 
 @media screen and (min-width: 1021px) {
   .instructions_button {

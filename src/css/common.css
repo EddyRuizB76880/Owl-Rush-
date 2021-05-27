@@ -1,7 +1,7 @@
 html{
     font-family: Arial, Helvetica, sans-serif;
   }
-  
+
   body, hr{
     margin-top: 0;
   }
@@ -28,7 +28,7 @@ html{
   display:inline;
 }
 
-.instructions_button{
+.secondary_button{
     background-color:#fcf14c;
     float: right;
     margin-top: 1px;
@@ -38,7 +38,7 @@ html{
     background-color:#fc4c4c;
     margin-right: 450px;
   }
-  
+
   .continue_button{
     background-color:#3dfc03;
     text-decoration: none;
@@ -48,11 +48,11 @@ html{
   a:hover, .question_mark_button:hover{
     filter:brightness(75%);
   }
-  
 
-/* 
-  Code taken from an example found in W3Schools website. Available at: 
-  https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_round_buttons 
+
+/*
+  Code taken from an example found in W3Schools website. Available at:
+  https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_round_buttons
 */
 .question_mark_button {
     background-color:white; /* */

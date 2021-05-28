@@ -17,7 +17,7 @@
     <header id="website_header">
         <img id="website_logo" src="../img/favicon.svg" alt="Logo de Owl Rush!" height="50"/>
         <h1 id="website_title">Owl Rush!</h1>
-        <p id="current_page">Sala de espera</p>
+        <h2 id="current_page">Sala de espera</h2>
         <a href="instrucciones" class="instructions_button"> Instrucciones </a>
 
     </header>
@@ -32,7 +32,13 @@
             <label for="simon_says_gracetime">Tiempo de gracia de Simón Dice</label>
         <input type="number" id="simon_says_gracetime" name="general_setting" min="0" max="10"></input>  <button class="question_mark_button">?</button> <br />
     
-      </section>
+          </section>
+          <ul id= "list_of_players">
+            <h3 class="player_name">Jugadores (3)</h3>
+            <li class="player_name"> <img src="../img/122-owl.svg" alt="player_icon" class="player_icon" ></img>Eddy</li>
+            <li class="player_name"> <img src="../img/122-owl.svg" alt="player_icon" class="player_icon" ></img>Juan</li>
+            <li class="player_name"> <img src="../img/122-owl.svg" alt="player_icon" class="player_icon" ></img>Luciá</li>
+          </ul>
       <h3>Ajustes de Sun-Counter</h3>
       <section id="sun_counter_settings">
         <label for="sun_counter_slider">Valor inicial de Sun-Counter Boost</label>
@@ -50,9 +56,9 @@
         <label for="dawn_gets_closer_punishment" class= "punishment_label"></label>
         <label for="lose_turn_punishment" class= "punishment_label"></label>
       </section>
+      </article>
       <a href="/home_page.xhtml" class= "go_back_button"> Finalizar Sesión </a>
       <a href="board.xhtml" class= "continue_button"> Iniciar Partida </a>
-      </article>
     </main>
   </body>
 </html>

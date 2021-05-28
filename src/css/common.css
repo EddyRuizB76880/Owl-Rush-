@@ -34,7 +34,7 @@ display:inline;
   display:inline;
 }
 
-.instructions_button{
+.secondary_button{
     background-color:#fcf14c;
     float:right;
     margin-top: 12px;
@@ -48,8 +48,6 @@ display:inline;
     width: 10%;
       text-align: center;
   }
-  
-  
   .continue_button{
     background-color:#3dfc03;
   display: block;
@@ -62,11 +60,11 @@ display:inline;
   a:hover, .question_mark_button:hover{
     filter:brightness(75%);
   }
-  
 
-/* 
-  Code taken from an example found in W3Schools website. Available at: 
-  https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_round_buttons 
+
+/*
+  Code taken from an example found in W3Schools website. Available at:
+  https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_round_buttons
 */
 .question_mark_button {
     background-color:white; /* */

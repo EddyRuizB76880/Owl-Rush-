@@ -4,9 +4,20 @@ h5 {
   font-size: 20px;
 }
 
+h3 {
+
+  margin-left: 20px;
+}
+
 label {
   margin-right: 40px;
+  margin-left: 40px;
 }
+
+.settings_menu_item{
+  margin-bottom: 25px;
+}
+
 .settings_slider{
   margin-bottom: -8px;
 }
@@ -21,13 +32,13 @@ label {
   border-right:solid;
   border-left:solid;
   float:right;
-  width: 300px;
+  width: 350px;
   font-size: 25px ;
   margin-right: 100px;
   padding-bottom: 100px;
 }
 
-.player_name{
+ul{
   list-style-type:none;
 }
 

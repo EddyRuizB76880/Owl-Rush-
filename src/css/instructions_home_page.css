@@ -1,4 +1,5 @@
 .center {
+
   margin-left: auto;
   margin-right: auto;
 }
@@ -11,4 +12,8 @@
   background-color: #ddda8c;
   margin-top: 0;
   margin-bottom: 0;
+}
+
+#home_page_screenshot_image{
+  max-width: 100%;
 }

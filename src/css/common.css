@@ -30,6 +30,12 @@ footer{
   margin: auto;
   font-size: 2vw;
 }
+
+#footer_elementA {
+  font-size: 2vw;
+}
+
+
   a {
  
     text-decoration:none;

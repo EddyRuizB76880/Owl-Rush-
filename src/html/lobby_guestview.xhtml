@@ -30,36 +30,69 @@
         
         <ul id= "list_of_players">
           <li id="list_of_players_header">Jugadores (3)</li>
-          <li class="player_name"> <img src="../img/122-owl.svg" alt="player_icon" class="player_icon" ></img>Eddy</li>
-          <li class="player_name"> <img src="../img/122-owl.svg" alt="player_icon" class="player_icon" ></img>Juan</li>
-          <li class="player_name"> <img src="../img/122-owl.svg" alt="player_icon" class="player_icon" ></img>Luciá</li>
+          <li class="player_name"> 
+            <img src="../img/122-owl.svg" alt="player_icon" class="player_icon" ></img>Eddy</li>
+          
+            <li class="player_name"> 
+              <img src="../img/122-owl.svg" alt="player_icon" class="player_icon" ></img>Juan</li>
+
+          <li class="player_name"> 
+            <img src="../img/122-owl.svg" alt="player_icon" class="player_icon" ></img>Luciá</li>
         </ul>
           <section id="general_settings">
             <h3>Ajustes generales</h3>
-          <div class="settings_menu_item"><label for="sun_counter_gracetime">Tiempo de gracia de Sun-Counter</label>
-        <input type="number" id="sun_counter_gracetime" disabled="disabled"></input> <button class="question_mark_button">?</button> <br /></div>
-            <div class="settings_menu_item"><label for="simon_says_gracetime">Tiempo de gracia de Simón Dice</label>
-        <input type="number" id="simon_says_gracetime" disabled="disabled"></input>  <button class="question_mark_button">?</button> <br /></div>
+          
+            <div class="settings_menu_item">
+            <label for="sun_counter_gracetime">Segundos de gracia de Sun-Counter</label>
+              <input type="number" id="sun_counter_gracetime" disabled="disabled"></input> 
+              <button class="question_mark_button">?</button> <br />
+            </div>
+            
+            <div class="settings_menu_item">
+              <label for="simon_says_gracetime">Segundos de gracia de Simón Dice</label>
+              <input type="number" id="simon_says_gracetime" disabled="disabled"></input>  
+              <button class="question_mark_button">?</button> <br />
+            </div>
     
           </section>
 
       <section id="sun_counter_settings">
+        
         <h3>Ajustes de Sun-Counter</h3>
-        <div class="settings_menu_item"><label for="sun_counter_slider">Valor inicial de Sun-Counter Boost</label>
-        <input type="range" id="sun_counter_slider" class= "settings_slider" disabled="disabled"> </input>  <button class="question_mark_button">?</button> <br /></div>
+        <div class="settings_menu_item">
+          <label for="sun_counter_slider">Valor inicial de Sun-Counter Boost</label>
+          <input type="range" id="sun_counter_slider" class= "settings_slider" disabled="disabled"> 
+          </input>  <button class="question_mark_button">?</button> <br /></div>
+        
         </section>
-      <section id="simon_says_settings">
+      
+       <section id="simon_says_settings">
         <h3>Ajustes de Simón Dice</h3>
-       <div class="settings_menu_item"> <label for="simon_says_steps_slider">Pasos en secuencia de Simón Dice</label>
-        <input type="range" id="simon_says_steps_slider" class= "settings_slider" disabled="disabled"> </input> <button class="question_mark_button">?</button>  <br /></div>
-        <div class="settings_menu_item"><label>Castigos por fallar Simón Dice</label>
+        <div class="settings_menu_item"> 
+          <label for="simon_says_steps_slider">Pasos en secuencia de Simón Dice</label>
+        <input type="range" id="simon_says_steps_slider" class= "settings_slider" disabled="disabled"> 
+       </input> <button class="question_mark_button">?</button>  <br />
+      </div>
+        
+      <div class="settings_menu_item"><label>Castigos por fallar Simón Dice</label>
           <button class="question_mark_button">?</button> <br />
           <ul id="simon_says_punishment_for_failing">
-            <li><input type="checkbox" id="lose_sun_boost_punishment" class="simon_says_punishment_for_failing_checkbox" disabled="disabled"></input> Perder Sun Counter's Boost</li>
-            <li><input type="checkbox" id="dawn_gets_closer_punishment" class="simon_says_punishment_for_failing_checkbox" disabled="disabled"></input> El sol avanza un paso</li>
-            <li><input type="checkbox" id="lose_turn_punishment" class="simon_says_punishment_for_failing_checkbox" disabled="disabled"></input> Perder turno</li>
+            <li>
+              <input type="checkbox" id="lose_sun_boost_punishment" class="simon_says_punishment_for_failing_checkbox" disabled="disabled">
+            </input> Perder Sun Counter's Boost
+          </li>
+            
+          <li>
+            <input type="checkbox" id="dawn_gets_closer_punishment" class="simon_says_punishment_for_failing_checkbox" disabled="disabled">
+          </input> El sol avanza un paso
+        </li>
+            
+        <li>
+          <input type="checkbox" id="lose_turn_punishment" class="simon_says_punishment_for_failing_checkbox" disabled="disabled">
+        </input> Perder turno
+      </li>
           </ul>
-        </div>
+      </div>
       </section>
       </article>
 

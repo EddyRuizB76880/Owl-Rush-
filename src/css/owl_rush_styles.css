@@ -1,17 +1,26 @@
 
 h5 {
   display:inline;
-  font-size: 20px;
+  font-size: 1vw;
 }
 
 h3 {
-
   margin-left: 20px;
+  font-size: 1.5vw;
+}
+
+h2{
+  font-size: 2vw;
 }
 
 label {
   margin-right: 40px;
   margin-left: 40px;
+  font-size: 1.8vw;
+}
+
+#sun_counter_gracetime,#simon_says_gracetime{
+  width: 8%;
 }
 
 .settings_menu_item{
@@ -20,11 +29,9 @@ label {
 
 .settings_slider{
   margin-bottom: -8px;
+  width:20%;
 }
 
-.simon_says_punishment_for_failing{
-  margin-left: 50px;
-}
 
 #list_of_players{
   display: block;
@@ -32,10 +39,11 @@ label {
   border-right:solid;
   border-left:solid;
   float:right;
-  width: 350px;
-  font-size: 25px ;
-  margin-right: 100px;
-  padding-bottom: 100px;
+  width: 30%;
+  font-size: 2vw ;
+  
+
+  
 }
 
 ul{
@@ -46,3 +54,40 @@ ul{
   width: 20px;
   height: 20px;
 }
+
+@media screen and (max-width: 751px) {
+  /* For mobile phones: */
+   #list_of_players{
+    display: flex;
+    float: none;
+    width: 50%;
+    margin-left: 20%;
+
+  }
+  #simon_says_punishment_for_failing li{
+    font-size: 1.5vw;
+  }
+
+  h5,h3,h2,h1{
+    text-align: center;
+  }
+
+  h5 {
+    font-size: 2vw;
+  }
+  
+  h3 {
+    margin-left: 20px;
+    font-size: 3vw;
+  }
+  
+  h2{
+    font-size: 4vw;
+  }
+  
+  label {
+    font-size: 2.5vw;
+  }
+
+
+  }

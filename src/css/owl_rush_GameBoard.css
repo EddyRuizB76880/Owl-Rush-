@@ -69,8 +69,14 @@
 
 .progressHorizontal{
   background-color: gray;
+ 
 }
+/*
+Como la progress bar no es estandar se utilizaron los vendor prefixes -webkit-progress-value y webkit-progress-bar
 
+-webkit-progress-value: se utiliza para estilizar la barra que representa el progreso actual
+-webkit-progress-bar: se utiliza para estilizar la barra contenedora de la barra que representa el progreso actual
+*/
 .progressHorizontal::-webkit-progress-value {
   background: black;
 }

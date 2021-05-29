@@ -46,7 +46,7 @@ display:inline;
     background-color:#fc4c4c;
 
   }
-  .continue_button{
+  .continue_button, #invitation_button{
     background-color:#3dfc03;
   }
 
@@ -59,7 +59,7 @@ display:inline;
     width:550px;
   }
 
-  a:hover, .question_mark_button:hover{
+  a:hover, .question_mark_button:hover, #invitation_button:hover{
     filter:brightness(75%);
   }
 

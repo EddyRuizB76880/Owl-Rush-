@@ -6,10 +6,10 @@
     <meta name="author" content="Eddy Ruiz-Soto" />
     <meta name="generator" content="Eddy Ruiz-Soto" />
     <meta name="keywords" content="settings lobby host" />
-    <title>Sala de espera: Anfitrión</title>
+    <title>Sala de espera: Invitado</title>
     <link rel="icon" type="image/svg+xml" href="../img/favicon.svg" />
+   <link rel="stylesheet" media="screen" href="../css/owl_rush_guest_lobby_styles.css" />
    <link rel="stylesheet" media="screen" href="../css/owl_rush_common_lobby_styles.css" />
-   <link rel="stylesheet" media="screen" href="../css/owl_rush_host_lobby_styles.css" />
    <link rel="stylesheet" media="screen" href="../css/common.css" />
   </head>
 
@@ -23,9 +23,8 @@
     </header>
     <hr/>
     
-    <h2 id= "invitation_link">Link de invitación:https//:www.owlrush.com/121aAsdd</h2>
-    <button type="button" id="invitation_button">Copiar Invitación</button>
-    <main id="lobby_for_host">
+    <h2 id= "message_for_guests">Sólo el anfitrión puede modificar los ajustes del juego e iniciar la partida</h2>
+    <main id="lobby_for_guests">
       <article id="game_settings">
         <h2>Ajustes de juego</h2>
         
@@ -38,35 +37,35 @@
           <section id="general_settings">
             <h3>Ajustes generales</h3>
           <div class="settings_menu_item"><label for="sun_counter_gracetime">Tiempo de gracia de Sun-Counter</label>
-        <input type="number" id="sun_counter_gracetime" name="general_setting" min="0" max="10"></input> <button class="question_mark_button">?</button> <br /></div>
+        <input type="number" id="sun_counter_gracetime" disabled="disabled"></input> <button class="question_mark_button">?</button> <br /></div>
             <div class="settings_menu_item"><label for="simon_says_gracetime">Tiempo de gracia de Simón Dice</label>
-        <input type="number" id="simon_says_gracetime" name="general_setting" min="0" max="10"></input>  <button class="question_mark_button">?</button> <br /></div>
+        <input type="number" id="simon_says_gracetime" disabled="disabled"></input>  <button class="question_mark_button">?</button> <br /></div>
     
           </section>
 
       <section id="sun_counter_settings">
         <h3>Ajustes de Sun-Counter</h3>
         <div class="settings_menu_item"><label for="sun_counter_slider">Valor inicial de Sun-Counter Boost</label>
-        <input type="range" min="1" max="100" value="10" id="sun_counter_slider" class= "settings_slider"> </input>  <button class="question_mark_button">?</button> <br /></div>
+        <input type="range" id="sun_counter_slider" class= "settings_slider" disabled="disabled"> </input>  <button class="question_mark_button">?</button> <br /></div>
         </section>
       <section id="simon_says_settings">
         <h3>Ajustes de Simón Dice</h3>
        <div class="settings_menu_item"> <label for="simon_says_steps_slider">Pasos en secuencia de Simón Dice</label>
-        <input type="range" min="1" max="10" value="4" id="simon_says_steps_slider" class= "settings_slider"> </input> <button class="question_mark_button">?</button>  <br /></div>
+        <input type="range" id="simon_says_steps_slider" class= "settings_slider" disabled="disabled"> </input> <button class="question_mark_button">?</button>  <br /></div>
         <div class="settings_menu_item"><label>Castigos por fallar Simón Dice</label>
           <button class="question_mark_button">?</button> <br />
           <ul id="simon_says_punishment_for_failing">
-            <li><input type="checkbox" id="lose_sun_boost_punishment" class="simon_says_punishment_for_failing_checkbox"></input> Perder Sun Counter's Boost</li>
-            <li><input type="checkbox" id="dawn_gets_closer_punishment" class="simon_says_punishment_for_failing_checkbox"></input> El sol avanza un paso</li>
-            <li><input type="checkbox" id="lose_turn_punishment" class="simon_says_punishment_for_failing_checkbox"></input> Perder turno</li>
+            <li><input type="checkbox" id="lose_sun_boost_punishment" class="simon_says_punishment_for_failing_checkbox" disabled="disabled"></input> Perder Sun Counter's Boost</li>
+            <li><input type="checkbox" id="dawn_gets_closer_punishment" class="simon_says_punishment_for_failing_checkbox" disabled="disabled"></input> El sol avanza un paso</li>
+            <li><input type="checkbox" id="lose_turn_punishment" class="simon_says_punishment_for_failing_checkbox" disabled="disabled"></input> Perder turno</li>
           </ul>
         </div>
       </section>
       </article>
 
     <ul id="navigation_options">
-     <li> <a href="home_page.xhtml" class= "go_back_button"> Finalizar Sesión </a></li>
-      <li> <a href="game_board.xhtml" class= "continue_button"> Iniciar Partida </a></li>
+     <li> <a href="home_page.xhtml" class= "go_back_button"> Salir de la sesión </a></li>
+      <li> <a href="game_board.xhtml" class= "disabled_button"> Iniciar Partida </a></li>
       
     </ul>
     </main>

@@ -1,0 +1,12 @@
+#invitation_link{
+  display:inline;
+  font-size: 1.5vw;
+}
+
+#invitation_button{
+  width: 20%;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  font-size: 2vw;
+}

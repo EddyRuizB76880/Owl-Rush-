@@ -4,7 +4,6 @@ html{
   
   body,hr{
     margin: 0;
-
   }
 
   header, footer {
@@ -13,15 +12,17 @@ html{
 
 
 #current_page, #footer_elementB {
-display:inline;
-  width:300px;
+  display:inline;
+  width:20%;
   margin: auto;
+  font-size: 2vw;
 }
   a {
  
     text-decoration:none;
     color:black;
-    padding: 5px;
+    padding: 1%;
+    font-size: 1vw;
   }
 
   #website_logo{
@@ -33,6 +34,10 @@ display:inline;
 
 #website_title, #footer_elementB{
   display:inline;
+}
+
+#website_title{
+  font-size: 3vw;
 }
 
 .secondary_button{
@@ -56,7 +61,7 @@ display:inline;
   }
 
   #navigation_options li{
-    width:550px;
+    width:45%;
   }
 
   a:hover, .question_mark_button:hover, #invitation_button:hover{
@@ -70,14 +75,13 @@ display:inline;
 */
 .question_mark_button {
     background-color:white; /* */
-    border: solid;
-    border-width:1px;
-    padding: 7px;
+    border: solid 0.1vw;
+    padding: 0.5%;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 8px;
-    margin: 2px 2px;
+    font-size: 0.9vw;
+    margin: 0.3% 0.3%;
     cursor: pointer;
     border-radius: 45%;
   }

@@ -1,106 +1,106 @@
-html{
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  
- 
-
-  body{
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    margin:0;
+html {
+  font-family : Arial , Helvetica , sans-serif;
 }
-footer{
-    margin-top: auto;
-    border-top: solid;
-  }
 
-  header{
-    border-bottom: solid;
-  }
+body {
+  min-height : 100vh;
+  display : flex;
+  flex-direction : column;
+  margin:0;
+}
 
-  header, footer {
-    background-color:#0CCA4A;
-  }
+footer {
+  margin-top : auto;
+  border-top : solid;
+}
 
+header {
+  border-bottom : solid;
+}
 
-#current_page, #footer_elementB {
-  display:inline;
-  width:20%;
-  margin: auto;
-  font-size: 2vw;
+header , footer {
+  background-color : #0CCA4A;
+}
+
+a {
+  text-decoration : none;
+  color : black;
+  padding : 1%;
+  font-size : 1.5vw;
+}
+
+#current_page , #footer_elementB {
+  margin : auto;
+  font-size : 1.4vw;
 }
 
 #footer_elementA {
-  font-size: 2vw;
+  font-size : 1.4vw;
 }
 
-
-  a {
- 
-    text-decoration:none;
-    color:black;
-    padding: 1%;
-    font-size: 1vw;
-  }
-
-  #website_logo{
-    text-align: center;
-    max-width: 3%;
-    height: auto;
-    vertical-align: text-bottom;
-  }
-
-#website_title, #footer_elementB{
-  display:inline;
+#website_logo {
+  text-align : center;
+  max-width : 3%;
+  height : auto;
+  vertical-align : text-bottom;
 }
 
-#website_title{
-  font-size: 3vw;
+#website_title {
+  font-size : 3vw;
 }
 
-.secondary_button{
-    background-color:#fcf14c;
-    float:right;
-    margin-top: 12px;
-    margin-right: 15px;
-  }
-
-  .go_back_button{
-    background-color:#fc4c4c;
-
-  }
-  .continue_button, #invitation_button{
-    background-color:#3dfc03;
-  }
-
-  #navigation_options ,header ,footer{
-    align-items: center;
-    display: flex;
-  }
-
-  #navigation_options li{
-    width:45%;
-  }
-
-  a:hover, .question_mark_button:hover, #invitation_button:hover{
-    filter:brightness(75%);
-  }
-
+#navigation_options li {
+  width : 45%;
+}
 
 /*
-  Code taken from an example found in W3Schools website. Available at:
-  https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_round_buttons
+Code taken from an example found in W3Schools website. Available at:
+https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_round_buttons
 */
 .question_mark_button {
-    background-color:white; /* */
-    border: solid 0.1vw;
-    padding: 0.5%;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 0.9vw;
-    margin: 0.3% 0.3%;
-    cursor: pointer;
-    border-radius: 45%;
+  background-color : white; /* */
+  border : solid 0.1vw;
+  padding : 0.5%;
+  text-align : center;
+  text-decoration : none;
+  display : inline-block;
+  font-size : 0.9vw;
+  margin : 0.3% 0.3%;
+  cursor : pointer;
+  border-radius : 45%;
+}
+
+.secondary_button {
+  background-color : #fcf14c;
+  float : right;
+  margin-top : 12px;
+  margin-right : 15px;
+}
+
+.go_back_button{
+  background-color : #fc4c4c;
+}
+
+.continue_button{
+  background-color : #3dfc03;
+}
+
+#navigation_options , header , footer {
+  align-items : center;
+  display : flex;
+}
+
+
+a:hover , .question_mark_button:hover {
+  filter : brightness(75%);
+}
+
+@media screen and (max-width: 751px) {
+  a {
+    font-size : 2.5vw;
   }
+
+  #current_page , #footer_elementA , #footer_elementB {
+    font-size : 2.7vw;
+  }
+}

@@ -1,100 +1,93 @@
 h3 {
-    margin-left: 3%;
-    font-size: 1.5vw;
+  margin-left : 3%;
+  font-size : 1.2vw;
+}
+  
+h2 {
+  font-size : 1.5vw;
+}
+  
+label {
+  margin-right : 5%;
+  margin-left : 8%;
+  font-size : 1vw;
+}
+  
+ul {
+  list-style-type : none;
+}
+
+#sun_counter_gracetime , #simon_says_gracetime {
+  width : 10%;
+  font-size : 1.5vw;
+}
+
+#list_of_players {
+  display : block;
+  border-bottom : solid 0.5vw;
+  border-right : solid 0.5vw;
+  border-left : solid 0.5vw;
+  float : right;
+  width : 30%;
+  font-size : 1.7vw;  
+}
+
+#simon_says_punishment_for_failing li {
+  font-size : 0.8vw;
+  margin-left : 8%;
+}
+  
+.player_icon {
+  width : 5%;
+  height : 5%;
+}
+
+.settings_menu_item {
+  margin-bottom : 2%;
+}
+  
+.settings_slider {
+  margin-bottom : -8px;
+  width : 20%;
+}
+  
+@media screen and (max-width: 751px) {
+  h5 , h3 , h2 , h1 {
+    text-align : center;
   }
   
-  h2{
-    font-size: 2vw;
+  h5 {
+    font-size : 2.5vw;
   }
-  
-  label {
-    margin-right: 5%;
-    margin-left: 8%;
-    font-size: 1.8vw;
-  }
-  
-  ul{
-    list-style-type:none;
-  }
-  
-  
-  #sun_counter_gracetime,#simon_says_gracetime{
     
-    width: 12%;
-    font-size: 1.5vw;
+  h3 {
+    font-size : 3vw;
   }
-
-  #list_of_players{
-    display: block;
-    border-bottom:solid 0.5vw;
-    border-right:solid 0.5vw;
-    border-left:solid 0.5vw;
-    float:right;
-    width: 30%;
-    font-size: 2vw ;  
-  }
-  
-  .player_icon{
-    width: 5%;
-    height: 5%;
-  }
-
-  label {
-    font-size: 1.5vw;
-  }
-
-.settings_menu_item{
-    margin-bottom: 3%;
-  }
-  
-  #simon_says_punishment_for_failing li {
-    font-size: 1vw;
-    margin-left: 8%;
-  }
-
-  .settings_slider{
-    margin-bottom: -8px;
-    width:20%;
-  }
-  
-  @media screen and (max-width: 751px) {
-    /* For mobile phones: */
-     #list_of_players{
-      display: flex;
-      float: none;
-      width: 50%;
-      margin-left: 20%;
-    }
-    .player_icon{
-      height: 20px;
-      width: 20px;
-    }
-
-    .question_mark_button{
-      border: solid 0.5vw;
-      padding: 1%;
-      font-size: 1.5vw;
-      
-    }
-  
-    h5,h3,h2,h1{
-      text-align: center;
-    }
-  
-    h5,a {
-      font-size: 2vw;
-    }
     
-    h3 {
-      margin-left: 20px;
-      font-size: 3vw;
-    }
+  h2 {
+    font-size : 4vw;
+  }
+
+  #list_of_players {
+    display : flex;
+    float : none;
+    width : 50%;
+    margin-left : 20%;
+  }
+
+  .player_icon {
+    height : 20px;
+    width : 20px;
+  }
+
+  .question_mark_button {
+    border : solid 0.5vw;
+    padding : 1%;
+    font-size : 1.7vw;  
+  }
     
-    h2{
-      font-size: 4vw;
-    }
-    
-    label, #simon_says_punishment_for_failing li {
-      font-size: 2.5vw;
-    }
-    }
+  label , #simon_says_punishment_for_failing li {
+    font-size : 2.5vw;
+  }
+
+}

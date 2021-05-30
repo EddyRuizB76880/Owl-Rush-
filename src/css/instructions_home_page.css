@@ -4,8 +4,7 @@
 }
 
 .rectangle {
-  padding-left: 1em;
-  padding-right: 1em;
+  padding: 2em 2em 2em 2em; 
   max-height: 50em;
   max-width: 70em;
   background-color: #ddda8c;

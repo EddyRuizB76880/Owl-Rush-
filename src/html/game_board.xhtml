@@ -22,7 +22,7 @@
  <hr/>
   
     <main id="main_content">
-      <!-- Tablero de juego -->
+      <!-- Game Board -->
       <section class="image-txt-container">
         <img  src="../img/122-owl.svg" alt="Ficha de Jugador" height="25" />
         <img  src="../img/122-owl.svg" alt="Ficha de Jugador" height="25" />
@@ -87,7 +87,7 @@
             <img  src="../img/Sol.svg" alt="Sol que avanza por turno" height="70" />
       </section>
 
-      <!-- Cartas de los otros jugadores -->
+      <!-- Other player´s cards -->
       <section id="Jugadores" >
             <h1 >Jugadores(3)</h1>
 
@@ -114,7 +114,7 @@
             </section>
 
        </section>
-            <!--Cartas del jugador actual  -->
+            <!-- Current player hand -->
             <section class="image-txt-container">
                   <button class="buttonCardsSelection" value = "myimage">
                     <img class="img-center" src="../img/CartaConColor-1.svg " alt="Carta para Juego"/></button>
@@ -128,21 +128,22 @@
             </section>
             
 
-            <!--Boton de pila de cartas  -->
+            <!--Cards stack  -->
             <section class="image-txt-container">
                     <p>Tomar Carta </p>
                     <button id="cardsGetStack" type="button" value = "myimage">
                       <img class="img-center" src='../img/CartasAgarrarStack.svg' alt="Pila de cartas"/></button>
             </section>
 
-            <!-- Seleccion para opcion de compartir manos con otros jugadores  -->
+            <!-- Option to share hands with other players  -->
             <section class="image-txt-container">
                   <p>Mano Compartida </p>
                   <button id="sharedHandsSelection" ></button>
                   <button class="question_mark_button">?</button>
             </section>
 
-            <!-- Barras de progreso usadas para el Sun-Counter y el contador para pensar rápido movimiento en turno  -->
+            <!-- Progress bast used for  Sun-Counter  and the counter to think fast the move for the turn  -->
+
             <section  class="image-txt-container">
                  <section class="image-txt-container">
                       <progress class="progressVertical"  value="32" max="100"> 32% </progress>
@@ -157,7 +158,8 @@
                  </section>
             </section>
 
-            <!-- Botones para volver a pagina principal y volver a sala de espera  -->
+            <!-- Button to return to main page and return to lobby  -->
+
             <section class="image-txt-container">
                   <a id="endSession" href="home_page.xhtml" class="go_back_button">Finalizar Sesión</a>
                   <a id="VolverSalaDeEspera" href="lobby_hostview.xhtml" class="go_back_button">Volver a Sala de Espera</a>

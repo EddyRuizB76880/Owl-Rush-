@@ -1,5 +1,8 @@
 /*
 Stylizes the grid for the game board
+
+ Code taken and slightly modified from an example found in w3schools website. Available at:
+https://www.w3schools.com/css/css_grid.asp
 */
 .grid-containerMainTable {
   display: inline-grid;
@@ -14,6 +17,9 @@ Stylizes the grid for the game board
 
 /*
 Stylizes the grid used for the vector where the sun will normally advance each turn
+
+ Code taken and slightly modified from an example found in w3schools website. Available at:
+https://www.w3schools.com/css/css_grid.asp
 */
 .grid-containerSunVector {
 
@@ -26,6 +32,9 @@ Stylizes the grid used for the vector where the sun will normally advance each t
 
 /*
 Stylizes the steps for the game board
+
+ Code taken and slightly modified from an example found in w3schools website. Available at:
+https://www.w3schools.com/css/css_grid.asp
 */
 .grid-itemPath {
   background-color: #88B04B;
@@ -38,6 +47,9 @@ Stylizes the steps for the game board
 
 /*
 Stylizes the squares part of the vector for the sun
+
+ Code taken and slightly modified from an example found in w3schools website. Available at:
+https://www.w3schools.com/css/css_grid.asp
 */
 .grid-itemSun {
   background-color: rgba(255, 255, 255, 0.8);
@@ -111,6 +123,9 @@ Progress bar isnt standard so the vendor prefixes -webkit-progress-value y webki
 
 -webkit-progress-value: is used to add styles to the bar that represents current progress
 -webkit-progress-bar: is used to add styles to the container bar of the bar that represents the current progress
+
+ Code taken and slightly modified from an example found in stackoverflow website. Available at:
+https://stackoverflow.com/questions/45507970/how-can-i-change-the-color-of-a-progress-bar-value-in-html
 */
 .progressHorizontal::-webkit-progress-value {
   background: black;

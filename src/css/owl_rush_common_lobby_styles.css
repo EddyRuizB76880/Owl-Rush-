@@ -46,7 +46,7 @@ ul {
   border-left : solid 0.5vw;
   /*This line sets the list's position to the right*/
   float : right;
-  width : 30%;
+  width : 25%;
   font-size : 1.7vw;  
 }
 
@@ -96,6 +96,7 @@ ul {
 
   #list_of_players {
     display : flex;
+    flex-direction: column;
     float : none;
     width : 50%;
     margin-left : 20%;

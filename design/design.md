@@ -34,42 +34,30 @@
 ## Sala de espera: Invitado
 
 - En la sala de espera, el invitado esperaría a que el anfitrión iniciara la partida.
-- El invitado sería capaz de indicarle al anfitrión que está listo al dar click al botón que dice "Estoy listo".
-- En la esquina superior derecha, está el botón "Regresar", que le permite al invitado abandonar la sesión.
-- El listado en la izquierda indica cuántos jugadores se han unido a la sesión, junto con sus nombres de usuario.
+- A diferencia del anfitrión, un invitado no puede ajustar reglas del juego ni comenzar la partida. Tampoco puede expulsar otros jugadores.
+- Un invitado puede consultar más información sobre la pantalla que mira al hacer click al botón de instrucciones.
+- En la esquina inferior izq, está el botón "Salir de la sala", que le permite al invitado abandonar la sesión.
+- El listado en la derecha indica cuántos jugadores se han unido a la sesión, junto con sus nombres de usuario.
 ![Pantalla del invitado](img/SalaEspera1.svg)
 
+## Instrucciones para invitado
+
+- Así es el overlay que se desplegaría al invitado cuando consultase las instrucciones. Esta pantalla explicaría parte por parte lo que el invitado está viendo en la sala de espera.
+![Pantalla del invitado](img/InstruccionesInvitadoOverlay.svg)
+
 ## Sala de espera: Anfitrión
-- El anfitrión usaría el botón "Invitar" para enviar su invitación a otros jugadores.
-- El anfitrión usaría el botón "Iniciar partida" para comenzar a jugar. El botón sólo se habilita cuando el anfitrión consigue que una mínimo un jugador aparte de él. Una alerta aparece bajo el botón cuando esta condición no se cumple.
-- En la esquina superior derecha, está el botón "Regresar", que le permite al anfitrión abandonar la sesión.
-- El listado en la izquierda indica cuántos jugadores se han unido a la sesión, junto con sus nombres de usuario.
+
+- El anfitrión usaría el botón "Copiar" para copiar su invitación y compartila con otros jugadores.
+- En esta vista de sala de espera, están habilitados los ajustes del juego, que le permitirán al anfitrión ajustar las reglas del juego a su gusto. Al lado de cada ajuste, está el botón de duda. Este mostrará una breve descripción sobre el ajuste que tenga al lado. 
+- El anfitrión usaría el botón "Iniciar partida" para comenzar a jugar.
+- En la esquina superior derecha se encuentra el botón de Instrucciones. Al hacer click, el anfitrión verá las instrucciones para anfitrión de la sala de espera. 
+- En la esquina inferior izquierda está el botón "Regresar", que le permite al anfitrión terminar la sesión.
+- El listado en la derecha indica cuántos jugadores se han unido a la sesión, junto con sus nombres de usuario. El anfitrión podrá expulsar a cualquier invitado en cualquier momento.
 ![Pantalla de sala de espera del anfitrión](img/SalaEspera2.svg)
 
-
-## Configuraciones
-- El anfitrión podra acceder a la configuración para cambios esteticos del sitio por el botón Configuración del Sitio, y para cambios en modo de juego por el botón Configuración del Juego.
-![Pantalla de las Configuraciones](img/Configuracion.svg)
-
-## Configuración del sitio
-- Anfitrión podrá cambiar colores y tamaño de varios textos en el sitio.
-- Anfitrión podrá cambiar los colores de varios elementos del 
-tablero.
-- Cambios serán aceptados por el botón aceptar, y no se realizaran 
-por el botón cancelar
-![Pantalla de las configuraciones del sitio](img/ConfiguracionDelSitio.svg)
-
-## Configuración del juego
-- Anfitrión podra realizar varios cambios al modo de juego en el 
-tablero.
-- Permite cambio a una cantidad de búhos en el juego, limitado a una selección.
-- Permite habilitar o deshabilitar el Sun Counter para el juego.
-- Permite habilitar o deshabilitar el Simón Dice para el juego.
-- Permite determinar el tiempo de respuesta dada al jugador para
-poder usar el Sun Counter.
-- Permite determinar el tiempo de respuesta dada al jugador para
-poder usar el Simón Dice.
-![Pantalla de las configuraciones del juego](img/ConfiguracionDelJuego.svg)
+## Instrucciones para anfitrión
+- Así es el overlay que se desplegaría al anfitrión cuando consultase las instrucciones. Esta pantalla explicaría paso por paso lo que el anfitrión debe hacer para comenzar a jugar
+![Overlay de instrucciones para el anfitrión](img/InstruccionesAnfitriónOverlay.svg)
 
 ## Tablero
 - La barra sun-counter y su progreso actual se encuentra a la izquierda.

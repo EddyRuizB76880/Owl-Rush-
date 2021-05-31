@@ -1,15 +1,16 @@
 /*
   This block disables all input elements and make them look unavailable.
 */
-input:disabled , .disabled_button {
-  background-color : rgb(114 , 106 , 106);
-  color : white;
-  cursor : not-allowed;
+input:disabled,
+.disabled_button {
+  background-color: rgb(114, 106, 106);
+  color: white;
+  cursor: not-allowed;
 }
 
 /*
   This block of code applies a red color to a warning for guests.
 */
 #message_for_guests {
-  color : red;
+  color: red;
 }

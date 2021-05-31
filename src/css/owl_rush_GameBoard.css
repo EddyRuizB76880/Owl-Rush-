@@ -1,4 +1,6 @@
-
+/*
+Stylizes the grid for the game board
+*/
 .grid-containerMainTable {
   display: inline-grid;
   column-count: 5;
@@ -10,6 +12,9 @@
 
 }
 
+/*
+Stylizes the grid used for the vector where the sun will normally advance each turn
+*/
 .grid-containerSunVector {
 
     display: inline-grid;
@@ -19,7 +24,10 @@
     row-gap: 15px;
 }
 
-.grid-itemCamino {
+/*
+Stylizes the steps for the game board
+*/
+.grid-itemPath {
   background-color: #88B04B;
   border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 20px;
@@ -28,7 +36,10 @@
 }
 
 
-.grid-itemSol {
+/*
+Stylizes the squares part of the vector for the sun
+*/
+.grid-itemSun {
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 20px;
@@ -37,45 +48,69 @@
   width: 50px;
 }
 
+
+
+/*
+Changes the size of the button that lets to take new cards
+*/
 #CartasAgarrarStack{
   height: 50px;  
   width: 50px;
 }
 
 
+/*
+It adjusts the positions of image and text to be side by side
+*/
 .image-txt-container {
   display:flex;
   align-items:center;
   flex-direction: row;
   margin: 4px;
-  
 }
 
+
+
+/*
+Adjusts the size of the selection for the option to share other players hands
+*/
 #ManoCompartidaSeleccion {
   height: 20px;  
   width: 20px;
 }
 
+
+/*
+Adjusts the size and margin of the buttons for the selection of the card of the user´s hand
+*/
 .buttonCartasSeleccion{
   height: 60px;  
   width: 30px;
   margin-right: 15px;
 }
 
+
+/*
+Adjusts the color of the progress bar background and its direction
+*/
 .progressVertical{
   background-color: gray;
   transform: rotate(-90deg);
 }
 
+/*
+Adjusts the color of the progress bar background 
+*/
 .progressHorizontal{
   background-color: gray;
  
 }
 /*
-Como la progress bar no es estandar se utilizaron los vendor prefixes -webkit-progress-value y webkit-progress-bar
 
--webkit-progress-value: se utiliza para estilizar la barra que representa el progreso actual
--webkit-progress-bar: se utiliza para estilizar la barra contenedora de la barra que representa el progreso actual
+Progress bar isnt standard so the vendor prefixes -webkit-progress-value y webkit-progress-bar were used
+
+-webkit-progress-value: is used to add styles to the bar that represents current progress
+-webkit-progress-bar: is used to add styles to the container bar of the bar that represents the current progress
 */
 .progressHorizontal::-webkit-progress-value {
   background: black;
@@ -93,11 +128,17 @@ Como la progress bar no es estandar se utilizaron los vendor prefixes -webkit-pr
   background: gray;
 }
 
+
+/*
+Adjusts the sizes of the buttons for the cards of the user´s hand and the button to pick a new card
+*/
 .img-center {
   height: 60px;  
   width: 30px;
 }
-
+/*
+Adjusts the size of the margin of the right for the button that ends the game session
+*/
 #FinalizarSesion{
   margin-right: 45px;
 }

@@ -4,10 +4,6 @@ input:disabled , .disabled_button {
   cursor : not-allowed;
 }
 
-.disabled_button {
-  pointer-events : none;
-}
-
 #message_for_guests {
   color : red;
 }

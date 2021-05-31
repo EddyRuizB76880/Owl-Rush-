@@ -24,11 +24,11 @@
 
 ## Créditos
 - En este overlay se despliega información acerca del juego, quiénes son los integrantes del equipo de desarrollo y de dónde se tomaron algunos recursos de la página. 
-![Pantalla acerca de](img/CréditosOverlay.svg)
+![Pantalla créditos](img/CreditosOverlay.svg)
 
 ## Instrucciones de Menú de inicio
 - En este overlay se muestran las instrucciones para el menú de inicio.
-![Pantalla acerca de](img/InstruccionesInicioOverlay.svg)
+![Overlay instrucciones inicio](img/InstruccionesInicioOverlay.svg)
 
 
 ## Sala de espera: Invitado
@@ -43,7 +43,7 @@
 ## Instrucciones para invitado
 
 - Así es el overlay que se desplegaría al invitado cuando consultase las instrucciones. Esta pantalla explicaría parte por parte lo que el invitado está viendo en la sala de espera.
-![Pantalla del invitado](img/InstruccionesInvitadoOverlay.svg)
+![Overlay de instrucciones invitado](img/InstruccionesInvitadoOverlay.svg)
 
 ## Sala de espera: Anfitrión
 
@@ -67,14 +67,14 @@
 - En la parte inferior de la pantalla están las cartas que el jugador posee, así como la baraja de cartas de donde el jugador toma al inicio de cada turno.
 - A la derecha, se encuentran los jugadores unidos a la partida, con sus respectivas cartas.
 - Una cajita de checkbox debajo de la baraja de cartas permitirá al anfitrión elegir si desea hacer que todos los jugadores usen la misma mano de cartas en la partida. Esto sólo se puede habilitar al comienzo de la partida.
-![Pantalla de las configuraciones del juego](img/Tablero.svg)
+![Pantalla de tablero del juego](img/Tablero.svg)
 
 ## Instrucciones para tablero de juego
 - Este overlay aparecerá en pantalla cuando el jugador dé click en Instrucciones desde el tablero de juego. Este overlay explica parte por parte el la pantalla del tablero.
-![Pantalla de las configuraciones del juego](img/InstruccionesTableroOverlay.svg)
+![Overlay de instrucciones del juego](img/InstruccionesTableroOverlay.svg)
 ## Resultados finales
 - Un mensaje se desplegará en pantalla, acompañado de una imagen, para indicarle a los jugadores si ganaron o perdieron.
 - El jugador tendrá la posibilidad de de volver a jugar otra partida o de volver al menú principal.
-![Pantalla de las configuraciones del juego](img/Resultados.svg)
+![Overlay de resultado del juego](img/Resultados.svg)
 
 

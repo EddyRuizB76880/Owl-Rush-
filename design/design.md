@@ -17,18 +17,18 @@
 
 ## Inicio
 - En esta pantalla el usuario puede navegar a los otros sitios que se encuentran en la página. 
-- El usuario va a poder escoger entre: crear una sesión nueva, unirse a una sesión ya existente, o salirse. 
+- El usuario va a poder escoger entre: crear una sesión nueva o unirse a una sesión ya existente.
+- El usuario también podrá consultar los créditos del juego.
+- El usuario puede consultar en cualquier momento las instrucciones para el menú principal. 
 ![Pantalla de Inicio](img/Inicio.svg)
 
-## Acerca de 
-- En esta pantalla se despliega información acerca del juego, quiénes son los integrantes. 
-![Pantalla acerca de](img/AcercaDe.svg)
+## Créditos
+- En este overlay se despliega información acerca del juego, quiénes son los integrantes del equipo de desarrollo y de dónde se tomaron algunos recursos de la página. 
+![Pantalla acerca de](img/CréditosOverlay.svg)
 
-## Cómo jugar 
-- En esta pantalla se despliegan las reglas del juego. 
-- La idea es que el usuario pueda ver la relga del juego con una imagen asociada. 
-- El usuario puede navegar a través de las reglas con las flechas presentadas en el carrusel. 
-![Pantalla sobre cómo jugar](img/ComoJugar.svg)
+## Instrucciones de Menú de inicio
+- En este overlay se muestran las instrucciones para el menú de inicio.
+![Pantalla acerca de](img/InstruccionesInicioOverlay.svg)
 
 
 ## Sala de espera: Invitado
@@ -62,15 +62,19 @@
 ## Tablero
 - La barra sun-counter y su progreso actual se encuentra a la izquierda.
 - En la esquina inferior izquierda, se encuentra el tiempo que posee el usuario para tomar una decisión, así como la cantidad de progreso de sun counter que tomará al terminar su movida.
-- La espiral en el centro representa las casillas del tablero. La cajita con x representa al búho al comienzo de la partida.
-- Las barritas a la derecha indican el progreso del sol. La cajita x al lado de las barritas, una imagen de un sol.
+- Las casillas  en el centro representan las casillas del tablero. Las cajitas con x representan a los búhos al comienzo de la partida.
+- Las barritas a la derecha indican el progreso del sol.
 - En la parte inferior de la pantalla están las cartas que el jugador posee, así como la baraja de cartas de donde el jugador toma al inicio de cada turno.
+- A la derecha, se encuentran los jugadores unidos a la partida, con sus respectivas cartas.
+- Una cajita de checkbox debajo de la baraja de cartas permitirá al anfitrión elegir si desea hacer que todos los jugadores usen la misma mano de cartas en la partida. Esto sólo se puede habilitar al comienzo de la partida.
 ![Pantalla de las configuraciones del juego](img/Tablero.svg)
 
+## Instrucciones para tablero de juego
+- Este overlay aparecerá en pantalla cuando el jugador dé click en Instrucciones desde el tablero de juego. Este overlay explica parte por parte el la pantalla del tablero.
+![Pantalla de las configuraciones del juego](img/InstruccionesTableroOverlay.svg)
 ## Resultados finales
-- El mensaje entre corchetes dirá si los jugadores perdieron o ganaron.
-- Los mensajes crit entre corchetes serán los criterios que determinarán qué jugadores rindieron mejor.
-- El jugador tendrá la posibilidad de de volver a jugar otra partida o de volver al menú principal
+- Un mensaje se desplegará en pantalla, acompañado de una imagen, para indicarle a los jugadores si ganaron o perdieron.
+- El jugador tendrá la posibilidad de de volver a jugar otra partida o de volver al menú principal.
 ![Pantalla de las configuraciones del juego](img/Resultados.svg)
 
 

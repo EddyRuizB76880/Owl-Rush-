@@ -1,42 +1,68 @@
+/*
+ Sets the left margin to 3% so small indentation is created.
+*/
 h3 {
   margin-left : 3%;
   font-size : 1.2vw;
 }
-  
+
 h2 {
   font-size : 1.5vw;
 }
-  
+
+/*
+ This block allows labels to indentate and create a space between a label and the
+ input it labels.
+*/
 label {
   margin-right : 5%;
   margin-left : 8%;
   font-size : 1vw;
 }
   
+/*
+  This line of code disables the bullets from ul objects.
+*/
 ul {
   list-style-type : none;
 }
 
+/*
+  This block defines how wide the the grace time containers will be.
+*/
 #sun_counter_gracetime , #simon_says_gracetime {
   width : 10%;
   font-size : 1.5vw;
 }
 
+/*
+  This block sets how the list of players will look like.
+*/
 #list_of_players {
   display : block;
+  /*These lines make some borders solid*/
   border-bottom : solid 0.5vw;
   border-right : solid 0.5vw;
   border-left : solid 0.5vw;
+  /*This line sets the list's position to the right*/
   float : right;
   width : 30%;
   font-size : 1.7vw;  
 }
 
+/*
+  This block of code sets the font size for the checkmark boxes and creates 
+  an indentation on their lines. 
+*/
 #simon_says_punishment_for_failing li {
   font-size : 0.8vw;
   margin-left : 8%;
 }
-  
+
+/*
+  This block of code sets the dimensions of the small images on on the 
+  player list section.
+*/
 .player_icon {
   width : 5%;
   height : 5%;

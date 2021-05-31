@@ -1,7 +1,14 @@
+/* 
+  This block of code applies a font family to the whole page, in order of priority
+*/
 html {
   font-family : Arial , Helvetica , sans-serif;
 }
 
+/* 
+  This style arranges the whole page in rows. It allows us to stick the footer
+  at the bottom of the page.
+*/
 body {
   min-height : 100vh;
   display : flex;
@@ -9,35 +16,71 @@ body {
   margin:0;
 }
 
+/*
+  Sets a flex display for footer and header elements
+*/
+header , footer {
+  align-items : center;
+  display : flex;
+}
+
+/* 
+  This style adjusts the upper part of the footer.
+*/
 footer {
   margin-top : auto;
   border-top : solid;
 }
 
+/* 
+  Style created to draw the bottom border of the header.
+*/
 header {
   border-bottom : solid;
 }
 
+/* 
+  It applies a green color to both the footer and header.
+*/
 header , footer {
   background-color : #0CCA4A;
 }
 
+/* 
+  This block defines styles for all anchors.
+*/
 a {
+  /* Disable underline */
   text-decoration : none;
+  /* Font color: Black */ 
   color : black;
-  padding : 1%;
-  font-size : 1.2vw;
+  /* Padding makes anchor content be bigger */ 
+  padding : 1%; 
+  /* Adaptable fontsize. It is equivalent to 12% of parent's width */
+  font-size : 1.2vw; 
 }
 
+/* 
+  This block applies to the middle elements in the header and the footer.
+  margin:auto separates the middle element from the first element on the
+  left part of the header and footer.
+*/
 #current_page , #footer_elementB {
   margin : auto;
   font-size : 1.4vw;
 }
 
+
+/* 
+  This block defines the font size of the element on the right side of the footer.
+*/
 #footer_elementA {
   font-size : 1.4vw;
 }
 
+/* 
+  This block defines the proportions of the website's logo, located in the header.
+*/
 #website_logo {
   text-align : center;
   max-width : 3%;
@@ -45,17 +88,16 @@ a {
   vertical-align : text-bottom;
 }
 
+/*
+  This block defines the font size of the website's title, located in the header too.
+*/
 #website_title {
   font-size : 3vw;
 }
 
-#navigation_options li {
-  width : 45%;
-}
-
 /*
-Code taken from an example found in W3Schools website. Available at:
-https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_round_buttons
+  Code taken from an example found in W3Schools website. Available at:
+  https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_round_buttons
 */
 .question_mark_button {
   background-color : white; /* */
@@ -70,31 +112,47 @@ https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_round_buttons
   border-radius : 45%;
 }
 
+/*
+  Block of code that defines styles for secondary buttons. Margin properties used
+  to separate buttons from top and right edge of the screen.
+*/
 .secondary_button {
   background-color : #fcf14c;
-  float : right;
   margin-top : 12px;
   margin-right : 15px;
 }
 
+/*
+  This block of code is used for buttons that allow users to go one page back.
+  Margin properties used to separate button from continue button and left edge
+  of the screen.
+*/
 .go_back_button{
   background-color : #fc4c4c;
+  margin-right: 30%;
+  margin-left: 5%;
 }
 
+/*
+  This block of code sets a green color for those buttons used to to continue in the
+  site's flow. 
+*/
 .continue_button{
   background-color : #3dfc03;
 }
 
-#navigation_options , header , footer {
-  align-items : center;
-  display : flex;
-}
-
-
+/*
+  This block creates a small animation for buttons created from anchor elements.
+  It darkens the elements when they get in contact with the mouse's cursor. 
+*/
 a:hover , .question_mark_button:hover {
   filter : brightness(75%);
 }
 
+/*
+  This block makes the footer, and the header's middle element adapt when the 
+  website is displayed on smaller screens.
+*/
 @media screen and (max-width: 751px) {
   a {
     font-size : 2.5vw;

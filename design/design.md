@@ -73,7 +73,7 @@
 
 - Al unirse un invitado, este sería capaz de ver los ajustes de juego que hiciera el anfitrión. Sin embargo, no sería capaz de alterar algún ajuste ni de iniciar la partida, todos estos botones estarían deshabilitados para el invitado. El enlace de invitación sería remplazado por un aviso que dijera "Sólo el anfitrión puede cambiar ajustes de juego e iniciar la partida", en color rojo. Por otro lado, al igual que el anfitrión, el invitado sí tendría el botón de instrucciones activo todo el tiempo, aunque con instrucciones distintas con respecto al anfitrión. Un invitado tendrá la capacidad de abandonar la sala de espera cuando lo desease.
 
-- Cuando la sala se haya llenado con 6 jugadores, el juego no admitirá más participantes. Aquellos que se intenten unir se toparán con un mensaje de error que les indique que ya no hay espacios disponibles en la sala de espera.
+- Cuando la sala se haya llenado con 6 jugadores, o el anfitrión ya haya comenzado la partida, el juego no admitirá más participantes. Aquellos que se intenten unir se toparán con un mensaje de error que les indique que ya no hay espacios disponibles en la sala de espera o que el anfitrión ya comenzó la partida, dependiendo del caso.
 ![Pantalla de sala de espera del anfitrión](img/SalaEspera2.svg)
 
 ## Instrucciones para anfitrión

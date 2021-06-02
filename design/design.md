@@ -3,16 +3,13 @@
     1. Desde ella se accede a los overlays Créditos e Instrucciones.
 
     2. Desde ella se puede acceder a la sala de espera como anfitrión que organiza o como invitado que ingresa
-
-    3. Para que un usuario invitado se una a sesión utiliza un link mandado por el anfitrión, ingresando por el navegador.
-
-    4. Cuando usuario invitado oprime el botón Unirse a una sesión, saldra un overlay que en caso de que queden campos para más jugadores le pide que use el link en el navegador, en caso de que la sesión ya no le quedan cupos le saldrá un overlay que le dice que ya está llena la sala.
+ 
+    3. Para que un usuario invitado se una a una sesión utiliza un link mandado por el anfitrión que organiza.
 
 2. Sala de espera.
-    1. Desde ella se accede al tablero para todos los jugadores que se hayan unido a la sesión, cuando el
-    anfitrión haga click en Iniciar partida.
+    1. Cuando el anfitrión haga click en Iniciar partida, todos los jugadores que se hayan unido a la sesión acceden al tablero.
 
-    2. Desde ella se accede a los overlays Ajustes de juego e Instrucciones.
+    2. Desde ella se accede al contenido Ajustes de juego y al overlay de Instrucciones.
 
     3. Desde ella se puede regresar a la página principal. (Haciendo click en Finalizar sesión en el caso de anfitriones o en Salir de la sesión en el caso de invitados)
 
@@ -23,9 +20,11 @@
 
     3. Desde él se accede a los overlays Resultado de la partida (que aparece cuando se acaba el juego) e Instrucciones.
 
+    4. En el tablero se encuentran todos los elementos que darán forma a una partida del juego, ya sean íconos de jugador, cartas, casillas u la secuencia de Simón Dice en forma de overlay.
+
 ![Mapa de sitio](img/sitemap.svg)
 
-# Explicación: Diseño de wireframes
+# Diseño
 
 ## Inicio
 - En esta pantalla el usuario puede navegar a los otros sitios que se encuentran en la página.
@@ -116,7 +115,7 @@
 
 - Las instrucciones están habilitadas mientras el jugador no haya tomado una carta. Se deshabilitan cuando el jugador ya va a hacer su jugada.
 
-- El anfitrión puede presionar el botón de finalizar sesión. Esto permite que el juego finalice o que otro jugador sea el nuevo anfitrión. El nuevo anfitrión se elige solo. Asignar un nuevo anfitrión es tentativo y puede ser descartado. A los demás jugadores les sale un aviso diciendo que el anfitrión terminó la partida y se regresan a la página principal.
+- El anfitrión puede presionar el botón de finalizar sesión. Esto le permite elegir que el juego finalice para todos o que otro jugador sea el nuevo anfitrión. El nuevo anfitrión se elige solo. Asignar un nuevo anfitrión es tentativo y puede ser descartado. A los demás jugadores les sale un aviso diciendo que el anfitrión terminó la partida y se regresan a la página principal, en caso en que se opte por finalizar la sesión para todos.
 
 - Los invitados no tienen la opción de finalizar partida o volver a la sala de espera. Ellos solo tienen la opción de salir de sesión. Si un jugador decide salirse de la sesión, su ficha y nombre desaparecen del tablero.
 
@@ -131,6 +130,15 @@
 ## Instrucciones para tablero de juego
 - Este overlay aparecerá en pantalla cuando el jugador dé click en Instrucciones desde el tablero de juego. Este overlay explica parte por parte el la pantalla del tablero.
 ![Overlay de instrucciones del juego](img/InstruccionesTableroOverlay.svg)
+
+## Secuencia Simón Dice
+- Este overlay aparecerá cuando un jugador haya decidido qué carta tomar y si el ajuste Segundos de gracia de Simón Dice no esté deshabilitado. 
+
+- Todos los jugadores tendrán que replicar en orden los colores que se muestren en secuencia en las luces del medio usando las luces de la parte inferior de la pantalla.
+
+- La barra negra de la derecha indica cuántos segundos tiene el jugador para responder la secuencia.
+![Overlay de instrucciones del juego](img/SimonDiceOverlay.svg)
+
 ## Resultados finales
 - Un mensaje se desplegará en pantalla, acompañado de una imagen, para indicarle a los jugadores si ganaron o perdieron.
 

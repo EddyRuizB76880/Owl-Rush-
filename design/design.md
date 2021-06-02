@@ -4,6 +4,10 @@
   
     2. Desde ella se puede acceder a la sala de espera como anfitrión que organiza o como invitado que ingresa
 
+    3. Para que un usuario invitado se una a sesión utiliza un link mandado por el anfitrión, ingresando por el navegador. 
+
+    4. Cuando usuario invitado oprime el botón Unirse a una sesión, saldra un overlay que en caso de que queden campos para más jugadores le pide que use el link en el navegador, en caso de que la sesión ya no le quedan cupos le saldrá un overlay que le dice que ya está llena la sala. 
+
 2. Sala de espera.
     1. Desde ella se accede al tablero para todos los jugadores que se hayan unido a la sesión, cuando el 
     anfitrión haga click en Iniciar partida.

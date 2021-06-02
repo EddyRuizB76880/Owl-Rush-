@@ -1,25 +1,26 @@
-#invitation_link{
+#invitation_link {
   font-size: 1.6vw;
 }
 
 #invitation_button {
-  background-color : #3dfc03;
-  width : 15%;
+  background-color: #3dfc03;
+  width: 15%;
 }
 
-.ban_button{
-  background-color : #fc4c4c;
-  width : 30%;  
+.ban_button {
+  background-color: #fc4c4c;
+  width: 30%;
 }
 
-.ban_button , #invitation_button {
-  font-size : 1.6vw;
-  cursor : pointer;
-  text-decoration : none;
-  border : none;
+.ban_button,
+#invitation_button {
+  font-size: 1.6vw;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
 }
 
-.ban_button:hover , #invitation_button:hover {
-  filter : brightness(75%);
+.ban_button:hover,
+#invitation_button:hover {
+  filter: brightness(75%);
 }
-

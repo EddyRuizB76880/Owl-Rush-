@@ -26,7 +26,7 @@
 
 # Diseño
 
-## Inicio
+## Página Principal
 - En esta pantalla el usuario puede navegar a los otros sitios que se encuentran en la página.
 
 - El usuario va a poder escoger entre: crear una sesión nueva o unirse a una sesión ya existente.

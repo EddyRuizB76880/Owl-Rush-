@@ -134,7 +134,7 @@
 ## Secuencia Simón Dice
 - Aparecerá en lugar de las cartas del jugador actual cuando un jugador haya decidido qué carta tomar y si el ajuste Segundos de gracia de Simón Dice no esté deshabilitado. 
 
-- Todos los jugadores tendrán que replicar en orden los colores que se muestren en secuencia en las luces del medio usando las luces de la parte inferior de la pantalla.
+- Todos los jugadores tendrán que replicar en orden los colores que se muestren en secuencia.
 
 ![Overlay de instrucciones del juego](img/SimonDice.svg)
 

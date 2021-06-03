@@ -132,12 +132,11 @@
 ![Overlay de instrucciones del juego](img/InstruccionesTableroOverlay.svg)
 
 ## Secuencia Simón Dice
-- Este overlay aparecerá cuando un jugador haya decidido qué carta tomar y si el ajuste Segundos de gracia de Simón Dice no esté deshabilitado. 
+- Aparecerá en lugar de las cartas del jugador actual cuando un jugador haya decidido qué carta tomar y si el ajuste Segundos de gracia de Simón Dice no esté deshabilitado. 
 
 - Todos los jugadores tendrán que replicar en orden los colores que se muestren en secuencia en las luces del medio usando las luces de la parte inferior de la pantalla.
 
-- La barra negra de la derecha indica cuántos segundos tiene el jugador para responder la secuencia.
-![Overlay de instrucciones del juego](img/SimonDiceOverlay.svg)
+![Overlay de instrucciones del juego](img/SimonDice.svg)
 
 ## Resultados finales
 - Un mensaje se desplegará en pantalla, acompañado de una imagen, para indicarle a los jugadores si ganaron o perdieron.

@@ -20,7 +20,7 @@
 
     3. Desde él se accede a los overlays Resultado de la partida (que aparece cuando se acaba el juego) e Instrucciones.
 
-    4. En el tablero se encuentran todos los elementos que darán forma a una partida del juego, ya sean íconos de jugador, cartas, casillas u la secuencia de Simón Dice en forma de overlay.
+    4. En el tablero se encuentran todos los elementos que darán forma a una partida del juego, ya sean íconos de jugador, cartas, casillas o la secuencia de Simón Dice.
 
 ![Mapa de sitio](img/sitemap.svg)
 

@@ -43,7 +43,7 @@ ul {
 #simon_says_steps {
   width: 10%;
   height: 10%;
-  font-size: 1.5vw;
+  font-size: 1vw;
 }
 
 /*
@@ -166,10 +166,24 @@ input:disabled,
     font-size: 4vw;
   }
 
+  fieldset {
+    width: 75%;
+  }
+
   #invitation_link,
-  #invitation_button {
+  #invitation_button,
+  .ban_button {
     font-size: 2vw;
   }
+
+  #sun_counter_gracetime,
+  #simon_says_gracetime,
+  #simon_says_steps {
+    width: 10%;
+    height: 10%;
+    font-size: 2vw;
+  }
+
 
   #list_of_players {
     display: flex;
@@ -179,6 +193,10 @@ input:disabled,
     margin-left: 20%;
   }
 
+  #simon_says_punishment_for_failing{
+    margin-left: -19%;
+  }
+
   .settings_menu_section {
     margin-left: 10%;
   }
@@ -186,6 +204,10 @@ input:disabled,
   .player_icon {
     height: 20px;
     width: 20px;
+  }
+
+  .go_back_button {
+    margin-right: 20%;
   }
 
   .question_mark_button {

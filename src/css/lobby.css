@@ -10,6 +10,14 @@ h2 {
   font-size: 1.5vw;
 }
 
+  /*
+    These styles applies to all fieldset tags.
+  */
+  fieldset {
+    margin-left: 3%;
+    width: 60%;
+  }
+
 /*
  This block allows labels to indentate and create a space between a label and the
  input it labels.
@@ -31,8 +39,10 @@ ul {
   This block defines how wide the the grace time containers will be.
 */
 #sun_counter_gracetime,
-#simon_says_gracetime {
+#simon_says_gracetime,
+#simon_says_steps {
   width: 10%;
+  height: 10%;
   font-size: 1.5vw;
 }
 
@@ -54,13 +64,54 @@ ul {
 }
 
 /*
-  This block of code sets the font size for the checkmark boxes and creates
-  an indentation on their lines.
+  This block of code sets the font size for the checkmark boxes and sets
+  flex as their display type.
 */
-#simon_says_punishment_for_failing li {
+#simon_says_punishment_for_failing{
+  display: flex ;
+  flex-direction: row;
   font-size: 0.8vw;
-  margin-left: 8%;
 }
+
+#simon_says_punishment_for_failing li{
+  margin-left: 2%;
+  text-align: center;
+}
+
+#invitation_link {
+  font-size: 1.1vw;
+}
+
+#invitation_button {
+  background-color: #3dfc03;
+  width: 8%;
+}
+
+/*
+  This block of code applies a red color to a warning for guests.
+*/
+#message_for_guests {
+  color: red;
+}
+
+.ban_button {
+  background-color: #fc4c4c;
+  width: 30%;
+}
+
+.ban_button,
+#invitation_button {
+  font-size: 1.1vw;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+}
+
+.ban_button:hover,
+#invitation_button:hover {
+  filter: brightness(75%);
+}
+
 
 /*
   This block of code sets the dimensions of the small images on on the
@@ -71,14 +122,29 @@ ul {
   height: 5%;
 }
 
-.settings_menu_item {
+.settings_menu_section {
   margin-bottom: 2%;
 }
 
+.settings_menu_item{
+  display: flex;
+  margin-bottom: 2%;
+}
 .settings_slider {
-  margin-bottom: -8px;
+  margin-top: -6px;
   width: 20%;
 }
+
+/*
+  This block disables all input elements and make them look unavailable.
+*/
+input:disabled,
+.disabled_button {
+  background-color: rgb(114, 106, 106);
+  color: white;
+  cursor: not-allowed;
+}
+
 
 @media screen and (max-width: 751px) {
   h5,
@@ -100,12 +166,21 @@ ul {
     font-size: 4vw;
   }
 
+  #invitation_link,
+  #invitation_button {
+    font-size: 2vw;
+  }
+
   #list_of_players {
     display: flex;
     flex-direction: column;
     float: none;
     width: 50%;
     margin-left: 20%;
+  }
+
+  .settings_menu_section {
+    margin-left: 10%;
   }
 
   .player_icon {

@@ -9,8 +9,7 @@
     <title>Sala de espera: Anfitrión</title>
     <link rel="icon" type="image/svg+xml" href="../img/favicon.svg" />
     <link rel="stylesheet" media="screen" href="../css/common.css" />
-   <link rel="stylesheet" media="screen" href="../css/owl_rush_common_lobby_styles.css" />
-   <link rel="stylesheet" media="screen" href="../css/owl_rush_host_lobby_styles.css" />
+   <link rel="stylesheet" media="screen" href="../css/lobby.css" />
   </head>
 
   <body>
@@ -47,43 +46,47 @@
           </ul>
 
       <article id="game_settings">
+   
         <h2>Ajustes de juego</h2>
           
-          <section id="general_settings">
-            
-            <h3>Ajustes generales</h3>
+          
+
+      <section id="sun_counter_settings">
+        <fieldset class="settings_menu_section">
+          <h3>Ajustes de Sun-Counter</h3>
           <div class="settings_menu_item">
             <label for="sun_counter_gracetime">Segundos de gracia de Sun-Counter</label>
             <input type="number" id="sun_counter_gracetime" name="general_setting" min="0" max="10"></input>
              <button class="question_mark_button">?</button> <br />
             </div>
-            
-            <div class="settings_menu_item">
-              <label for="simon_says_gracetime">Segundos de gracia de Simón Dice</label>
-              <input type="number" id="simon_says_gracetime" name="general_setting" min="0" max="10"></input> 
-               <button class="question_mark_button">?</button> <br /></div>
-    
-          </section>
-
-      <section id="sun_counter_settings">
-        <h3>Ajustes de Sun-Counter</h3>
-        <div class="settings_menu_item">
+          <div class="settings_menu_item">
           <label for="sun_counter_slider">Valor inicial de Sun-Counter Boost</label>
           <input type="range" min="1" max="100" value="10" id="sun_counter_slider" class= "settings_slider"> </input>  
-          <button class="question_mark_button">?</button> <br /></div>
+          <button class="question_mark_button">?</button> <br />
+        </div>
+        </fieldset>
         
         </section>
 
       <section id="simon_says_settings">
+        <fieldset class= "settings_menu_section">
         <h3>Ajustes de Simón Dice</h3>
-       <div class="settings_menu_item">
+        <div class="settings_menu_item">
+          <label for="simon_says_gracetime">Segundos de gracia de Simón Dice</label>
+          <input type="number" id="simon_says_gracetime" name="general_setting" min="0" max="10"></input> 
+           <button class="question_mark_button">?</button> <br />
+        
+        </div>
+       
+        <div class="settings_menu_item">
           <label for="simon_says_steps_slider">Pasos en secuencia de Simón Dice</label>
-          <input type="range" min="1" max="10" value="4" id="simon_says_steps_slider" class= "settings_slider"> 
-        </input> <button class="question_mark_button">?</button>  <br /></div>
+          <input type="number" min="1" max="10" value="4" id="simon_says_steps"> 
+        </input> <button class="question_mark_button">?</button>  <br />
+      </div>
         
           <div class="settings_menu_item">
             <label>Castigos por fallar Simón Dice</label>
-          <button class="question_mark_button">?</button> <br />
+        
           <ul id="simon_says_punishment_for_failing">
             <li class="simon_says_punishment_for_failing_item"><input type="checkbox"  class="simon_says_punishment_for_failing_checkbox">
             </input> Perder Sun Counter's Boost</li>
@@ -92,11 +95,15 @@
             <li class="simon_says_punishment_for_failing_item"><input type="checkbox"  class="simon_says_punishment_for_failing_checkbox">
             </input> Perder turno</li>
           </ul>
+
+          <button class="question_mark_button">?</button> <br />
         </div>
+      </fieldset>
       </section>
       </article>
 
-    <nav id="navigation_options">
+    
+      <nav id="navigation_options">
      <a href="home_page.xhtml" class= "go_back_button"> Finalizar Sesión </a>
       <a href="game_board.xhtml" class= "continue_button"> Iniciar Partida </a>
       

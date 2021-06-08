@@ -22,7 +22,7 @@ https://www.w3schools.com/css/css_grid.asp
 */
 .grid-containerSunVector {
   display: inline-grid;
-  column-count: 1;
+  column-count: 7;
   background-color: #343148;
   padding: 10px;
   row-gap: 15px;
@@ -53,7 +53,6 @@ https://www.w3schools.com/css/css_grid.asp
   border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 20px;
   font-size: 30px;
-  text-align: center;
   width: 50px;
 }
 
@@ -64,6 +63,17 @@ Changes the size of the button that lets to take new cards
   height: 50px;
   width: 50px;
 }
+
+/*
+It adjusts the positions of image and text to be side by side
+*/
+.container-column {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 4px;
+}
+
 
 /*
 It adjusts the positions of image and text to be side by side
@@ -87,9 +97,9 @@ Adjusts the size of the selection for the option to share other players hands
 Adjusts the size and margin of the buttons for the selection of the card of the user´s hand
 */
 .buttonCardsSelection {
-  height: 60px;
-  width: 30px;
-  margin-right: 15px;
+  height: 30px;
+  width: 60px;
+  margin-top: 15px;
 }
 
 /*
@@ -101,14 +111,6 @@ Adjusts the color of the progress bar background and its direction
 }
 
 /*
-Adjusts the color of the progress bar background
-*/
-.progressHorizontal {
-  background-color: gray;
-}
-
-/*
-
 Progress bar isnt standard so the vendor prefixes -webkit-progress-value y webkit-progress-bar were used
 
 -webkit-progress-value: is used to add styles to the bar that represents current progress
@@ -117,13 +119,6 @@ Progress bar isnt standard so the vendor prefixes -webkit-progress-value y webki
  Code taken and slightly modified from an example found in stackoverflow website. Available at:
 https://stackoverflow.com/questions/45507970/how-can-i-change-the-color-of-a-progress-bar-value-in-html
 */
-.progressHorizontal::-webkit-progress-value {
-  background: black;
-}
-
-.progressHorizontal::-webkit-progress-bar {
-  background: gray;
-}
 
 .progressVertical::-webkit-progress-value {
   background: black;

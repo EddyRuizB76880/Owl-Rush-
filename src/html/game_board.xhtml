@@ -10,6 +10,7 @@
     <link rel="icon" type="image/svg+xml" href="../img/favicon.svg" />
     <link rel="stylesheet" media="screen" href="../css/owl_rush_GameBoard.css" />
     <link rel="stylesheet" media="screen" href="../css/common.css" />
+    <link rel="stylesheet" media="screen" href="../css/board.css" />
   </head>
   <body>
     <header id="website_header">
@@ -21,150 +22,192 @@
   </header>
  <hr/>
   
-    <main id="main_content">
+    <main id="page_content">
       <!-- Game Board -->
-      <section class="image-txt-container">
-        <img  src="../img/122-owl.svg" alt="Ficha de Jugador" height="25" />
-        <img  src="../img/122-owl.svg" alt="Ficha de Jugador" height="25" />
-        <img  src="../img/122-owl.svg" alt="Ficha de Jugador" height="25" />
 
-            <section class="grid-containerMainTable">
-              <section class="grid-itemPath"></section>
-              
-            </section>
-
-            <section class="grid-containerMainTable">
-              <section class="grid-itemPath"></section>
-              <section class="grid-itemPath"></section>
-              <section class="grid-itemPath"></section>
-            </section>
-
-            <img  src="../img/ArrowDown.svg" alt="Direccion en el Tablero" height="170" />
-            <section class="grid-containerMainTable">
-              <section class="grid-itemPath"></section>
-              <section class="grid-itemPath"></section>
-              <section class="grid-itemPath"></section>
-            </section>
-
-            <img  src="../img/ArrowUp.svg" alt="Direccion en el Tablero" height="170" />
-            <section class="grid-containerMainTable">
-              <section class="grid-itemPath"></section>
-              <section class="grid-itemPath"></section>
-              <section class="grid-itemPath"></section>
-            </section>
-
-            <img  src="../img/ArrowDown.svg" alt="Direccion en el Tablero" height="170" />
-            <section class="grid-containerMainTable">
-              <section class="grid-itemPath"></section>
-              <section class="grid-itemPath"></section>
-              <section class="grid-itemPath"></section>
-            </section>
-
-            <img  src="../img/ArrowUp.svg" alt="Direccion en el Tablero" height="170" />
-            <section class="grid-containerMainTable">
-              <section class="grid-itemPath"></section>
-              <section class="grid-itemPath"></section>
-              <section class="grid-itemPath"></section>
-            </section>
-
-            
-            <section class="grid-containerMainTable">
-              <img  src="../img/ArrowDownSmall.svg" alt="Direccion en el Tablero" height="99" />
-              <section class="grid-itemPath"></section>
-            </section>
-
-            <section class="grid-containerSunVector">
-              <section class="grid-itemSun"></section>
-              <section class="grid-itemSun"></section>
-              <section class="grid-itemSun"></section>
-              <section class="grid-itemSun"></section>
-              <section class="grid-itemSun"></section>
-              <section class="grid-itemSun"></section>
-              <section class="grid-itemSun"></section>
-            
-            </section>
-
-            <img  src="../img/Sol.svg" alt="Sol que avanza por turno" height="70" />
-      </section>
-
-      <!-- Other player´s cards -->
-      <section id="Jugadores" >
+      <div id="LadoIzquierdoTablero" class="container-column">
+          <!-- Other player´s cards -->
+          <section id="Jugadores" >
             <h1 >Jugadores(3)</h1>
 
-            <section  class="image-txt-container">
+            <div  class="image-txt-container">
                   <img  src="../img/122-owl.svg" alt="Ficha de Jugador" height="25" />
                   <p>JuanT (Anfitrión)</p>
-            </section>
+            </div>
 
-            <section  class="image-txt-container">
+            <div  class="image-txt-container">
                   <img  src="../img/122-owl.svg" alt="Ficha de Jugador" height="25" />
                   <p>Eddy </p>
                   <img  src="../img/CartaConColor-1.svg" alt="Carta para Juego" height="25" />
                   <img  src="../img/CartaConColor-2.svg" alt="Carta para Juego" height="25" />
                   <img  src="../img/CartaConColor-3.svg" alt="Carta para Juego" height="25" />
-            </section>
+            </div>
 
 
-            <section  class="image-txt-container">
+            <div  class="image-txt-container">
                   <img  src="../img/122-owl.svg" alt="Ficha de Jugador" height="25" />
                   <p>Lucia </p>
                   <img  src="../img/CartaConColor-3.svg" alt="Carta para Juego" height="25" />
                   <img  src="../img/CartaConColor-4.svg" alt="Carta para Juego" height="25" />
                   <img  src="../img/CartaConColor-1.svg" alt="Carta para Juego" height="25" />
-            </section>
+            </div>
 
-       </section>
-            <!-- Current player hand -->
-            <section class="image-txt-container">
-                  <button class="buttonCardsSelection" value = "myimage">
-                    <img class="img-center" src="../img/CartaConColor-1.svg " alt="Carta para Juego"/></button>
+          </section>
 
-                  <button class="buttonCardsSelection" value = "myimage">
-                    <img class="img-center" src="../img/CartaConColor-1.svg " alt="Carta para Juego"/></button>
 
-                  <button class="buttonCardsSelection" value = "myimage">
-                    <img class="img-center"   src="../img/CartaConColor-1.svg " alt="Carta para Juego"/></button>
+          <!-- Current player hand -->
+          <div class="container-column">
+            <button class="buttonCardsSelection" value = "myimage">
+              <img class="img-center" src="../img/CartaConColor-1.svg "  style="transform:rotate(90deg)" alt="Carta para Juego"/></button>
 
-            </section>
-            
+            <button class="buttonCardsSelection" value = "myimage">
+              <img class="img-center" src="../img/CartaConColor-1.svg "  style="transform:rotate(90deg)" alt="Carta para Juego"/></button>
 
-            <!--Cards stack  -->
-            <section class="image-txt-container">
-                    <p>Tomar Carta </p>
-                    <button id="cardsGetStack" type="button" value = "myimage">
-                      <img class="img-center" src='../img/CartasAgarrarStack.svg' alt="Pila de cartas"/></button>
-            </section>
+          </div>
 
-            <!-- Option to share hands with other players  -->
-            <section class="image-txt-container">
-                  <p>Mano Compartida </p>
-                  <button id="sharedHandsSelection" ></button>
-                  <button class="question_mark_button">?</button>
-            </section>
 
-            <!-- Progress bast used for  Sun-Counter  and the counter to think fast the move for the turn  -->
+          <!--Cards stack  -->
+          <div class="image-txt-container">
+              <p>Tomar Carta </p>
+              <button id="cardsGetStack" type="button" value = "myimage">
+                <img class="img-center" src='../img/CartasAgarrarStack.svg' alt="Pila de cartas"/></button>
+          </div>
 
-            <section  class="image-txt-container">
-                 <section class="image-txt-container">
-                      <progress class="progressVertical"  value="32" max="100"> 32% </progress>
-                      <p>Sun-Counter </p>
-                      <p>40% </p>
-                 </section>
+          <div class="image-txt-container">
+            <progress class="progressVertical" value="32" max="100"> 32% </progress>
+            <p>Piensa rápido! </p>
+            <p>xS </p>
+         </div>
+      </div>
 
-                 <section>
-                      <progress class="progressHorizontal" value="32" max="100"> 32% </progress>
-                      <p>Piensa rápido! </p>
-                      <p>xS </p>
-                 </section>
-            </section>
+      
+          <div id="BoardElements" class="image-txt-container">
+            <img  src="../img/122-owl.svg" alt="Ficha de Jugador" height="25" />
+            <img  src="../img/122-owl.svg" alt="Ficha de Jugador" height="25" />
+            <img  src="../img/122-owl.svg" alt="Ficha de Jugador" height="25" />
 
-            <!-- Button to return to main page and return to lobby  -->
+            <table id="game_board" class="box" >
+              <tr id="row1">
+                <td class="board_cell" style="background-color:#FF0000" />
+                <td class="board_cell" style="background-color:#e5ff00"/>
+                <td class="board_cell" style="background-color:#00ff0d"/>
+                <td class="board_cell" style="background-color:#5900ff"/>
+                <td class="board_cell" style="background-color:#FF0000"/>
+                <td class="board_cell" style="background-color:#e5ff00"/>
+                <td class="board_cell" style="background-color:#00ff0d"/>
+                <td class="board_cell" style="background-color:#5900ff"/>
+                <td class="board_cell" style="background-color:#FF0000" />
+                <td class="board_cell" style="background-color:#e5ff00"/>
+              </tr>
+              <tr id="row2">
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+              </tr>
+              <tr id="row3">
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+              </tr>
+              <tr id="row4">
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+              </tr>
+              <tr id="row5">
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+              </tr>
+              <tr id="row6">
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+              </tr>
+              <tr id="row7">
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+                <td class="board_cell" />
+                
+                <td class="board_cell">
+                  <!-- <img id="player1" class="player" src="./My Game2_files/pawn.svg" alt="Pawn by Thomas Hirter from the Noun Project" />-->
+                </td>
+              </tr>
+            </table>
+               
+          </div>
 
-            <section class="image-txt-container">
-                  <a id="endSession" href="home_page.xhtml" class="go_back_button">Finalizar Sesión</a>
-                  <a id="VolverSalaDeEspera" href="lobby_hostview.xhtml" class="go_back_button">Volver a Sala de Espera</a>
-                 
-            </section>
+          <!-- Vector por donde pase el sol -->
+          <div class="grid-containerSunVector">
+            <div class="grid-itemSun"></div>
+            <div class="grid-itemSun"></div>
+            <div class="grid-itemSun"></div>
+            <div class="grid-itemSun"></div>
+            <div class="grid-itemSun"></div>
+            <div class="grid-itemSun"></div>
+            <div class="grid-itemSun"></div>
+            <img  src="../img/Sol.svg" alt="Sol que avanza por turno" height="70" />
+          </div>
+
+         
+          <!-- Progress bar used for  Sun-Counter  and the counter to think fast the move for the turn  -->
+          <div  class="image-txt-container">
+               <div class="image-txt-container">
+                    <progress class="progressVertical"  value="32" max="100"> 32% </progress>
+                    <p>Sun-Counter </p>
+                    <p>40% </p>
+               </div>
+         
+               
+          </div>
+         
+          <!-- Buttons to return to main page and return to lobby  -->
+          <div class="image-txt-container">
+                <a id="endSession" href="home_page.xhtml" class="go_back_button">Finalizar Sesión</a>
+                <a id="VolverSalaDeEspera" href="lobby_hostview.xhtml" class="go_back_button">Volver a Sala de Espera</a>
+               
+          </div>
 
             
     </main>

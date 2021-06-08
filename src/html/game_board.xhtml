@@ -54,8 +54,23 @@
 
           </fieldset>
 
-          <fieldset id="AccionesDeJuego" >
-                  <!-- Current player hand -->
+          <fieldset id="AccionesDeJuego" class="container-row" >
+                  <!--Cards stack  -->
+                  <div class="image-txt-container">
+                    <p>Tomar Carta </p>
+                    <button id="cardsGetStack" type="button" value = "myimage">
+                      <img class="img-center" src='../img/CartasAgarrarStack.svg' alt="Pila de cartas"/></button>
+                </div>
+
+
+
+                <div class="image-txt-container">
+                  <progress class="progressVertical" value="32" max="100"> 32% </progress>
+                  <p>Piensa rápido! </p>
+                  <p>xS </p>
+                </div>
+                
+                <!-- Current player hand -->
                 <div class="container-column">
                   <button class="buttonCardsSelection" value = "myimage">
                     <img class="img-center" src="../img/CartaConColor-1.svg "  style="transform:rotate(90deg)" alt="Carta para Juego"/></button>
@@ -66,20 +81,16 @@
                 </div>
 
 
-                <!--Cards stack  -->
-                <div class="image-txt-container">
-                    <p>Tomar Carta </p>
-                    <button id="cardsGetStack" type="button" value = "myimage">
-                      <img class="img-center" src='../img/CartasAgarrarStack.svg' alt="Pila de cartas"/></button>
-                </div>
+                
 
-                <div class="image-txt-container">
-                  <progress class="progressVertical" value="32" max="100"> 32% </progress>
-                  <p>Piensa rápido! </p>
-                  <p>xS </p>
-                </div>
+                
           </fieldset>
-          
+
+          <!-- Buttons to return to main page and return to lobby  -->
+          <fieldset class="container-column" >
+            <a id="endSession" href="home_page.xhtml" class="go_back_button" style="margin:15px">Finalizar Sesión</a>
+            <a id="VolverSalaDeEspera" href="lobby.xhtml" class="go_back_button" style="margin:15px">Volver a Sala de Espera</a>
+          </fieldset>
       </div>
 
       
@@ -202,12 +213,7 @@
                </div>  
           </fieldset>
          
-          <!-- Buttons to return to main page and return to lobby  -->
-          <fieldset class="container-column" >
-                <a id="endSession" href="home_page.xhtml" class="go_back_button" style="margin:15px">Finalizar Sesión</a>
-                <a id="VolverSalaDeEspera" href="lobby.xhtml" class="go_back_button" style="margin:15px">Volver a Sala de Espera</a>
-               
-          </fieldset>
+          
 s
             
     </main>

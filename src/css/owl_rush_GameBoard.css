@@ -74,6 +74,12 @@ It adjusts the positions of image and text to be side by side
   margin: 4px;
 }
 
+.container-row {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  
+}
 
 /*
 It adjusts the positions of image and text to be side by side

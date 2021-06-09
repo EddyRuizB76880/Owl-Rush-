@@ -1,13 +1,3 @@
-.center {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.rectangle {
-  padding: 2em 2em 2em 2em;
-  max-height: 50em;
-  max-width: 70em;
-  background-color: #ddda8c;
-  margin-top: 0;
-  margin-bottom: 0;
+#made_by_title, #images_authors {
+  text-decoration: underline;
 }

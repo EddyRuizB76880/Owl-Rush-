@@ -24,6 +24,11 @@ body {
 #site_header {
 }
 
+#starting_point,
+#finish_line {
+ 
+}
+
 #page_content {
   height: 100%;
   flex-grow: 1;
@@ -44,7 +49,7 @@ body {
 }
 
 #game_board {
-  height: 50%;
+  height: 80%;
   order: 1;
   flex-grow: 1;
   background-color: white;

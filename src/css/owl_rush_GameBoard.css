@@ -65,21 +65,26 @@ Changes the size of the button that lets to take new cards
 }
 
 /*
-It adjusts the positions of image and text to be side by side
+It adjusts the positions to be vertical
 */
 .container-column {
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin: 4px;
+ 
 }
 
+/*
+It adjusts the positions to be horizontal
+*/
 .container-row {
   display: flex;
   align-items: center;
   flex-direction: row;
   
 }
+
+
 
 /*
 It adjusts the positions of image and text to be side by side
@@ -88,7 +93,7 @@ It adjusts the positions of image and text to be side by side
   display: flex;
   align-items: center;
   flex-direction: row;
-  margin: 4px;
+  
 }
 
 /*

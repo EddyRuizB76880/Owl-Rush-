@@ -21,83 +21,84 @@
 
   </header>
  <hr/>
-  
+    <!-- Game Board -->
     <main id="page_content">
-      <!-- Game Board -->
-
-      <div id="LadoIzquierdoTablero" class="container-column">
-          <!-- Other player´s cards -->
-          <fieldset id="Jugadores" >
-            <h1 >Jugadores(3)</h1>
-
-            <div  class="image-txt-container">
-                  <img  src="../img/122-owl.svg" alt="Ficha de Jugador" height="25" />
-                  <p>JuanT (Anfitrión)</p>
-            </div>
-
-            <div  class="image-txt-container">
-                  <img  src="../img/122-owl.svg" alt="Ficha de Jugador" height="25" />
-                  <p>Eddy </p>
-                  <img  src="../img/CartaConColor-1.svg" alt="Carta para Juego" height="25" />
-                  <img  src="../img/CartaConColor-2.svg" alt="Carta para Juego" height="25" />
-                  <img  src="../img/CartaConColor-3.svg" alt="Carta para Juego" height="25" />
-            </div>
-
-
-            <div  class="image-txt-container">
-                  <img  src="../img/122-owl.svg" alt="Ficha de Jugador" height="25" />
-                  <p>Lucia </p>
-                  <img  src="../img/CartaConColor-3.svg" alt="Carta para Juego" height="25" />
-                  <img  src="../img/CartaConColor-4.svg" alt="Carta para Juego" height="25" />
-                  <img  src="../img/CartaConColor-1.svg" alt="Carta para Juego" height="25" />
-            </div>
-
-          </fieldset>
-
-          <fieldset id="AccionesDeJuego" class="container-row" >
-                  <!--Cards stack  -->
-                  <div class="image-txt-container">
-                    <p>Tomar Carta </p>
-                    <button id="cardsGetStack" type="button" value = "myimage">
-                      <img class="img-center" src='../img/CartasAgarrarStack.svg' alt="Pila de cartas"/></button>
-                </div>
-
-
-
-                <div class="image-txt-container">
-                  <progress class="progressVertical" value="32" max="100"> 32% </progress>
-                  <p>Piensa rápido! </p>
-                  <p>xS </p>
-                </div>
-                
-                <!-- Current player hand -->
-                <ul id="player's_hand">
-                  <li><button class="buttonCardsSelection" value = "myimage">
-                    <span class="color_circle"></span> </button></li>
-
-                  <li><button class="buttonCardsSelection" value = "myimage">
-                    <span class="color_circle"></span> </button></li>
-                  </ul>
-
-
-                
-
-                
-          </fieldset>
-
-          <!-- Buttons to return to main page and return to lobby  -->
-          <fieldset class="container-column" >
-            <a id="endSession" href="home_page.xhtml" class="go_back_button" style="margin:15px">Finalizar Sesión</a>
-            <a id="VolverSalaDeEspera" href="lobby.xhtml" class="go_back_button" style="margin:15px">Volver a Sala de Espera</a>
-          </fieldset>
-      </div>
-
       
-          <fieldset id="BoardElements" class="image-txt-container">
-            <img  src="../img/122-owl.svg" alt="Ficha de Jugador" height="25" />
-            <img  src="../img/122-owl.svg" alt="Ficha de Jugador" height="25" />
-            <img  src="../img/122-owl.svg" alt="Ficha de Jugador" height="25" />
+          <!-- Player´s actions -->
+          <div id="LadoIzquierdoTablero" class="box">
+                <!-- Other player´s cards -->
+                <fieldset id="Jugadores" >
+                  <h1 >Jugadores(3)</h1>
 
+                  <div  class="image-txt-container">
+                        <img  src="../img/048-buffalo.svg" alt="Ficha de Jugador" height="25" />
+                        <p style="color: rgb(63, 230, 13)">JuanT (Anfitrión)</p>
+                  </div>
+
+                  <div  class="image-txt-container">
+                        <img  src="../img/050-tiger-1.svg" alt="Ficha de Jugador" height="25" />
+                        <p>Eddy </p>
+                        <img  src="../img/CartaConColor-1.svg" alt="Carta para Juego" height="25" />
+                        <img  src="../img/CartaConColor-2.svg" alt="Carta para Juego" height="25" />
+                        <img  src="../img/CartaConColor-3.svg" alt="Carta para Juego" height="25" />
+                  </div>
+
+
+                  <div  class="image-txt-container">
+                        <img  src="../img/003-chipmunk.svg" alt="Ficha de Jugador" height="25" />
+                        <p>Lucia </p>
+                        <img  src="../img/CartaConColor-3.svg" alt="Carta para Juego" height="25" />
+                        <img  src="../img/CartaConColor-4.svg" alt="Carta para Juego" height="25" />
+                        <img  src="../img/CartaConColor-1.svg" alt="Carta para Juego" height="25" />
+                  </div>
+
+                </fieldset>
+
+                <fieldset id="AccionesDeJuego" class="container-row" >
+                        <!--Cards stack  -->
+                        <div class="image-txt-container">
+                          <p>Tomar Carta </p>
+                          <button id="cardsGetStack" type="button" value = "myimage">
+                            <img class="img-center" src='../img/Maso.svg' alt="Pila de cartas"/></button>
+                      </div>
+
+
+
+                      <div class="image-txt-container">
+                        <progress class="progressVertical" value="32" max="100" style="width:85px; " > 32% </progress>
+                        <p>Piensa rápido! </p>
+                        <p>xS </p>
+                      </div>
+                      
+                      <!-- Current player hand -->
+                      <ul id="player's_hand">
+                        <li><button class="buttonCardsSelection" value = "myimage">
+                          <span class="color_circle"></span> </button></li>
+      
+                        <li><button class="buttonCardsSelection" value = "myimage">
+                          <span class="color_circle"></span> </button></li>
+                        </ul>
+
+
+                      
+
+                      
+                </fieldset>
+
+                <!-- Buttons to return to main page and return to lobby  -->
+                <fieldset class="container-column" >
+                  <a id="VolverSalaDeEspera" href="lobby.xhtml" class="go_back_button" style="margin:15px">Volver a Sala de Espera</a>
+                  <a id="endSession" href="home_page.xhtml" class="go_back_button" style="margin:15px">Finalizar Sesión</a>
+                </fieldset>
+          </div>
+
+          <!--Board Game elements -->
+          <fieldset id="BoardElements" class="box">
+            <img  src="../img/048-buffalo.svg" alt="Ficha de Jugador" height="25" />
+            <img  src="../img/050-tiger-1.svg" alt="Ficha de Jugador" height="25" />
+            <img  src="../img/003-chipmunk.svg" alt="Ficha de Jugador" height="25" />
+
+            <!-- Board -->
             <table id="game_board" class="box" >
               <tr id="row1">
                 <td id="starting_point" class="board_cell" style="background-color:red" />
@@ -188,24 +189,39 @@
                   <!-- <img id="player1" class="player" src="./My Game2_files/pawn.svg" alt="Pawn by Thomas Hirter from the Noun Project" />-->
               </tr>
               <tr id="row8">
-                <td id="finish_line" class="board_cell" style="background-color:yellow"></td>
+                <td id="finish_line" class="board_cell" style="background-color:#e5ff00"></td>
+                <td class="board_cell empty" />
+                <td class="board_cell empty" />
+                <td class="board_cell empty" />
+                <td class="board_cell empty" />
+                <td class="board_cell empty" />
+                <td class="board_cell empty" />
+                <td class="board_cell empty" />
+                <td class="board_cell empty" />
+                <td class="board_cell empty" />
               </tr>
             </table>
                
           </fieldset>
 
-          <!-- Vector por donde pase el sol -->
-          <fieldset class="grid-containerSunVector" >
-            <div class="grid-itemSun"></div>
-            <div class="grid-itemSun"></div>
-            <div class="grid-itemSun"></div>
-            <div class="grid-itemSun"></div>
-            <div class="grid-itemSun"></div>
-            <div class="grid-itemSun"></div>
-            <div class="grid-itemSun"></div>
-            <img  src="../img/Sol.svg" alt="Sol que avanza por turno" height="70" />
+          <!-- Sun-Counter -->
+          <fieldset class="box">
+            <table >
+              <tr id="row1"  class="grid-containerSunVector" >
+                <td class="grid-itemSun" />
+                <td class="grid-itemSun" />
+                <td class="grid-itemSun" />
+                <td class="grid-itemSun" />
+                <td class="grid-itemSun" />
+                <td class="grid-itemSun" />
+                <td class="grid-itemSun" />
+                <td class="grid-itemSun" />
+                <td class="grid-itemSun" />
+                <td class="grid-itemSun" />
+                <img  src="../img/068-sun-1.svg" alt="Sol que avanza por turno" height="70" />
+              </tr>
+            </table>
           </fieldset>
-
          
           <!-- Progress bar used for  Sun-Counter  and the counter to think fast the move for the turn  -->
           <fieldset  class="image-txt-container">
@@ -215,10 +231,7 @@
                     <p>40% </p>
                </div>  
           </fieldset>
-         
-          
-s
-            
+             
     </main>
     <footer >
       <p id="footer_elementA">Basado en Hoot, Owl, Hoot!</p>

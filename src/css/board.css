@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
 
 :root {
-  --board_row_count: 7;
+  --board_row_count: 8;
   --board_col_count: 10;
 }
 
@@ -58,11 +58,11 @@ body {
 }
 
 #game_board tr {
-  /*height: calc(100% / var(--board_row_count));*/
+  height: calc(100% / var(--board_row_count));
 }
 
 .board_cell {
-  /*width: calc(100% / var(--board_col_count));*/
+  width: calc(100% / var(--board_col_count));
   min-width: 64px;
   min-height: 64px;
   padding: 0;

@@ -1,16 +1,16 @@
+
 class Game {
-    constructor() {
-        
+    
+  constructor() {
+      this.board_info = [];
     }
   
     setupBoardInfo() {
         
         // Vector that will be used to store info on each cell on the game board
-        this.board_info = [];
-        let board_cells = document.getElementsByClassName('board_cell');
-        let board_info_index= 0 ;
-        let cell_coordinates = undefined;
-        let cell_styles = undefined;
+        let board_cells , board_info_index , cell_coordinates , cell_styles;
+        board_info_index = 0;
+        board_cells = document.getElementsByClassName('board_cell');
         for (board_info_index ; board_info_index < board_cells.length ; board_info_index++){
             cell_coordinates = board_cells[board_info_index].getBoundingClientRect();
             cell_styles = window.getComputedStyle(board_cells[board_info_index]);
@@ -21,9 +21,11 @@ class Game {
 
     setupEvents() {
       this.setupBoardInfo();
+      this.deck = new  Deck();
+      let deck_button = document.getElementById('cardsGetStack');
+      deck_button.addEventListener('click' , this.deck.dealCard);
     }
-
-  }
+}
 
   function main() {
     const game = new Game();

@@ -73,6 +73,18 @@ body {
   
 }
 /*
+  Code taken from an example foun on the W3 School website. Available at:
+  https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_circles
+*/
+.color_circle {
+  height: 1.5vw;
+  width: 1.5vw;
+  background-color: rgb(221, 23, 23);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/*
 .circle {
   width: 100%;
   height: 100%;

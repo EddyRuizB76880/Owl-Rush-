@@ -2,7 +2,7 @@
 class Game {
     constructor() {
       this.board_info = document.getElementsByClassName('board_cell');
-      
+
     }
     /*
      cell_coordinates = board_cells[board_info_index].getBoundingClientRect();
@@ -11,7 +11,6 @@ class Game {
     */ 
 
     setupEvents() {
-      this.setupBoardInfo();
       this.deck = new  Deck();
       let deck_button = document.getElementById('cardsGetStack');
       deck_button.addEventListener('click' , this.deck.dealCard);
@@ -23,12 +22,3 @@ class Game {
     game.setupEvents();
   }
   window.addEventListener('load', main);
-   /*
-        let el=  x[1].getBoundingClientRect();
-        let st= window.getComputedStyle(x[1]);
-        x[1].textContent = 'My computed font-size is ' +
-          st.getPropertyValue('font-size') +
-          ',\nand my computed line-height is ' +
-          st.getPropertyValue('line-height') +
-          '.';
-      */

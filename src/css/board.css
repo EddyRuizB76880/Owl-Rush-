@@ -61,6 +61,12 @@ body {
   height: calc(100% / var(--board_row_count));
 }
 
+#row3,
+#row7
+{
+  flex-direction: row-reverse;
+}
+
 .board_cell {
   width: calc(100% / var(--board_col_count));
   min-width: 64px;
@@ -71,6 +77,10 @@ body {
   background-repeat: no-repeat;
   background-size: 100% 100%;
   
+}
+
+.row {
+  display: flex;
 }
 /*
   Code taken from an example foun on the W3 School website. Available at:

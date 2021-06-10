@@ -13,7 +13,7 @@ class Deck {
     new_card = document.createElement('button');
     color = document.createElement('span');
 
-    // ToDo: add colors_array as an attribute in class
+    // ToDo: add colors_array as an attribute in Deck
     colors_array = ['red' , 'lime' , 'yellow' , 'blue' , 'sun'];
     rand_number = Math.floor(Math.random() * colors_array.length);
 

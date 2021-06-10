@@ -55,6 +55,7 @@ body {
   background-color: white;
   border-collapse: collapse;
   position: relative;
+  z-index: -1;
 }
 
 #game_board tr {
@@ -67,7 +68,8 @@ body {
   flex-direction: row-reverse;
 }
 
-.board_cell {
+.board_cell,
+.board_cell_empty {
   width: calc(100% / var(--board_col_count));
   min-width: 64px;
   min-height: 64px;
@@ -108,14 +110,14 @@ body {
   background-image: url("../img/circle0.svg");
 }
 */
-/*
+
 .player {
   position: absolute;
   height: calc(100% / var(--board_row_count));
   top: calc((var(--board_row_count) - 1) * 100% / var(--board_row_count));
   transition: left 1s ease-out, top 1s;
 }
-
+/*
 .active_player {
   filter: drop-shadow(5px 5px 5px green);
 }

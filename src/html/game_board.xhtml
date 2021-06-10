@@ -94,9 +94,9 @@
 
           <!--Board Game elements -->
           <fieldset id="BoardElements" class="box">
-            <img  src="../img/048-buffalo.svg" alt="Ficha de Jugador" height="25" />
-            <img  src="../img/050-tiger-1.svg" alt="Ficha de Jugador" height="25" />
-            <img  src="../img/003-chipmunk.svg" alt="Ficha de Jugador" height="25" />
+            <img  id="player1"  class= "player" src="../img/048-buffalo.svg" alt="Ficha de Jugador" height="25" />
+            <img  id="player2"  class= "player" src="../img/050-tiger-1.svg" alt="Ficha de Jugador" height="25" />
+            <img  id="player3"   class= "player" src="../img/003-chipmunk.svg" alt="Ficha de Jugador" height="25" />
 
             <!-- Board -->
             <table id="game_board" class="box" >
@@ -113,15 +113,15 @@
                 <td class="board_cell" style="background-color:blue"/>
               </tr>
               <tr class="row" id="row2">
-                <td class="board_cell empty" />
-                <td class="board_cell empty" />
-                <td class="board_cell empty" />
-                <td class="board_cell empty" />
-                <td class="board_cell empty" />
-                <td class="board_cell empty" />
-                <td class="board_cell empty" />
-                <td class="board_cell empty" />
-                <td class="board_cell empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
              
                 <td class="board_cell" style="background-color:red"/>
                
@@ -140,15 +140,15 @@
               </tr>
               <tr class="row" id="row4">
                 <td class="board_cell" style="background-color:blue"/>
-                <td class="board_cell empty" />
-                <td class="board_cell empty" />
-                <td class="board_cell empty" />
-                <td class="board_cell empty" />
-                <td class="board_cell empty" />
-                <td class="board_cell empty" />
-                <td class="board_cell empty" />
-                <td class="board_cell empty" />
-                <td class="board_cell empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
               </tr>
               <tr class="row" id="row5">
                 <td class="board_cell"  style="background-color:red"/>
@@ -163,15 +163,15 @@
                 <td class="board_cell"  style="background-color:red"/>
               </tr>
               <tr class="row" id="row6">
-                <td class="board_cell empty" />
-                <td class="board_cell empty" />
-                <td class="board_cell empty" />
-                <td class="board_cell empty" />
-                <td class="board_cell empty" />
-                <td class="board_cell empty" />
-                <td class="board_cell empty" />
-                <td class="board_cell empty" />
-                <td class="board_cell empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
                 <td class="board_cell" style="background-color:lime"/>
               </tr>
               <tr class="row" id="row7">
@@ -190,15 +190,15 @@
               </tr>
               <tr class="row" id="row8">
                 <td id="finish_line" class="board_cell" style="background-color:#e5ff00"></td>
-                <td class="board_cell empty" />
-                <td class="board_cell empty" />
-                <td class="board_cell empty" />
-                <td class="board_cell empty" />
-                <td class="board_cell empty" />
-                <td class="board_cell empty" />
-                <td class="board_cell empty" />
-                <td class="board_cell empty" />
-                <td class="board_cell empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
               </tr>
             </table>
                
@@ -237,6 +237,7 @@
       <p id="footer_elementA">Basado en Hoot, Owl, Hoot!</p>
       <p id="footer_elementB">Desarrollo de aplicaciones web</p>
     </footer>
+    <script src="../js/player.js" defer="defer"></script>
     <script src="../js/deck.js" defer="defer"></script>
     <script src="../js/board.js" defer="defer"></script>
   </body>

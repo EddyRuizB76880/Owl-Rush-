@@ -107,23 +107,8 @@ function startGame() {
   nextRound();
 }
 
-function handleClick(tile) {
-  const index = playerSequence.push(tile) - 1;
-  const remainingTaps = sequence.length - playerSequence.length;
-  if (playerSequence.length === sequence.length) {
-    playerSequence = [];
-    alert("You can stay in the position");
-    return;
-  }
-
-  if (playerSequence[index] !== sequence[index]) {
-    resetGame('Oops! You pressed the wrong button, go back.');
-    return;
-  }
-}
-
 function resetGame(text) {
-  alert(text);
+  console.log(text);
   sequence = [];
   playerSequence = [];
   currentTurn = 0;
@@ -131,10 +116,23 @@ function resetGame(text) {
   buttonContainer.classList.add('unclickable');
 }
 
+function handleClick(tile) {
+  const index = playerSequence.push(tile) - 1;
+  if (playerSequence.length === sequence.length) {
+    playerSequence = [];
+    console.log('You can stay in the position');
+    return;
+  }
+
+  if (playerSequence[index] !== sequence[index]) {
+    resetGame('Oops! You pressed the wrong button, go back.');
+  }
+}
+
 startButton.addEventListener('click', startGame);
 
-buttonContainer.addEventListener('click', event => {
-  const buttonEvent  = event.target.id;
+buttonContainer.addEventListener('click', (event) => {
+  const buttonEvent = event.target.id;
   console.log(buttonEvent);
-   if (buttonEvent) handleClick(buttonEvent);
+  if (buttonEvent) handleClick(buttonEvent);
 });

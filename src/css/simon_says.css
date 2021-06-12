@@ -5,6 +5,10 @@ button {
   margin-bottom: 3em;
 }
 
+#start_button {
+  margin: 1em 1em 1em 6em;
+}
+
 /*
   Places the buttons in a single column using the grid layout. Taken from: https://github.com/Freshman-tech/simon-game-starter-files/blob/master/style.css
 */
@@ -92,6 +96,7 @@ button {
 */
 #blue_button:active,
 #blue_button.activated {
+  font-weight: 900;
   box-shadow: 0 0 0 1px #2bbcff inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 0 0 1px rgba(0, 0, 0, 0.4);
   background-color: #2bbcff;
   transform: translateY(10px);
@@ -99,6 +104,7 @@ button {
 
 #yellow_button:active,
 #yellow_button.activated {
+  font-weight: 900;
   box-shadow: 0 0 0 1px #ffca3d inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 0 0 1px rgba(0, 0, 0, 0.4);
   background-color: #ffca3d;
   transform: translateY(10px);
@@ -106,6 +112,7 @@ button {
 
 #green_button:active,
 #green_button.activated {
+  font-weight: 900;
   box-shadow: 0 0 0 1px #a0ea00 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 0 0 1px rgba(0, 0, 0, 0.4);
   background-color: #a0ea00;
   transform: translateY(10px);
@@ -113,6 +120,7 @@ button {
 
 #red_button:active,
 #red_button.activated {
+  font-weight: 900;
   box-shadow: 0 0 0 1px #ff5c36 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 0 0 1px rgba(0, 0, 0, 0.4);
   background-color: #ff5c36;
   transform: translateY(10px);

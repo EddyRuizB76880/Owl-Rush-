@@ -20,6 +20,20 @@ button {
 }
 
 /*
+  Class to hide element
+*/
+.hidden {
+  display: none;
+}
+
+/*
+  Class to make element unclickable
+*/
+.unclickable {
+  pointer-events: none;
+}
+
+/*
   Colors taken from: https://github.com/Freshman-tech/simon-game-starter-files/blob/master/style.css
 */
 #red_button {
@@ -71,4 +85,35 @@ button {
 #blue_button:focus {
   background-color: #42c4ff;
   box-shadow: 0 0 0 1px #42c4ff inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 10px 0 0 #0c7cb0, 0 10px 0 1px rgba(0, 0, 0, 0.4), 0 10px 8px 1px rgba(0, 0, 0, 0.6);
+}
+
+/*
+  Activated taken and changed colors from: https://github.com/Freshman-tech/simon-game-starter-files/blob/master/style.css
+*/
+#blue_button:active,
+#blue_button.activated {
+  box-shadow: 0 0 0 1px #2bbcff inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 0 0 1px rgba(0, 0, 0, 0.4);
+  background-color: #2bbcff;
+  transform: translateY(10px);
+}
+
+#yellow_button:active,
+#yellow_button.activated {
+  box-shadow: 0 0 0 1px #ffca3d inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 0 0 1px rgba(0, 0, 0, 0.4);
+  background-color: #ffca3d;
+  transform: translateY(10px);
+}
+
+#green_button:active,
+#green_button.activated {
+  box-shadow: 0 0 0 1px #a0ea00 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 0 0 1px rgba(0, 0, 0, 0.4);
+  background-color: #a0ea00;
+  transform: translateY(10px);
+}
+
+#red_button:active,
+#red_button.activated {
+  box-shadow: 0 0 0 1px #ff5c36 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 0 0 1px rgba(0, 0, 0, 0.4);
+  background-color: #ff5c36;
+  transform: translateY(10px);
 }

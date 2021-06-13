@@ -128,15 +128,7 @@ body {
   }
   .board_cell,
   .board_cell_empty {
-    width: calc(100% / var(--board_col_count));
-    height: calc(100% / var(--board_row_count));
     min-width: 27px;
     min-height: 27px;
-    padding: 0;
-    border: 1px solid white;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    
   }
 }

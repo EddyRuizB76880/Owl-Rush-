@@ -6,7 +6,7 @@ Stylizes the grid used for the vector where the sun will normally advance each t
 https://www.w3schools.com/css/css_grid.asp
 */
 .grid-containerSunVector {
-  display: inline-grid;
+
   column-count: 7;
   background-color: #343148;
   padding: 10px;

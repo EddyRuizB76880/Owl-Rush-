@@ -126,9 +126,10 @@ Acomoda elementos para hacerlos responsive segun un cambio de tamaño de pantall
     min-height: 27px;
   }
   #SunCounterProgressBar{
-    width:70px;
+    width:150px;
     transform: rotate(-180deg);
     margin-bottom: 10px;
+    margin-right: 30px;
   }
   #LadoIzquierdoTablero{
     order: 3;
@@ -149,6 +150,15 @@ Acomoda elementos para hacerlos responsive segun un cambio de tamaño de pantall
   }
   body{
     height: unset;
+  }
+  #SunCounterText{
+    flex-direction: row;
+  }
+  #Sun-CounterTitle{
+    margin-right: 15px;
+  }
+  #Sun-CounterFilling{
+    margin-right: 15px;
   }
 
 }

@@ -59,7 +59,7 @@ It adjusts the positions to be vertical
  
 }
 #SunCounterText{
-  display: flex;
+    display: flex;
 }
 /*
 It adjusts the positions to be horizontal

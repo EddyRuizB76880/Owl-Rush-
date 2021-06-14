@@ -143,7 +143,7 @@ Acomoda elementos para hacerlos responsive segun un cambio de tamaño de pantall
   }
 
   #SunCounterProgressBar{
-    margin-bottom: 15px;
+    margin-bottom: 10px;
   }
 
   #footer{
@@ -152,6 +152,6 @@ Acomoda elementos para hacerlos responsive segun un cambio de tamaño de pantall
   }
   body{
     height: unset;
-
   }
+
 }

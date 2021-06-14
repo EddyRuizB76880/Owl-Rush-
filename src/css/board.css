@@ -96,20 +96,7 @@ body {
   display: inline-block;
 }
 
-/*
-.circle {
-  width: 100%;
-  height: 100%;
-  min-width: 64px;
-  min-height: 64px;
-}
 
-.circle0 {
-  /* background-color: red; */
-/*
-  background-image: url("../img/circle0.svg");
-}
-*/
 
 .player {
   position: absolute;
@@ -122,6 +109,13 @@ body {
   filter: drop-shadow(5px 5px 5px green);
 }
 */
+
+
+/*
+Acomoda elementos para hacerlos responsive segun un cambio de tamaño de pantalla
+
+*/
+
 @media (max-width: 640px) {
   #page_content {
     flex-direction: column;
@@ -131,4 +125,9 @@ body {
     min-width: 27px;
     min-height: 27px;
   }
+  #SunCounterProgressBar{
+    width:70px;
+    transform: rotate(-180deg);
+  }
+ 
 }

@@ -128,6 +128,7 @@ Acomoda elementos para hacerlos responsive segun un cambio de tamaño de pantall
   #SunCounterProgressBar{
     width:70px;
     transform: rotate(-180deg);
+    margin-bottom: 10px;
   }
   #LadoIzquierdoTablero{
     order: 3;
@@ -140,10 +141,6 @@ Acomoda elementos para hacerlos responsive segun un cambio de tamaño de pantall
   #LadoDerechoTablero {
     order: 1;
     height: 70px;
-  }
-
-  #SunCounterProgressBar{
-    margin-bottom: 10px;
   }
 
   #footer{

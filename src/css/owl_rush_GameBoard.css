@@ -58,7 +58,9 @@ It adjusts the positions to be vertical
   flex-direction: column;
  
 }
-
+#SunCounterText{
+  display: flex;
+}
 /*
 It adjusts the positions to be horizontal
 */
@@ -139,3 +141,8 @@ Adjusts the size of the margin of the right for the button that ends the game se
   margin-right: 45px;
 }
 
+#SunCounterProgressBar{
+      
+  width:250px; 
+  margin-bottom:150px;
+}

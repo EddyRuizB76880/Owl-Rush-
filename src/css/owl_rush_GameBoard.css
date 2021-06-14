@@ -53,7 +53,7 @@ Changes the size of the button that lets to take new cards
 It adjusts the positions to be vertical
 */
 .container-column {
-  display: flex;
+ 
   align-items: center;
   flex-direction: column;
  

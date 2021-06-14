@@ -129,5 +129,29 @@ Acomoda elementos para hacerlos responsive segun un cambio de tamaño de pantall
     width:70px;
     transform: rotate(-180deg);
   }
- 
+  #LadoIzquierdoTablero{
+    order: 3;
+  }
+  
+  #CentroTablero{
+    order: 2;
+  }
+  
+  #LadoDerechoTablero {
+    order: 1;
+    height: 70px;
+  }
+
+  #SunCounterProgressBar{
+    margin-bottom: 15px;
+  }
+
+  #footer{
+    width: 100%;
+    order: 4;
+  }
+  body{
+    height: unset;
+
+  }
 }

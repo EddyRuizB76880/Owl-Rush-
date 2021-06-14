@@ -48,6 +48,7 @@ body {
 #players {
 }
 
+
 #game_board {
   height: 80%;
   order: 1;
@@ -132,6 +133,8 @@ Acomoda elementos para hacerlos responsive segun un cambio de tamaño de pantall
     margin-right: 30px;
   }
   #LadoIzquierdoTablero{
+    display: flex;
+    flex-direction: column;
     order: 3;
   }
   
@@ -161,4 +164,13 @@ Acomoda elementos para hacerlos responsive segun un cambio de tamaño de pantall
     margin-right: 15px;
   }
 
+  #Jugadores{
+    order: 2;
+  }
+  #AccionesDeJuego{
+    order: 1;
+  }
+  #ReturnButtons{
+    order: 3;
+  }
 }

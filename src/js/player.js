@@ -1,16 +1,20 @@
 /*
   Code based on teacher's example.
 */ 
-class Player {
+export default class Player {
     constructor(id) {
       this.id = id;
-      this.element = document.getElementById(id);
+      this.avatar = document.getElementById(id);
       this.position = 0;
     }
-  
-    move(next_position_x, next_position_y ) {
+
+    static start_move(new_card_value) {
+      Board.move_player(new_card_value, this);
+    }
+
+    move_avatar(next_position_x, next_position_y ) {
       const computedStyles = window.getComputedStyle(this.element);
-      this.element.style.top = `${next_position_y}px`;
-      this.element.style.left = `${next_position_x}px`;
+      this.avatar.style.top = `${next_position_y}px`;
+      this.avatar.style.left = `${next_position_x}px`;
     }
   }

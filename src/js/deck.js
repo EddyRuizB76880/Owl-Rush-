@@ -1,9 +1,9 @@
-class Deck {
+export default class Deck {
 
   constructor() {
   }
 
-  dealCard() {
+  deal_card() {
     const player_hand = document.getElementById('player\'s_hand');
     let hand_card , new_card , color , colors_array , rand_number;
 
@@ -14,7 +14,7 @@ class Deck {
     color = document.createElement('span');
 
     // ToDo: add colors_array as an attribute in Deck
-    colors_array = ['red' , 'lime' , 'yellow' , 'blue' , 'sun'];
+    colors_array = ['rgb(0, 0, 255)' , 'rgb(0, 255, 0)' , 'rgb(255, 0, 0)' , 'rgb(255, 255, 0)'];
     rand_number = Math.floor(Math.random() * colors_array.length);
 
     new_card.className = 'buttonCardsSelection';
@@ -22,7 +22,7 @@ class Deck {
 
     new_card.value = colors_array[rand_number];
     color.style.backgroundColor = colors_array[rand_number];
-    new_card.addEventListener('click',function(){Game.movePlayer(new_card.value)});
+    new_card.addEventListener('click',function(){Player.start_move(new_card.value)});
     
     new_card.appendChild(color);
     hand_card.appendChild(new_card);

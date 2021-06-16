@@ -1,5 +1,5 @@
 
-class Game {
+export default class Board{
     constructor() {
       this.board_info = document.getElementsByClassName('board_cell');
     }
@@ -8,31 +8,37 @@ class Game {
      cell_styles = window.getComputedStyle(board_cells[board_info_index]);
      this.board_info[board_info_index] = `${cell_styles.getPropertyValue('background-color')};${cell_coordinates.x};${cell_coordinates.y}`;   
     */ 
-    setupEvents() {
-      this.deck = new  Deck();
-      this.player_1 = new Player();
-      let deck_button = document.getElementById('cardsGetStack');
-      deck_button.addEventListener('click' , this.deck.dealCard);
-    }
-
-    static movePlayer(color) {
+    static move_player(color , player) {
       console.log(`La carta es color ${color}`);
-       this.board_info = document.getElementsByClassName('board_cell');
-      let player_1 = new Player('player1');
-      let new_player_position = player_1.position;
+      this.board_info = document.getElementsByClassName('board_cell');
+      let new_player_position = player.position;
       let cell_styles = window.getComputedStyle(this.board_info[new_player_position]);
       console.log(`${cell_styles.getPropertyValue('background-color')}`);
       while(cell_styles.getPropertyValue('background-color').localeCompare(color) != 0)
-      {   cell_styles = window.getComputedStyle(this.board_info[new_player_position]);
-          new_player_position += 1;
+      {   
+        new_player_position += 1;
+        console.log(`${this.board_info[new_player_position]},${new_player_position}`);
+        console.log(`${cell_styles.getPropertyValue('background-color')} vs ${color}`);  
+        cell_styles = window.getComputedStyle(this.board_info[new_player_position]);
+          
       }
         let cell_coordinates = this.board_info[new_player_position].getBoundingClientRect(); 
-        this.player_1.move(cell_coordinates.x,cell_coordinates.y);
+        player.move_avatar(cell_coordinates.x,cell_coordinates.y);
     }
-  }
+}
 
-  function main() {
-    const game = new Game();
-    game.setupEvents();
-  }
-  window.addEventListener('load', main);
+/*<script> logica de sun counter y sun counter boost
+var myVar;
+
+function myFunction() {
+  myVar = setInterval(function(){ var number = document.getElementById("id");
+  								 var n2 = parseInt(number.innerHTML,10)
+                                 console.log(`${number.innerHTML}`);
+                                 n2+=1;
+                                 number.innerHTML = ""+n2;} , 3000);
+}
+
+function myStopFunction() {
+  clearInterval(myVar);
+}
+</script>*/ 

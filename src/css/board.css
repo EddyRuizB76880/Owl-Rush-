@@ -102,7 +102,7 @@ body {
 .player {
   position: absolute;
   height: calc(100% / var(--board_row_count));
-  top: calc((var(--board_row_count) - 1) * 100% / var(--board_row_count));
+  top: calc((var(--board_row_count) - 8) * 100% / var(--board_row_count));
   transition: left 1s ease-out, top 1s;
 }
 /*

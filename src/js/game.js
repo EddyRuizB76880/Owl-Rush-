@@ -7,8 +7,9 @@ export default class Game {
   setup_events() {
     this.deck = new  Deck();
     this.player_1 = new Player();
-    this.game_board = new Board();
+    this.game_board = new Board(5,50);
     let deck_button = document.getElementById('cardsGetStack');
     deck_button.addEventListener('click' , this.deck.deal_card);
+    deck_button.addEventListener('click' , this.game_board.empty_boost);
   }
 }

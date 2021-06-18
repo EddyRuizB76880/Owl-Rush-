@@ -1,3 +1,5 @@
+import Board from "./board";
+
 export default class Deck {
 
   constructor() {
@@ -23,7 +25,8 @@ export default class Deck {
     new_card.value = colors_array[rand_number];
     color.style.backgroundColor = colors_array[rand_number];
     new_card.addEventListener('click',function(){Player.start_move(new_card.value)});
-    
+    new_card.addEventListener('click',function(){Board.stop_timeout()});
+
     new_card.appendChild(color);
     hand_card.appendChild(new_card);
     player_hand.appendChild(hand_card);

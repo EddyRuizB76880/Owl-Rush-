@@ -106,7 +106,7 @@ class Player {
               currentCell.appendChild(this.sun);
            }else{
               this.sun_counter_bar.value = "0";
-              this.sun_counter_filling.innerHTML= this.sun_counter_bar.value;
+              this.sun_counter_filling.innerHTML= this.sun_counter_bar.value+"%";
            }
         }
         this.empty_boost();

@@ -78,6 +78,7 @@ class Player {
     constructor(sc_gracetime , scb_initial_value) {
       this.board_info = document.getElementsByClassName('board_cell');
       this.sun_counter_bar = document.getElementById('SunCounterProgressBar');
+      this.sun_counter_filling = document.getElementById('Sun-CounterFilling');
       this.sun_counter_boost = document.getElementById('sun_counter_boost');
       this.sun_counter_boost.value = `${scb_initial_value}`;
       this.sun_counter_boost_gracetime = sc_gracetime;
@@ -92,19 +93,20 @@ class Player {
         let new_card = this.deck.deal_card();
         
         console.log(`${new_card.children[0].value}`);
-        ///this.sun_counter_bar.value += 10; //para pruebas 
+        this.sun_counter_bar.value += 10; //para pruebas 
         
         if (new_card.children[0].value == 'rgb(255, 255, 0)') {//cambiar color amarillo a variable de sol
           //recupere la barritla y le suba
           this.sunpath = document.getElementById("sun_path");
           this.sun = document.getElementById("Sun");
-          // this.sun_counter_bar.value = "100";//para pruebas 
+          
            if(this.sun_counter_bar.value != "100"  ){
               currentSunPosition+=1;
               currentCell= this.sunpath.rows[0].cells[currentSunPosition];
               currentCell.appendChild(this.sun);
            }else{
-            this.sun_counter_bar.value = "0";
+              this.sun_counter_bar.value = "0";
+              this.sun_counter_filling.innerHTML= this.sun_counter_bar.value;
            }
         }
         this.empty_boost();

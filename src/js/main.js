@@ -93,7 +93,7 @@ class Player {
         let new_card = this.deck.deal_card();
         
         console.log(`${new_card.children[0].value}`);
-        this.sun_counter_bar.value += 10; //para pruebas 
+       // this.sun_counter_bar.value += 10; //para pruebas 
         
         if (new_card.children[0].value == 'rgb(255, 255, 0)') {//cambiar color amarillo a variable de sol
           //recupere la barritla y le suba

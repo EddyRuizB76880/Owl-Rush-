@@ -59,14 +59,14 @@ class Player {
       this.deck = new Deck();
       this.time_out;
       let deck_button = document.getElementById('cardsGetStack');
-      deck_button.addEventListener('click', (event)=>{   this.deal_card(); });
+      deck_button.addEventListener('click', (event)=>{   this.start_player_turn(); });
     }
 
-    deal_card() {
+    start_player_turn() {
         let new_card = this.deck.deal_card();
         //if new card = sun {recupere la barritla y le suba}
         this.empty_boost();
-        new_card.addEventListener('click' , (event)=>{  this.stop_timeout(); });
+        new_card.addEventListener('click' , (event)=>{  this.process_player_result(); });
     }
 
     /*
@@ -101,7 +101,7 @@ class Player {
   
     }
   
-    stop_timeout() {
+    process_player_result() {
       clearInterval(this.timeout);
       let sun_counter_progress = parseInt(this.sun_counter_bar.value,10);
       sun_counter_progress += parseInt(this.sun_counter_boost.value, 10);
@@ -117,12 +117,13 @@ class Player {
     setup_events() {
       this.player_1 = new Player('player1');
       this.player_list.push(this.player_1);
-      this.game_board = new Board(5,50);
       this.active_player =  Math.floor(Math.random() * this.player_list.length);
+      this.game_board = new Board(5,50);
     }
 
     start_player_turn(){
-      // link cards event listener to move player  
+      // link cards event listener to move player
+
     }
 
   }

@@ -143,3 +143,11 @@
 
 - El jugador tendrá la posibilidad de de volver a jugar otra partida o de volver al menú principal.
 ![Overlay de resultado del juego](img/Resultados.svg)
+
+# Paso de mensajes 
+
+## Máquina de estados para el cliente
+![Máquina de estados cliente](img/MaquinaEstadosCliente.svg)
+
+## Máquina de estados para el servidor
+![Máquina de estados servidor](img/MaquinaEstadosServidor.svg)

@@ -1,3 +1,6 @@
+var currentSunPosition=0;
+var currentCell;
+
 class Player {
     constructor(id) {
       this.id = id;
@@ -48,10 +51,34 @@ class Player {
     }
   
   }
+  
+
+  class SunPath{
+  
+    constructor(){
+      this.sunpath = document.getElementById("sun_path");
+      this.sun = document.getElementById("Sun");
+      this.sunCounter = document.getElementById("SunCounterProgressBar");
+      
+      currentCell= this.sunpath.rows[0].cells[0];
+      currentCell.appendChild(this.sun);
+    }
+    /*
+    actionOfSunPath(){
+      this.sunCounter.value = "100";
+      if(this.sunCounter.value != "100"  ){
+          currentSunPosition+=1;
+          currentCell= this.sunpath.rows[0].cells[currentSunPosition];
+          currentCell.appendChild(this.sun);
+      }
+    }*/
+  }
+
    class Board{
     constructor(sc_gracetime , scb_initial_value) {
       this.board_info = document.getElementsByClassName('board_cell');
       this.sun_counter_bar = document.getElementById('SunCounterProgressBar');
+      this.sun_counter_filling = document.getElementById('Sun-CounterFilling');
       this.sun_counter_boost = document.getElementById('sun_counter_boost');
       this.sun_counter_boost.value = `${scb_initial_value}`;
       this.sun_counter_boost_gracetime = sc_gracetime;
@@ -64,7 +91,24 @@ class Player {
 
     start_player_turn() {
         let new_card = this.deck.deal_card();
-        //if new card = sun {recupere la barritla y le suba}
+        
+        console.log(`${new_card.children[0].value}`);
+       // this.sun_counter_bar.value += 10; //para pruebas 
+        
+        if (new_card.children[0].value == 'rgb(255, 255, 0)') {//cambiar color amarillo a variable de sol
+          //recupere la barritla y le suba
+          this.sunpath = document.getElementById("sun_path");
+          this.sun = document.getElementById("Sun");
+          
+           if(this.sun_counter_bar.value != "100"  ){
+              currentSunPosition+=1;
+              currentCell= this.sunpath.rows[0].cells[currentSunPosition];
+              currentCell.appendChild(this.sun);
+           }else{
+              this.sun_counter_bar.value = "0";
+              this.sun_counter_filling.innerHTML= this.sun_counter_bar.value+"%";
+           }
+        }
         this.empty_boost();
         new_card.addEventListener('click' , (event)=>{  this.process_player_result(); });
     }
@@ -109,16 +153,21 @@ class Player {
       this.sun_counter_boost.value = `${this.sun_counter_boost_initial_value}`;
     }
   }
+
  class Game {
     constructor() {
       this.player_list = [];
       this.active_player = 0;
     }
     setup_events() {
+      this.sunPath=new SunPath();
       this.player_1 = new Player('player1');
       this.player_list.push(this.player_1);
-      this.active_player =  Math.floor(Math.random() * this.player_list.length);
+      
       this.game_board = new Board(5,50);
+      
+      this.active_player =  Math.floor(Math.random() * this.player_list.length);
+      
     }
 
     start_player_turn(){
@@ -131,6 +180,7 @@ class Player {
 
 function main() {
     const game = new Game();
+    currentSunPosition=0;
     game.setup_events();
 }
 

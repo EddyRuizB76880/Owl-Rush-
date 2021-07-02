@@ -146,3 +146,16 @@ Adjusts the size of the margin of the right for the button that ends the game se
   width:250px; 
   margin-bottom:150px;
 }
+
+
+#Sun {
+ /* position: absolute;*/
+/*  height: calc(100% / var(--board_column_count));*/
+  top: calc((var(--board_column_count) - 8) * 100% / var(--board_column_count));
+  transition: left 1s ease-out, top 1s;
+}
+
+
+#Sun_path  {
+  height: calc(100% / var(--board_column_count));
+}

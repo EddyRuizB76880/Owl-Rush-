@@ -23,7 +23,7 @@
  <hr/>
     <!-- Game Board -->
     <main id="page_content">
-      
+
           <!-- Player´s actions -->
           <div id="LadoIzquierdoTablero" class="box">
                 <!-- Other player´s cards -->
@@ -61,6 +61,15 @@
                           <button id="cardsGetStack" type="button" value = "myimage">
                             <img class="img-center" src='../img/Maso.svg' alt="Pila de cartas"/></button>
                       </div>
+                      <div id="main_content_simon_dice" class="hidden">
+                        <div id="buttons_simon_says" class="unclickable">
+                          <button type="button" id="red_button">Rojo</button>
+                          <button type="button" id="yellow_button">Amarillo</button>
+                          <button type="button" id="blue_button">Azul</button>
+                          <button type="button" id="green_button">Verde</button>
+                        </div>
+                        <button type="button" id="start_button">Empezar</button>
+                      </div>
 
 
 
@@ -69,16 +78,16 @@
                         <p>Piensa rápido! </p>
                         <p>xS </p>
                       </div>
-                      
+
                       <!-- Current player hand -->
                       <ul id="player's_hand">
-                  
+
                       </ul>
 
 
-                      
 
-                      
+
+
                 </fieldset>
 
                 <!-- Buttons to return to main page and return to lobby  -->
@@ -98,7 +107,7 @@
                       <td class="board_cell grid-itemSun" >
 
                         <img id="Sun" src="../img/068-sun-1.svg" alt="Sol que avanza por turno" height="70" /></td>
-                      
+
                         <td class="board_cell grid-itemSun" />
                       <td class="board_cell grid-itemSun" />
                       <td class="board_cell grid-itemSun" />
@@ -107,13 +116,13 @@
                       <td class="board_cell grid-itemSun" />
                       <td class="board_cell grid-itemSun" />
                     </tr>
-                    
+
                   </table>
                 </fieldset>
 
                 <!--Board Game elements -->
                 <fieldset id="BoardElements" class="box">
-                  
+
 
                   <!-- Board -->
                   <table id="game_board" class="box" >
@@ -139,9 +148,9 @@
                       <td class="board_cell_empty" />
                       <td class="board_cell_empty" />
                       <td class="board_cell_empty" />
-                  
+
                       <td class="board_cell" style="background-color:red"/>
-                    
+
                     </tr>
                     <tr class="row" id="row3">
                       <td class="board_cell"  style="background-color:lime"/>
@@ -169,7 +178,7 @@
                     </tr>
                     <tr class="row" id="row5">
                       <td class="board_cell"  style="background-color:red"/>
-                      <td class="board_cell" style="background-color:yellow"/> 
+                      <td class="board_cell" style="background-color:yellow"/>
                       <td class="board_cell"  style="background-color:blue"/>
                       <td class="board_cell" style="background-color:lime"/>
                       <td class="board_cell" style="background-color:yellow"/>
@@ -202,7 +211,7 @@
                       <td class="board_cell"  style="background-color:red"/>
                       <td class="board_cell" style="background-color:yellow"/>
                       <td class="board_cell" style="background-color:blue"/>
-                      
+
                         <!-- <img id="player1" class="player" src="./My Game2_files/pawn.svg" alt="Pawn by Thomas Hirter from the Noun Project" />-->
                     </tr>
                     <tr class="row" id="row8">
@@ -222,20 +231,20 @@
                   <img  id="player2"  class= "player" src="../img/050-tiger-1.svg" alt="Ficha de Jugador" height="25" />
                   <img  id="player3"   class= "player" src="../img/003-chipmunk.svg" alt="Ficha de Jugador" height="25" />
                   </table>
-                  
+
                 </fieldset>
           </div>
-                
-         
+
+
           <!-- Progress bar used for  Sun-Counter  and the counter to think fast the move for the turn  -->
           <fieldset id="LadoDerechoTablero"  class="container-row box">
                <div id="SunCounterText" class="container-column" >
                     <progress id="SunCounterProgressBar" class="progressVertical"  value="32" max="100"  > 32% </progress>
                     <p id="Sun-CounterTitle">Sun-Counter </p>
                     <p id="Sun-CounterFilling">40% </p>
-               </div>  
+               </div>
           </fieldset>
-             
+
     </main>
     <footer id="footer">
       <p id="footer_elementA">Basado en Hoot, Owl, Hoot!</p>

@@ -1,6 +1,39 @@
 var currentSunPosition=0;
 var currentCell;
 
+class AlertManager {
+  constructor() {
+    this.alert_section = document.getElementById('player_alerts');
+  }
+
+  alert_player(message , img , ...buttons) {
+    let new_alert , new_button , index;
+    if (img != null){}
+    new_alert = document.createElement('h2');
+    new_alert.innerHTML = `${message}`;
+    this.alert_section.appendChild(new_alert);
+    if (buttons.length > 0){
+      index = 0;
+      for(index ; index < buttons.length ; index++){
+        new_button = document.createElement ('button');
+        new_button.innerHTML = `${buttons[index][0]}`;
+        new_button.addEventListener('click', ()=> {this.dismiss();});
+        this.alert_section.appendChild(new_button);
+      }
+    }
+    this.alert_section.style.display = 'grid';
+
+  }
+
+  dismiss() {
+    this.alert_section.style.display = 'none';
+    // Code taken from JavaScript Tutorial online website. Available at :
+    // https://www.javascripttutorial.net/dom/manipulating/remove-all-child-nodes/
+    while (this.alert_section.firstChild) {
+      this.alert_section.removeChild(this.alert_section.firstChild);
+    }
+  }
+}
 class Player {
     constructor(id) {
       this.id = id;
@@ -301,10 +334,13 @@ class Player {
       this.player_1 = new Player('player1');
       this.game_board = new Board(5,50);
       this.deck = new Deck();
+      this.alert_manager = new AlertManager();
       this.player_list.push(this.player_1);
       this.active_player =  Math.floor(Math.random() * this.player_list.length);
       let deck_button = document.getElementById('cardsGetStack');
       deck_button.addEventListener('click', (event)=>{   this.start_player_turn(); });
+      this.alert_manager.alert_player('Cuando estés listo, presiona la baraja de cartas. Si necesitas hacer algún ajuste, puedes regresar al menu principal antes de empezar la partida' 
+                                          , 'ff' , [['Entendido', '4'],['Entendido', '4']]);
     }
 
     start_player_turn(){

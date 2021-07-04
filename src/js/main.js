@@ -6,48 +6,61 @@ class Player {
       this.id = id;
       this.avatar = document.getElementById(id);
       this.position = 0;
+      // Attributes needed to make player return to their previous position if
+      // they fail the SS sequence
+      this.previous_position;
+      this.previous_top;
+      this.previous_bottom;
+      this.previous_right;
+      this.previous_left;
     }
   
-    static start_move(chosen_card_value) {
-      Board.move_player(chosen_card_value, this.id);
+    move_avatar(next_position_left , next_position_top , next_position_bottom, 
+                  next_position_right , new_postion ) {
+     
+     const old_coordinates = this.avatar.getBoundingClientRect();
+     this.previous_position = this.position;
+     this.previous_top = old_coordinates.top;
+     this.previous_bottom = old_coordinates.bottom;
+     this.previous_right = old_coordinates.right;
+     this.previous_left = old_coordinates.left;
+     this.avatar.style.top = `${next_position_top}px`;
+     this.avatar.style.left = `${next_position_left}px`;
+     this.avatar.style.bottom = `${next_position_bottom}px`;
+     this.avatar.style.right = `${next_position_right}px`;
+     this.position = new_postion;
     }
-  
-    move_avatar(next_position_x, next_position_y, new_postion ) {
-      this.avatar.style.top = `${next_position_y}px`;
-      this.avatar.style.left = `${next_position_x}px`;
-      this.position = new_postion;
+
+    go_back() {
+      this.avatar.style.top = this.previous_top;
+      this.avatar.style.left = this.previous_left;
+      this.avatar.style.bottom = this.previous_bottom;
+      this.avatar.style.right = this.previous_right;
+      this.position = this.previous_position;
     }
   }
  class Deck {
   
-    constructor() {
+    constructor() {//         Blue                Green                 Red                 Yellow 
+      this.colors_array = ['rgb(0, 0, 255)' , 'rgb(0, 255, 0)' , 'rgb(255, 0, 0)' , 'rgb(255, 255, 0)' , 'SOL'];
     }
   
     deal_card() {
-      const player_hand = document.getElementById('player\'s_hand');
-      let hand_card , new_card , color , colors_array ,rand_number;
-  
-      // hand_card represents the list element that will allow the new card to be
-      // displayed on player´s hand
-      hand_card = document.createElement('li');
+      let new_card , color , rand_number;
       new_card = document.createElement('button');
-      color = document.createElement('span');
-      //ToDo: Make colors_array be an attribute of Deck
-      colors_array = ['rgb(0, 0, 255)' , 'rgb(0, 255, 0)' , 'rgb(255, 0, 0)' , 'rgb(255, 255, 0)'];
+      color = document.createElement('span');               
 
-      rand_number = Math.floor(Math.random() * colors_array.length);
+      rand_number = Math.floor(Math.random() * this.colors_array.length);
   
       new_card.className = 'buttonCardsSelection';
       color.className = 'color_circle';
   
-      new_card.value = colors_array[rand_number];
-      color.style.backgroundColor = colors_array[rand_number];
-  
+      new_card.value = this.colors_array[rand_number];
+      color.style.backgroundColor = this.colors_array[rand_number];
+
       new_card.appendChild(color);
-      hand_card.appendChild(new_card);
-      player_hand.appendChild(hand_card);
-    
-      return hand_card;
+    //  console.log(`Deck: ${hand_card.children[0].value} es el valor de la nueva carta`);
+      return new_card;
     }
   
   }
@@ -74,6 +87,112 @@ class Player {
     }*/
   }
 
+  class SimonSays {
+    constructor() {
+      this.sequence = [];
+      this.playerSequence = [];
+      this.turns = 4;
+      this.currentTurn = 0;
+      this.incremental = false;
+      this.buttons = ['red_button', 'green_button', 'blue_button', 'yellow_button'];
+      this.buttonPressed = '';
+      this.player_succeeded = false;
+    }
+
+  
+    resetGame(text) {
+      const buttonContainer = document.getElementById('buttons_simon_says');
+      console.log(text);
+      this.sequence = [];
+      this.playerSequence = [];
+      this.currentTurn = 0;
+      this.player_succeeded = false;
+      buttonContainer.classList.add('unclickable');
+    }
+  
+    handleClick(tile) {
+      const index = this.playerSequence.push(tile) - 1;
+      if (this.playerSequence.length === this.sequence.length) {
+        this.playerSequence = [];
+        console.log('You can stay in the position');
+        this.player_succeeded = true;
+        return;
+      }
+  
+      if (this.playerSequence[index] !== this.sequence[index]) {
+        this.resetGame('Oops! You pressed the wrong button, go back.');
+      }
+    }
+  
+    playerTurn() {
+      const buttonContainer = document.getElementById('buttons_simon_says');
+      buttonContainer.classList.remove('unclickable');
+      buttonContainer.addEventListener('click', (event) => {
+        const buttonEvent = event.target.id;
+        console.log(buttonEvent);
+        if (buttonEvent) this.handleClick(buttonEvent);
+      });
+    }
+  
+    nextStep() {
+      const random = this.buttons[Math.floor(Math.random() * this.buttons.length)];
+      return random;
+    }
+  
+    generateSequenceIncremental() {
+      // copy all the elements in the `sequence` array to `nextSequence`
+      const nextSequence = [...this.sequence];
+      nextSequence.push(this.nextStep());
+      this.playRound(nextSequence);
+      this.sequence = [...nextSequence];
+    }
+  
+    generateSequenceFixed() {
+      for (let index = 0; index < this.turns; index += 1) {
+        this.sequence.push(this.nextStep());
+      }
+      this.playRound(this.sequence);
+    }
+  
+    generateSequence() {
+      if (this.incremental === true) {
+        this.generateSequenceIncremental();
+      } else {
+        this.generateSequenceFixed();
+      }
+    }
+  
+    playSequence() {
+      this.generateSequence();
+      setTimeout(() => {
+        this.playerTurn(this.currentTurn);
+      }, this.currentTurn * 600 + 1000);
+    }
+  
+    startRound() {
+      this.currentTurn += 1;
+      this.playSequence();
+    }
+  
+    activatebutton(color) {
+      const button = document.getElementById(`${color}`);
+      this.buttonPressed = button;
+      button.classList.add('activated');
+      setTimeout(() => {
+        button.classList.remove('activated');
+      }, 400);
+    }
+  
+    playRound(nextSequence) {
+      nextSequence.forEach((color, index) => {
+        setTimeout(() => {
+          this.activatebutton(color);
+        }, (index + 1) * 600);
+      });
+    }
+  
+  }
+
    class Board{
     constructor(sc_gracetime , scb_initial_value) {
       this.board_info = document.getElementsByClassName('board_cell');
@@ -83,45 +202,46 @@ class Player {
       this.sun_counter_boost.value = `${scb_initial_value}`;
       this.sun_counter_boost_gracetime = sc_gracetime;
       this.sun_counter_boost_initial_value = scb_initial_value;
-      this.deck = new Deck();
+      this.simon_says_module = new SimonSays();
+      //ToDO: Try to separate sun counter stuff in a new class called Sun Manager
       this.time_out;
-      let deck_button = document.getElementById('cardsGetStack');
-      deck_button.addEventListener('click', (event)=>{   this.start_player_turn(); });
     }
 
-    start_player_turn() {
-        let new_card = this.deck.deal_card();
-        
-        console.log(`${new_card.children[0].value}`);
+    start_player_turn(new_card , active_player) {
+        const player_hand = document.getElementById('player\'s_hand');
+        let hand_card;
+        console.log(`${new_card.value}`);
        // this.sun_counter_bar.value += 10; //para pruebas 
         
-        if (new_card.children[0].value == 'rgb(255, 255, 0)') {//cambiar color amarillo a variable de sol
+        if (new_card.value === 'SOL') {
           //recupere la barritla y le suba
           this.sunpath = document.getElementById("sun_path");
           this.sun = document.getElementById("Sun");
           
-           if(this.sun_counter_bar.value != "100"  ){
+           if (this.sun_counter_bar.value != "100"  ) {
               currentSunPosition+=1;
               currentCell= this.sunpath.rows[0].cells[currentSunPosition];
               currentCell.appendChild(this.sun);
-           }else{
+           } else {
               this.sun_counter_bar.value = "0";
               this.sun_counter_filling.innerHTML= this.sun_counter_bar.value+"%";
            }
-        }
+        } else {
+        hand_card = document.createElement('li');
+        hand_card.appendChild(new_card);
+        new_card.addEventListener('click' , (event)=>{  this.process_player_result
+                                                        (new_card.value, active_player); 
+        });
+        player_hand.appendChild(hand_card);
         this.empty_boost();
-        new_card.addEventListener('click' , (event)=>{  this.process_player_result(); });
-    }
+        console.log(`${new_card.value} es el valor de la nueva carta`);
+      }
+  }
 
-    /*
-     cell_coordinates = board_cells[board_info_index].getBoundingClientRect();
-     cell_styles = window.getComputedStyle(board_cells[board_info_index]);
-     this.board_info[board_info_index] = `${cell_styles.getPropertyValue('background-color')};${cell_coordinates.x};${cell_coordinates.y}`;   
-    */ 
-    move_player(color , player_position) {
+    move_player(color , active_player) {
       let new_player_position , cell_styles, cell_coordinates;
-      new_player_position = player_position;
-      console.log(`La carta es color ${color}, ${player_id}`);
+      new_player_position = active_player.position + 1;
+      console.log(`La carta es color ${color} , ${active_player.id}`);
       cell_styles = window.getComputedStyle(this.board_info[new_player_position]);
       console.log(`${cell_styles.getPropertyValue('background-color')}`);
       while(cell_styles.getPropertyValue('background-color').localeCompare(color) != 0)
@@ -133,7 +253,9 @@ class Player {
           
       }
       cell_coordinates = this.board_info[new_player_position].getBoundingClientRect(); 
-      return cell_coordinates;
+      active_player.move_avatar(cell_coordinates.left , cell_coordinates.top , 
+                                  cell_coordinates.bottom , cell_coordinates.right , 
+                                    new_player_position );
     }
   
     empty_boost() {
@@ -145,13 +267,28 @@ class Player {
   
     }
   
-    process_player_result() {
+    process_player_result(chosen_card_color, active_player) {
       clearInterval(this.timeout);
       let sun_counter_progress = parseInt(this.sun_counter_bar.value,10);
       sun_counter_progress += parseInt(this.sun_counter_boost.value, 10);
       this.sun_counter_bar.value = `${sun_counter_progress}`;
       this.sun_counter_boost.value = `${this.sun_counter_boost_initial_value}`;
+      this.move_player(chosen_card_color , active_player);
+      setTimeout(() => {this.begin_simon_says_sequence()}, 2500);
+      //this.checkResult(active_player);
     }
+
+   checkResult(active_player) {
+    console.log('checking'); 
+    if(this.simon_says_module.player_succeeded === false){
+      active_player.go_back();
+     }else{}
+   }
+   begin_simon_says_sequence() {
+      document.getElementById('main_content_simon_dice').className = 'buttons_simon_says';
+      this.simon_says_module.startRound();
+    }
+
   }
 
  class Game {
@@ -159,20 +296,22 @@ class Player {
       this.player_list = [];
       this.active_player = 0;
     }
-    setup_events() {
-      this.sunPath=new SunPath();
+    setup_game() {
+      this.sunPath = new SunPath();
       this.player_1 = new Player('player1');
-      this.player_list.push(this.player_1);
-      
       this.game_board = new Board(5,50);
-      
+      this.deck = new Deck();
+      this.player_list.push(this.player_1);
       this.active_player =  Math.floor(Math.random() * this.player_list.length);
-      
+      let deck_button = document.getElementById('cardsGetStack');
+      deck_button.addEventListener('click', (event)=>{   this.start_player_turn(); });
     }
 
     start_player_turn(){
-      // link cards event listener to move player
-
+      this.game_board.start_player_turn(this.deck.deal_card(),
+                                        this.player_list[this.active_player]);
+      //this.active_player += 1, but with mod operation so active player value is circular
+      
     }
 
   }
@@ -180,8 +319,8 @@ class Player {
 
 function main() {
     const game = new Game();
-    currentSunPosition=0;
-    game.setup_events();
+    currentSunPosition = 0;
+    game.setup_game();
 }
 
 window.addEventListener('load', main);

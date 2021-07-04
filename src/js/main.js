@@ -5,7 +5,10 @@ class AlertManager {
   constructor() {
     this.alert_section = document.getElementById('player_alerts');
   }
-
+// Message is the message to be displayed to the user, img is the route to an image to be placed
+// ...buttons are the variable number of buttons to be displayed on the alert. Each button is an 
+// array of values, the first one is the innerHTML of the button to be created, the second is a way
+// to let the manager know which method to add to the buttons event listener, to be created...
   alert_player(message , img , ...buttons) {
     let new_alert , new_button , index;
     if (img != null){}
@@ -16,7 +19,7 @@ class AlertManager {
       index = 0;
       for(index ; index < buttons.length ; index++){
         new_button = document.createElement ('button');
-        new_button.innerHTML = `${buttons[index][0]}`;
+        new_button.innerHTML = `${buttons[index]}`;
         new_button.addEventListener('click', ()=> {this.dismiss();});
         this.alert_section.appendChild(new_button);
       }
@@ -317,6 +320,7 @@ class Player {
       active_player.go_back();
      }else{}
    }
+
    begin_simon_says_sequence() {
       document.getElementById('main_content_simon_dice').className = 'buttons_simon_says';
       this.simon_says_module.startRound();
@@ -340,7 +344,7 @@ class Player {
       let deck_button = document.getElementById('cardsGetStack');
       deck_button.addEventListener('click', (event)=>{   this.start_player_turn(); });
       this.alert_manager.alert_player('Cuando estés listo, presiona la baraja de cartas. Si necesitas hacer algún ajuste, puedes regresar al menu principal antes de empezar la partida' 
-                                          , 'ff' , [['Entendido', '4'],['Entendido', '4']]);
+                                          , 'ff' , [['Entendido', '4']]);
     }
 
     start_player_turn(){

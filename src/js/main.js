@@ -79,15 +79,21 @@ class Player {
   
     constructor() {//         Blue                Green                 Red                 Yellow 
       this.colors_array = ['rgb(0, 0, 255)' , 'rgb(0, 255, 0)' , 'rgb(255, 0, 0)' , 'rgb(255, 255, 0)' , 'SOL'];
+      this.number_of_colors = this.colors_array.length;
     }
   
-    deal_card() {
+    deal_card(include_sun) {
       let new_card , color , rand_number;
       new_card = document.createElement('button');
       color = document.createElement('span');               
-
-      rand_number = Math.floor(Math.random() * this.colors_array.length);
+      rand_number = Math.floor(Math.random() * this.number_of_colors);
   
+      if(include_sun === true && rand_number === (this.number_of_colors-1)){
+        while (rand_number === (this.number_of_colors-1)) {
+          rand_number = Math.floor(Math.random() * this.number_of_colors);
+        }
+      }
+
       new_card.className = 'buttonCardsSelection';
       color.className = 'color_circle';
   
@@ -95,7 +101,6 @@ class Player {
       color.style.backgroundColor = this.colors_array[rand_number];
 
       new_card.appendChild(color);
-    //  console.log(`Deck: ${hand_card.children[0].value} es el valor de la nueva carta`);
       return new_card;
     }
   
@@ -261,17 +266,17 @@ class Player {
               this.sun_counter_filling.innerHTML= this.sun_counter_bar.value+"%";
            }
         } else {
-        new_card.addEventListener('click' , (event)=>{  this.process_player_result
-                                                    (new_card.value, active_player); 
-                                                      });
-        this.append_card(new_card);
+        this.append_card(new_card , active_player);
         this.empty_boost();
         console.log(`${new_card.value} es el valor de la nueva carta`);
       }
   }
-  append_card(new_card){
+  append_card(new_card , active_player){
     const player_hand = document.getElementById('player\'s_hand');
     let hand_card = document.createElement('li');
+    new_card.addEventListener('click' , (event)=>{  this.process_player_result
+                                                    (new_card.value, active_player); 
+                                                  });
     hand_card.appendChild(new_card);
     player_hand.appendChild(hand_card);
   }
@@ -344,6 +349,8 @@ class Player {
       this.player_list.push(this.player_1);
       this.active_player =  Math.floor(Math.random() * this.player_list.length);
       let deck_button = document.getElementById('cardsGetStack');
+      let starting_cards_amount = 2;
+      this.generate_starting_cards(starting_cards_amount);
       deck_button.addEventListener('click', (event)=>{   this.start_player_turn(); });
       deck_button.classList.add('focused_element');
       this.alert_manager.alert_player('Cuando estés listo, presiona la baraja de cartas. Si necesitas hacer algún ajuste, puedes regresar al menu principal antes de empezar la partida' 
@@ -351,8 +358,17 @@ class Player {
                                 
     }
 
+    generate_starting_cards(limit) {
+      let index = 1;
+      for(index ; index <= limit ; index++) {
+        this.game_board.append_card(this.deck.deal_card(false) , 
+                                    this.player_list[this.active_player]);
+      }
+
+    }
+
     start_player_turn(){
-      this.game_board.start_player_turn(this.deck.deal_card(),
+      this.game_board.start_player_turn(this.deck.deal_card(true),
                                         this.player_list[this.active_player]);
       //this.active_player += 1, but with mod operation so active player value is circular
       

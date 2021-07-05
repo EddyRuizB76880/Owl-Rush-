@@ -304,7 +304,7 @@ class Player {
     empty_boost() {
       let progress_value = parseInt(this.sun_counter_boost.value,10)
       this.timeout= setInterval(() => { 
-                                        progress_value -= 5; //ToDo: Implement progress_value -= value/gracetime 
+                                        progress_value -= this.sun_counter_boost_initial_value/this.sun_counter_boost_gracetime;
                                         this.sun_counter_boost.value = `${progress_value}`;
                                       }, 1000);
   
@@ -313,10 +313,11 @@ class Player {
     process_player_move(chosen_card , active_player) {
       clearInterval(this.timeout);
       let chosen_card_color = chosen_card.value;
-      chosen_card.remove();
       let sun_counter_progress = parseInt(this.sun_counter_bar.value,10);
+      chosen_card.remove();
       sun_counter_progress += parseInt(this.sun_counter_boost.value, 10);
       this.sun_counter_bar.value = `${sun_counter_progress}`;
+      this.sun_counter_filling.innerHTML = `${sun_counter_progress}%`;
       this.sun_counter_boost.value = `${this.sun_counter_boost_initial_value}`;
       this.move_player(chosen_card_color , active_player);
       setTimeout(() => {this.begin_simon_says_sequence()}, 2500);
@@ -345,7 +346,7 @@ class Player {
     setup_game() {
       this.sunPath = new SunPath();
       this.player_1 = new Player('player1');
-      this.game_board = new Board(5,50);
+      this.game_board = new Board(5,100);
       this.deck = new Deck();
       this.alert_manager = new AlertManager();
       this.player_list.push(this.player_1);

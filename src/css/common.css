@@ -41,6 +41,13 @@ header {
 }
 
 /*
+  This line of code disables the bullets from ul objects.
+*/
+ul {
+  list-style-type: none;
+}
+
+/*
   It applies a green color to both the footer and header.
 */
 header,

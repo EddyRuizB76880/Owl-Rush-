@@ -274,8 +274,8 @@ class Player {
   append_card(new_card , active_player){
     const player_hand = document.getElementById('player\'s_hand');
     let hand_card = document.createElement('li');
-    new_card.addEventListener('click' , (event)=>{  this.process_player_result
-                                                    (new_card.value, active_player); 
+    new_card.addEventListener('click' , (event)=>{  this.process_player_move
+                                                    (new_card, active_player); 
                                                   });
     hand_card.appendChild(new_card);
     player_hand.appendChild(hand_card);
@@ -310,8 +310,10 @@ class Player {
   
     }
   
-    process_player_result(chosen_card_color, active_player) {
+    process_player_move(chosen_card , active_player) {
       clearInterval(this.timeout);
+      let chosen_card_color = chosen_card.value;
+      chosen_card.remove();
       let sun_counter_progress = parseInt(this.sun_counter_bar.value,10);
       sun_counter_progress += parseInt(this.sun_counter_boost.value, 10);
       this.sun_counter_bar.value = `${sun_counter_progress}`;

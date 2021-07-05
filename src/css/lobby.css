@@ -29,13 +29,6 @@ label {
 }
 
 /*
-  This line of code disables the bullets from ul objects.
-*/
-ul {
-  list-style-type: none;
-}
-
-/*
   This block defines how wide the the grace time containers will be.
 */
 #sun_counter_gracetime,

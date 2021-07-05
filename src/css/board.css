@@ -112,6 +112,9 @@ body {
 }
 
 
+.focused_element {
+  filter: drop-shadow(5px 5px 5px gold);
+}
 
 .player {
   position: absolute;

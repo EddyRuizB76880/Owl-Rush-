@@ -244,8 +244,6 @@ class Player {
     }
 
     start_player_turn(new_card , active_player) {
-        const player_hand = document.getElementById('player\'s_hand');
-        let hand_card;
         console.log(`${new_card.value}`);
        // this.sun_counter_bar.value += 10; //para pruebas 
         
@@ -263,15 +261,19 @@ class Player {
               this.sun_counter_filling.innerHTML= this.sun_counter_bar.value+"%";
            }
         } else {
-        hand_card = document.createElement('li');
-        hand_card.appendChild(new_card);
         new_card.addEventListener('click' , (event)=>{  this.process_player_result
-                                                        (new_card.value, active_player); 
-        });
-        player_hand.appendChild(hand_card);
+                                                    (new_card.value, active_player); 
+                                                      });
+        this.append_card(new_card);
         this.empty_boost();
         console.log(`${new_card.value} es el valor de la nueva carta`);
       }
+  }
+  append_card(new_card){
+    const player_hand = document.getElementById('player\'s_hand');
+    let hand_card = document.createElement('li');
+    hand_card.appendChild(new_card);
+    player_hand.appendChild(hand_card);
   }
 
     move_player(color , active_player) {
@@ -343,8 +345,10 @@ class Player {
       this.active_player =  Math.floor(Math.random() * this.player_list.length);
       let deck_button = document.getElementById('cardsGetStack');
       deck_button.addEventListener('click', (event)=>{   this.start_player_turn(); });
+      deck_button.classList.add('focused_element');
       this.alert_manager.alert_player('Cuando estés listo, presiona la baraja de cartas. Si necesitas hacer algún ajuste, puedes regresar al menu principal antes de empezar la partida' 
                                           , 'ff' , [['Entendido', '4']]);
+                                
     }
 
     start_player_turn(){

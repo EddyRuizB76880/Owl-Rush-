@@ -88,7 +88,7 @@ class Player {
       color = document.createElement('span');               
       rand_number = Math.floor(Math.random() * this.number_of_colors);
   
-      if(include_sun === true && rand_number === (this.number_of_colors-1)){
+      if(include_sun === false && rand_number === (this.number_of_colors-1)){
         while (rand_number === (this.number_of_colors-1)) {
           rand_number = Math.floor(Math.random() * this.number_of_colors);
         }

@@ -1,67 +1,76 @@
-
+import SimonSays from './simon_says.js';
+import SunManager from './sun_manager.js';
 export default class Board{
-    constructor(sc_gracetime , scb_initial_value) {
-      this.board_info = document.getElementsByClassName('board_cell');
-      this.sun_counter_bar = document.getElementById('SunCounterProgressBar');
-      this.sun_counter_boost = document.getElementById('sun_counter_boost');
-      this.sun_counter_boost.value = `${scb_initial_value}`;
-      this.sun_counter_boost_gracetime = sc_gracetime;
-      this.sun_counter_boost_initial_value = scb_initial_value;
-      this.time_out;
-    }
-    /*
-     cell_coordinates = board_cells[board_info_index].getBoundingClientRect();
-     cell_styles = window.getComputedStyle(board_cells[board_info_index]);
-     this.board_info[board_info_index] = `${cell_styles.getPropertyValue('background-color')};${cell_coordinates.x};${cell_coordinates.y}`;   
-    */ 
-    static move_player(color , player) {
-      console.log(`La carta es color ${color}`);
-      this.board_info = document.getElementsByClassName('board_cell');
-      let new_player_position = player.position;
-      let cell_styles = window.getComputedStyle(this.board_info[new_player_position]);
-      console.log(`${cell_styles.getPropertyValue('background-color')}`);
-      while(cell_styles.getPropertyValue('background-color').localeCompare(color) != 0)
-      {   
-        new_player_position += 1;
-        console.log(`${this.board_info[new_player_position]},${new_player_position}`);
-        console.log(`${cell_styles.getPropertyValue('background-color')} vs ${color}`);  
-        cell_styles = window.getComputedStyle(this.board_info[new_player_position]);
-          
-      }
-        let cell_coordinates = this.board_info[new_player_position].getBoundingClientRect(); 
-        player.move_avatar(cell_coordinates.x,cell_coordinates.y, new_player_position);
-    }
+  constructor(sc_gracetime , scb_initial_value) {
+    this.board_info = document.getElementsByClassName('board_cell');
+    this.sun_path_module = new SunManager(sc_gracetime , scb_initial_value);
+    this.simon_says_module = new SimonSays();
+  }
 
-    empty_boost() {
-      this.timeout= setInterval(() => { // ToDo: leave parseInt outside interval
-                                        let progress_value = parseInt(this.sun_counter_boost.value,10)
-                                        progress_value -= 5; //ToDo: Implement progress_value -= value/gracetime 
-                                        this.sun_counter_boost.value = `${progress_value}`;
-                                      }, 1000);
-
-    }
-
-    static stop_timeout() {
-      clearInterval(this.timeout);
-      let sun_counter_progress = parseInt(this.sun_counter_bar.value,10);
-      sun_counter_progress += parseInt(this.sun_counter_boost.value, 10);
-      this.sun_counter_bar.value = `${sun_counter_progress}`;
-      this.sun_counter_boost.value = `${this.sun_counter_boost_initial_value}`;
+  start_player_turn(new_card , active_player) {
+      console.log(`${new_card.value}`);
+      if (new_card.value === 'SOL') {
+        //recupere la barritla y le suba
+        this.sun_path_module.determine_sun_card_result();
+      } else {
+      this.append_card(new_card , active_player);
+      this.empty_boost();
+      console.log(`${new_card.value} es el valor de la nueva carta`);
     }
 }
-
-/*<script> logica de sun counter y sun counter boost
-var myVar;
-
-function myFunction() {
-  myVar = setInterval(function(){ var number = document.getElementById("id");
-  								 var n2 = parseInt(number.innerHTML,10)
-                                 console.log(`${number.innerHTML}`);
-                                 n2+=1;
-                                 number.innerHTML = ""+n2;} , 3000);
+append_card(new_card , active_player){
+  const player_hand = document.getElementById('player\'s_hand');
+  let hand_card = document.createElement('li');
+  new_card.addEventListener('click' , (event)=>{  this.process_player_move
+                                                  (new_card, active_player); 
+                                                });
+  hand_card.appendChild(new_card);
+  player_hand.appendChild(hand_card);
 }
 
-function myStopFunction() {
-  clearInterval(myVar);
+  move_player(color , active_player) {
+    let new_player_position , cell_styles, cell_coordinates;
+    new_player_position = active_player.position + 1;
+    console.log(`La carta es color ${color} , ${active_player.id}`);
+    cell_styles = window.getComputedStyle(this.board_info[new_player_position]);
+    console.log(`${cell_styles.getPropertyValue('background-color')}`);
+    while(cell_styles.getPropertyValue('background-color').localeCompare(color) != 0)
+    {   
+      new_player_position += 1;
+      console.log(`${this.board_info[new_player_position]},${new_player_position}`);
+      console.log(`${cell_styles.getPropertyValue('background-color')} vs ${color}`);  
+      cell_styles = window.getComputedStyle(this.board_info[new_player_position]);
+        
+    }
+    cell_coordinates = this.board_info[new_player_position].getBoundingClientRect(); 
+    active_player.move_avatar(cell_coordinates.left , cell_coordinates.top , 
+                                cell_coordinates.bottom , cell_coordinates.right , 
+                                  new_player_position );
+  }
+
+  empty_boost() {
+    this.sun_path_module.empty_boost();
+  }
+
+  process_player_move(chosen_card , active_player) {
+    this.sun_path_module.update_sun_counter();
+    let chosen_card_color = chosen_card.value;
+    chosen_card.remove();
+    this.move_player(chosen_card_color , active_player);
+    setTimeout(() => {this.begin_simon_says_sequence()}, 2500);
+    //this.checkResult(active_player);
+  }
+
+ checkResult(active_player) {
+  console.log('checking'); 
+  if(this.simon_says_module.player_succeeded === false){
+    active_player.go_back();
+   }else{}
+ }
+
+ begin_simon_says_sequence() {
+    document.getElementById('main_content_simon_dice').className = 'buttons_simon_says';
+    this.simon_says_module.startRound();
+  }
+
 }
-</script>*/ 

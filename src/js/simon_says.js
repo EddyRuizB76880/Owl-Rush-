@@ -2,7 +2,7 @@
   Class SimonSays
   Taken and adapted from: https://freshman.tech/simon-game/
 */
-class SimonSays {
+export default class SimonSays {
   constructor() {
     this.sequence = [];
     this.playerSequence = [];
@@ -11,21 +11,17 @@ class SimonSays {
     this.incremental = false;
     this.buttons = ['red_button', 'green_button', 'blue_button', 'yellow_button'];
     this.buttonPressed = '';
+    this.player_succeeded = false;
   }
 
-  setupStart() {
-    const startButton = document.getElementById('start_button');
-    startButton.addEventListener('click', () => { this.startGame(startButton); });
-  }
 
   resetGame(text) {
-    const startButton = document.getElementById('start_button');
     const buttonContainer = document.getElementById('buttons_simon_says');
     console.log(text);
     this.sequence = [];
     this.playerSequence = [];
     this.currentTurn = 0;
-    startButton.classList.remove('hidden');
+    this.player_succeeded = false;
     buttonContainer.classList.add('unclickable');
   }
 
@@ -34,6 +30,7 @@ class SimonSays {
     if (this.playerSequence.length === this.sequence.length) {
       this.playerSequence = [];
       console.log('You can stay in the position');
+      this.player_succeeded = true;
       return;
     }
 
@@ -87,7 +84,7 @@ class SimonSays {
     }, this.currentTurn * 600 + 1000);
   }
 
-  nextRound() {
+  startRound() {
     this.currentTurn += 1;
     this.playSequence();
   }
@@ -109,15 +106,4 @@ class SimonSays {
     });
   }
 
-  startGame(startButton) {
-    startButton.classList.add('hidden');
-    this.nextRound();
-  }
 }
-
-function main() {
-  const simonSays = new SimonSays();
-  simonSays.setupStart();
-}
-
-window.addEventListener('load', main);

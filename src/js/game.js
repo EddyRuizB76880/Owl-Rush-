@@ -1,15 +1,42 @@
 import Board from './board.js';
 import Deck from './deck.js';
 import Player from './player.js';
+import AlertManager from './alert_manager.js';
 
 export default class Game {
-  constructor() {}
-  setup_events() {
-    this.deck = new  Deck();
-    this.player_1 = new Player();
-    this.game_board = new Board(5,50);
-    let deck_button = document.getElementById('cardsGetStack');
-    deck_button.addEventListener('click' , this.deck.deal_card);
-    deck_button.addEventListener('click' , this.game_board.empty_boost);
+  constructor() {
+    this.player_list = [];
+    this.active_player = 0;
   }
+  setup_game() {
+    this.player_1 = new Player('player1');
+    this.game_board = new Board(5,100);
+    this.deck = new Deck();
+    this.alert_manager = new AlertManager();
+    this.player_list.push(this.player_1);
+    this.active_player =  Math.floor(Math.random() * this.player_list.length);
+    let deck_button = document.getElementById('cardsGetStack');
+    let starting_cards_amount = 2;
+    this.generate_starting_cards(starting_cards_amount);
+    deck_button.addEventListener('click', (event)=>{   this.start_player_turn(); });
+    deck_button.classList.add('focused_element');
+    this.alert_manager.alert_player('Cuando estés listo, presiona la baraja de cartas. Si necesitas hacer algún ajuste, puedes regresar al menu principal antes de empezar la partida' 
+                                        , 'ff' , [['Entendido', '4']]);
+                              
+  }
+  generate_starting_cards(limit) {
+    let index = 1;
+    for(index ; index <= limit ; index++) {
+      this.game_board.append_card(this.deck.deal_card(false) , 
+                                  this.player_list[this.active_player]);
+    }
+
+  }
+  start_player_turn(){
+    this.game_board.start_player_turn(this.deck.deal_card(true),
+                                      this.player_list[this.active_player]);
+    //this.active_player += 1, but with mod operation so active player value is circular
+    
+  }
+
 }

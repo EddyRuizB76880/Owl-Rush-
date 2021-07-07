@@ -1,6 +1,9 @@
+import AlertManager from './alert_manager.js'
 export default class SunManager{
   
     constructor(sc_gracetime , scb_initial_value) {
+      // ToDo: Make Game class the only one to manage AlertManager
+      this.alert_manager = new AlertManager();
       this.sunpath = document.getElementById("sun_path");
       this.sun = document.getElementById("Sun");
       this.sunCounter = document.getElementById("SunCounterProgressBar");
@@ -16,14 +19,20 @@ export default class SunManager{
     }
 
     determine_sun_card_result() {
+      let resolution;
       if (this.sunCounter.value != "100") {
         this.currentSunPosition+=1;
         this.currentCell= this.sunpath.rows[0].cells[this.currentSunPosition];
         this.currentCell.appendChild(this.sun);
+        resolution = 'El sol avanza una casilla :(';
      } else {
-        this.sun_path_module.sunCounter.value = "0";
-        this.sun_path_module.sun_counter_filling.innerHTML= this.sunCounter.value+"%";
+        this.sunCounter.value = "0";
+        this.sun_counter_filling.innerHTML= this.sunCounter.value+"%";
+        resolution = 'Pero tu Sun-Counter estaba lleno. La carta queda anulada y el sol no avanza :)';
      }
+
+     this.alert_manager.alert_player(`¡Oh no! Una carta sol ha aparecido. ${resolution}`  
+     , 'sun_icon' , ['Entendido','4'])
     }
 
     empty_boost() {
@@ -34,6 +43,7 @@ export default class SunManager{
                                       }, 1000);
   
     }
+    
     update_sun_counter () {
       clearInterval(this.player_reaction_time_out);
       let sun_counter_progress = parseInt(this.sunCounter.value,10);

@@ -21,7 +21,7 @@ export default class Game {
     deck_button.addEventListener('click', (event)=>{   this.start_player_turn(); });
     deck_button.classList.add('focused_element');
     this.alert_manager.alert_player('Cuando estés listo, presiona la baraja de cartas. Si necesitas hacer algún ajuste, puedes regresar al menu principal antes de empezar la partida' 
-                                        , 'ff' , [['Entendido', '4']]);
+                                        , 'ff' , ['Entendido','4']); // To add more buttons, just add more tuples after ff
                               
   }
   generate_starting_cards(limit) {
@@ -34,9 +34,10 @@ export default class Game {
   }
   start_player_turn(){
     this.game_board.start_player_turn(this.deck.deal_card(true),
-                                      this.player_list[this.active_player]);
+                                      this.player_list[this.active_player],
+                                      );
     //this.active_player += 1, but with mod operation so active player value is circular
-    
+
   }
 
 }

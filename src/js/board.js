@@ -10,7 +10,6 @@ export default class Board{
   start_player_turn(new_card , active_player) {
       console.log(`${new_card.value}`);
       if (new_card.value === 'SOL') {
-        //recupere la barritla y le suba
         this.sun_path_module.determine_sun_card_result();
       } else {
       this.append_card(new_card , active_player);

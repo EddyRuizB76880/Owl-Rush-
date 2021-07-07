@@ -17,20 +17,6 @@ button {
 }
 
 /*
-  Class to hide element
-*/
-.hidden {
-  display: none;
-}
-
-/*
-  Class to make element unclickable
-*/
-.unclickable {
-  pointer-events: none;
-}
-
-/*
   Colors taken from: https://github.com/Freshman-tech/simon-game-starter-files/blob/master/style.css
 */
 #red_button {

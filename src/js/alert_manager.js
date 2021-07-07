@@ -8,25 +8,30 @@ export default class AlertManager {
   // to let the manager know which method to add to the buttons event listener, to be created...
     alert_player(message , img , ...buttons) {
       let new_alert , new_button , index;
+      // ToDo: Check if string img is a valid route to an image, so it can be 
+      // appended on the alert.
       if (img != null){}
       new_alert = document.createElement('h2');
+      new_alert.className = 'alert_window';
       new_alert.innerHTML = `${message}`;
       this.alert_section.appendChild(new_alert);
       if (buttons.length > 0){
         index = 0;
         for(index ; index < buttons.length ; index++){
           new_button = document.createElement ('button');
-          new_button.innerHTML = `${buttons[index]}`;
+          new_button.innerHTML = `${buttons[index][0]}`;
+          new_button.className = 'continue_button';
+          // ToDo: determine method to use by checking 2nd value of each 
+          // ...buttons element
           new_button.addEventListener('click', ()=> {this.dismiss();});
           this.alert_section.appendChild(new_button);
         }
       }
-      this.alert_section.style.display = 'grid';
-  
+       this.alert_section.className = 'visible';
     }
   
     dismiss() {
-      this.alert_section.style.display = 'none';
+      this.alert_section.className = 'hidden';
       // Code taken from JavaScript Tutorial online website. Available at :
       // https://www.javascripttutorial.net/dom/manipulating/remove-all-child-nodes/
       while (this.alert_section.firstChild) {

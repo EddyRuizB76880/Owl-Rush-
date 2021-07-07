@@ -127,6 +127,15 @@ a {
   font-size: 3vw;
 }
 
+#player_alerts {
+  background-color: #fcf14c;
+  height: 40vw;
+  width: 45vw;
+  position: fixed;
+  margin-left: 27vw;
+  margin-top: 3vw;
+}
+
 /*
   Code taken from an example found in W3Schools website. Available at:
   https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_round_buttons
@@ -171,6 +180,24 @@ a {
 */
 .continue_button {
   background-color: #3dfc03;
+}
+
+/*
+  Class to hide element
+*/
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: grid;
+}
+
+/*
+  Class to make element unclickable
+*/
+.unclickable {
+  pointer-events: none;
 }
 
 /*

@@ -63,16 +63,6 @@ body {
   height: calc(100% / var(--board_row_count));
 }
 
-#player_alerts {
-  background-color: #fcf14c;
-  height: 40vw;
-  width: 45vw;
-  position: fixed;
-  display: none;
-  margin-left: 27vw;
-  margin-top: 3vw;
-}
-
 #row3,
 #row7
 {

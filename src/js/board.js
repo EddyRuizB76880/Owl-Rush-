@@ -41,10 +41,9 @@ append_card(new_card , active_player){
       cell_styles = window.getComputedStyle(this.board_info[new_player_position]);
 
     }
-    cell_coordinates = this.board_info[new_player_position].getBoundingClientRect();
-    active_player.move_avatar(cell_coordinates.left , cell_coordinates.top ,
-                                cell_coordinates.bottom , cell_coordinates.right ,
-                                  new_player_position );
+    active_player.move_avatar(this.board_info[new_player_position].offsetLeft , 
+                              this.board_info[new_player_position].offsetTop ,
+                              new_player_position );
   }
 
   empty_boost() {

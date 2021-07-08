@@ -58,6 +58,9 @@ It adjusts the positions to be vertical
   flex-direction: column;
  
 }
+/*
+Adjusts the position of the text of the percentage of filling of the sun counter progress bar
+*/
 #SunCounterText{
     display: flex;
 }
@@ -141,21 +144,26 @@ Adjusts the size of the margin of the right for the button that ends the game se
   margin-right: 45px;
 }
 
+/*
+Adjusts the position progress bar for the sun counter 
+*/
 #SunCounterProgressBar{
       
   width:250px; 
   margin-bottom:150px;
 }
-
-
+/*
+Adjusts the position of the sun on the vector it follows by turn
+*/
 #Sun {
  /* position: absolute;*/
 /*  height: calc(100% / var(--board_column_count));*/
   top: calc((var(--board_column_count) - 8) * 100% / var(--board_column_count));
   transition: left 1s ease-out, top 1s;
 }
-
-
+/*
+Adjusts the size of the cells of the vector the sun goes through 
+*/
 #Sun_path  {
   height: calc(100% / var(--board_column_count));
 }

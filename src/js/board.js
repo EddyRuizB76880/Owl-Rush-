@@ -21,7 +21,7 @@ append_card(new_card , active_player){
   const player_hand = document.getElementById('player\'s_hand');
   let hand_card = document.createElement('li');
   new_card.addEventListener('click' , (event)=>{  this.process_player_move
-                                                  (new_card, active_player); 
+                                                  (new_card, active_player);
                                                 });
   hand_card.appendChild(new_card);
   player_hand.appendChild(hand_card);
@@ -34,16 +34,16 @@ append_card(new_card , active_player){
     cell_styles = window.getComputedStyle(this.board_info[new_player_position]);
     console.log(`${cell_styles.getPropertyValue('background-color')}`);
     while(cell_styles.getPropertyValue('background-color').localeCompare(color) != 0)
-    {   
+    {
       new_player_position += 1;
       console.log(`${this.board_info[new_player_position]},${new_player_position}`);
-      console.log(`${cell_styles.getPropertyValue('background-color')} vs ${color}`);  
+      console.log(`${cell_styles.getPropertyValue('background-color')} vs ${color}`);
       cell_styles = window.getComputedStyle(this.board_info[new_player_position]);
-        
+
     }
-    cell_coordinates = this.board_info[new_player_position].getBoundingClientRect(); 
-    active_player.move_avatar(cell_coordinates.left , cell_coordinates.top , 
-                                cell_coordinates.bottom , cell_coordinates.right , 
+    cell_coordinates = this.board_info[new_player_position].getBoundingClientRect();
+    active_player.move_avatar(cell_coordinates.left , cell_coordinates.top ,
+                                cell_coordinates.bottom , cell_coordinates.right ,
                                   new_player_position );
   }
 
@@ -60,16 +60,16 @@ append_card(new_card , active_player){
     //this.checkResult(active_player);
   }
 
- checkResult(active_player) {
-  console.log('checking'); 
+ checkResult(active_player, result) {
+  console.log('checking');
   if(this.simon_says_module.player_succeeded === false){
     active_player.go_back();
    }else{}
  }
 
- begin_simon_says_sequence() {
+ async begin_simon_says_sequence() {
     document.getElementById('main_content_simon_dice').className = 'buttons_simon_says';
-    this.simon_says_module.startRound();
+    const result = await this.simon_says_module.startRound();
+    this.checkResult( active_player, result);
   }
-
 }

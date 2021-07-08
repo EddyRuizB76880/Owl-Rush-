@@ -27,16 +27,22 @@ export default class SimonSays {
 
   handleClick(tile) {
     const index = this.playerSequence.push(tile) - 1;
-    if (this.playerSequence.length === this.sequence.length) {
-      this.playerSequence = [];
-      console.log('You can stay in the position');
-      this.player_succeeded = true;
-      return;
-    }
-
-    if (this.playerSequence[index] !== this.sequence[index]) {
-      this.resetGame('Oops! You pressed the wrong button, go back.');
-    }
+    console.log(this.playerSequence);
+     if (this.playerSequence.length === this.sequence.length) {
+       const buttonContainer = document.getElementById('buttons_simon_says');
+       buttonContainer.classList.add('unclickable');
+       this.player_succeeded = checkPlayerSequence();
+     }
+    // if (this.playerSequence.length === this.sequence.length) {
+    //   this.playerSequence = [];
+    //   console.log('You can stay in the position');
+    //   this.player_succeeded = true;
+    //   return;
+    // }
+    //
+    // if (this.playerSequence[index] !== this.sequence[index]) {
+    //   this.resetGame('Oops! You pressed the wrong button, go back.');
+    // }
   }
 
   playerTurn() {
@@ -47,6 +53,7 @@ export default class SimonSays {
       console.log(buttonEvent);
       if (buttonEvent) this.handleClick(buttonEvent);
     });
+
   }
 
   nextStep() {
@@ -81,9 +88,10 @@ export default class SimonSays {
     this.generateSequence();
     setTimeout(() => {
       this.playerTurn(this.currentTurn);
-    }, this.currentTurn * 600 + 1000);
+    }, this.turns * 600 + 1000);
   }
 
+/// TODO: return promise 
   startRound() {
     this.currentTurn += 1;
     this.playSequence();

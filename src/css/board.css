@@ -1,5 +1,16 @@
+/*
+This file was made by Jeisson Hidalgo-Céspedes
+and taken from http://jeisson.ecci.ucr.ac.cr
+Includes especifications for size ,positions and responsiveness of the elements of the game board and game board itself
+It was modified for its use
+*/
+
 @import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
 
+
+/*
+Variables for number of game board cells
+*/
 :root {
   --board_row_count: 8;
   --board_col_count: 10;
@@ -105,7 +116,9 @@ body {
 .focused_element {
   filter: drop-shadow(5px 5px 5px gold);
 }
-
+/*
+Adjust the size and position of players in the game board matrix
+*/
 .player {
   position: absolute;
   height: calc(100% / var(--board_row_count));

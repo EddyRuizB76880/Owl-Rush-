@@ -5,6 +5,8 @@ html {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+
+
 /*
   This style arranges the whole page in rows. It allows us to stick the footer
   at the bottom of the page.
@@ -151,6 +153,17 @@ a {
   margin: 0.3% 0.3%;
   cursor: pointer;
   border-radius: 45%;
+}
+
+/*
+  This block disables all input elements and make them look unavailable.
+*/
+button:disabled,
+.disabled_button {
+  background-color: rgb(114, 106, 106);
+  filter: opacity(0.3);
+  color: white;
+  cursor: not-allowed;
 }
 
 /*

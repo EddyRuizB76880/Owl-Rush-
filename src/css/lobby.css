@@ -134,6 +134,7 @@ label {
 input:disabled,
 .disabled_button {
   background-color: rgb(114, 106, 106);
+  filter: brightness(75%);
   color: white;
   cursor: not-allowed;
 }

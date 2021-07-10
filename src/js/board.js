@@ -2,10 +2,10 @@ import SimonSays from './simon_says.js';
 import SunManager from './sun_manager.js';
 
 export default class Board {
-  constructor(sc_gracetime, scb_initial_value) {
+  constructor(sc_gracetime, scb_initial_value, simon_gracetime) {
     this.board_info = document.getElementsByClassName('board_cell');
     this.sun_path_module = new SunManager(sc_gracetime, scb_initial_value);
-    this.simon_says_module = new SimonSays();
+    this.simon_says_module = new SimonSays(simon_gracetime);
   }
 
   start_player_turn(new_card, active_player) {
@@ -59,13 +59,13 @@ export default class Board {
     chosen_card.remove();
     this.move_player(chosen_card_color, active_player);
     setTimeout(() => { this.begin_simon_says_sequence(); }, 2500);
-    setTimeout(() => { this.checkResult(active_player); }, this.simon_says_module.simonTime * 1000 * 1.5);
+    setTimeout(() => { this.check_result(active_player); }, this.simon_says_module.simon_time * 1000 * 1.5);
   }
 
-  checkResult(active_player) {
-    console.log('checking');
-    console.log(this.simon_says_module.playerSucceeded);
-    if (this.simon_says_module.playerSucceeded === false) {
+  check_result(active_player) {
+    console.log('checking'+this.simon_says_module.simon_time);
+ 
+    if (this.simon_says_module.player_succeeded === false) {
       active_player.go_back();
     } else {}
   }

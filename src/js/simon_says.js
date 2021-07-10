@@ -3,41 +3,43 @@
   Taken and adapted from: https://freshman.tech/simon-game/
 */
 export default class SimonSays {
-  constructor() {
+  constructor(simon_says_gracetime) {
     this.sequence = [];
-    this.playerSequence = [];
+    this.player_sequence = [];
     this.turns = 4;
     this.currentTurn = 0;
     this.incremental = false;
     this.buttons = ['red_button', 'green_button', 'blue_button', 'yellow_button'];
     this.buttonPressed = '';
-    this.playerSucceeded = true;
-    this.simonTime = 20;
+    this.player_succeeded = false;
+    this.simon_time = simon_says_gracetime;
   }
 
   resetGame(text) {
     const buttonContainer = document.getElementById('buttons_simon_says');
     console.log(text);
     this.sequence = [];
-    this.playerSequence = [];
+    this.player_sequence = [];
     this.currentTurn = 0;
-    this.playerSucceeded = false;
+    this.player_succeeded = false;
     buttonContainer.classList.add('unclickable');
   }
 
   checkPlayerSequence() {
     const buttonContainer = document.getElementById('buttons_simon_says');
     buttonContainer.classList.add('unclickable');
-    if (this.playerSequence.length === this.sequence.length && this.playerSucceeded === true) {
-      this.playerSequence = [];
+    if (this.player_sequence.length === this.sequence.length) {
+      this.player_sequence = [];
       console.log('You can stay in the position');
+      this.player_succeeded = true;
     }
   }
 
   handleClick(tile) {
-    const index = this.playerSequence.push(tile) - 1;
-    if (this.playerSequence[index] !== this.sequence[index]) {
+    const index = this.player_sequence.push(tile) - 1;
+    if (this.player_sequence[index] !== this.sequence[index]) {
       this.resetGame('Oops! You pressed the wrong button, go back.');
+      this.player_succeeded = false;
     }
   }
 
@@ -111,6 +113,6 @@ export default class SimonSays {
     this.playerTurn(this.currentTurn);
     setTimeout(() => {
       this.checkPlayerSequence();
-    }, this.simonTime * 1000);
+    }, this.simon_time * 1000);
   }
 }

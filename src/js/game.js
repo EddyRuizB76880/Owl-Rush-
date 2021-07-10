@@ -13,10 +13,12 @@ export default class Game {
     let deck_button = document.getElementById('cardsGetStack');
     const sun_counter_grace = 5;
     const sun_counter_boost = 100;
+    const simon_gracetime = 12;
     const starting_cards_amount = 2;
     this.player_1 = new Player('player1');
     this.game_board = new Board(sun_counter_grace,
-                                sun_counter_boost);
+                                sun_counter_boost,
+                                simon_gracetime);
     this.deck = new Deck();
     this.alert_manager = new AlertManager();
     this.player_list.push(this.player_1);

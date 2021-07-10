@@ -5,7 +5,7 @@ export default class Player {
   constructor(id) {
     this.id = id;
     this.avatar = document.getElementById(id);
-    this.position = 0;
+    this.position = 10;
     // Attributes needed to make player return to their previous position if
     // they fail the SS sequence
     this.previous_position = 0;

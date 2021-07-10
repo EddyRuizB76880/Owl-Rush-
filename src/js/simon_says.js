@@ -7,12 +7,13 @@ export default class SimonSays {
     this.sequence = [];
     this.player_sequence = [];
     this.turns = 4;
-    this.currentTurn = 0;
     this.incremental = false;
     this.buttons = ['red_button', 'green_button', 'blue_button', 'yellow_button'];
     this.buttonPressed = '';
-    this.player_succeeded = false;
+    this.player_succeeded = true;
     this.simon_time = simon_says_gracetime;
+    this.buttonContainer = document.getElementById('buttons_simon_says');
+    this.setup();
   }
 
   resetGame(text) {
@@ -20,33 +21,41 @@ export default class SimonSays {
     console.log(text);
     this.sequence = [];
     this.player_sequence = [];
-    this.currentTurn = 0;
-    this.player_succeeded = false;
+    this.player_succeeded = true;
     buttonContainer.classList.add('unclickable');
   }
 
   checkPlayerSequence() {
     const buttonContainer = document.getElementById('buttons_simon_says');
     buttonContainer.classList.add('unclickable');
+    let result = '';
+    console.log(`${this.player_sequence.length},${this.sequence.length}`);
     if (this.player_sequence.length === this.sequence.length) {
-      this.player_sequence = [];
-      console.log('You can stay in the position');
-      this.player_succeeded = true;
-    }
+      result = 'Sequence was ok';
+      let index = 0;
+      let keep_going = true;
+      for(index ; keep_going && index < this.sequence.length ; index++) {
+        if(this.player_sequence[index] !== this.sequence[index]){
+          this.player_succeeded = false;
+          keep_going = false;
+          result = 'Incorrect sequence. Go back';
+        }
+      }
+      }else {
+        result = 'Mismatching sequences.'; 
+        this.player_succeeded = false;
+      }
+      console.log(`${result}`);
   }
+  
 
   handleClick(tile) {
     const index = this.player_sequence.push(tile) - 1;
-    if (this.player_sequence[index] !== this.sequence[index]) {
-      this.resetGame('Oops! You pressed the wrong button, go back.');
-      this.player_succeeded = false;
-    }
+    console.log(`${this.player_sequence.length}`);
   }
 
-  playerTurn() {
-    const buttonContainer = document.getElementById('buttons_simon_says');
-    buttonContainer.classList.remove('unclickable');
-    buttonContainer.addEventListener('click', (event) => {
+  setup() {
+    this.buttonContainer.addEventListener('click', (event) => {
       const buttonEvent = event.target.id;
       console.log(buttonEvent);
       if (buttonEvent) this.handleClick(buttonEvent);
@@ -108,9 +117,9 @@ export default class SimonSays {
     User repeats the sequence
   */
   startRound() {
-    this.currentTurn += 1;
+    
     this.generateSequence();
-    this.playerTurn(this.currentTurn);
+    this.buttonContainer.classList.remove('unclickable');;
     setTimeout(() => {
       this.checkPlayerSequence();
     }, this.simon_time * 1000);

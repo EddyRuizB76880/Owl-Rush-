@@ -67,7 +67,13 @@ export default class Board {
  
     if (this.simon_says_module.player_succeeded === false) {
       active_player.go_back();
-    } else {}
+    } else {
+      if (active_player.position === this.board_info.length - 1){
+        //player won  
+
+      }
+    }
+    this.simon_says_module.resetGame('Hi!');
   }
 
   begin_simon_says_sequence() {

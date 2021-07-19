@@ -1,60 +1,60 @@
 /*
-  Class SimonSays
-  Taken and adapted from: https://freshman.tech/simon-game/
+Class SimonSays
+Taken and adapted from: https://freshman.tech/simon-game/
 */
 export default class SimonSays {
   constructor(simon_says_gracetime) {
     this.sequence = [];
-    this.player_sequence = [];
+    this.playerSequence = [];
     this.turns = 4;
     this.incremental = false;
     this.buttons = ['red_button', 'green_button', 'blue_button', 'yellow_button'];
     this.buttonPressed = '';
-    this.player_succeeded = true;
+    this.playerSucceeded = true;
     this.simon_time = simon_says_gracetime;
     this.buttonContainer = document.getElementById('buttons_simon_says');
-    this.setup();
+  }
+
+  reset() {
+    this.sequence = [];
+    this.playerSequence = [];
+    this.buttonPressed = '';
+    this.playerSucceeded = true;
   }
 
   resetGame(text) {
     const buttonContainer = document.getElementById('buttons_simon_says');
     console.log(text);
     this.sequence = [];
-    this.player_sequence = [];
-    this.player_succeeded = true;
+    this.playerSequence = [];
+    this.currentTurn = 0;
+    this.playerSucceeded = false;
     buttonContainer.classList.add('unclickable');
   }
 
   checkPlayerSequence() {
+    this.buttonContainer.classList.remove('unclickable');
     const buttonContainer = document.getElementById('buttons_simon_says');
-    buttonContainer.classList.add('unclickable');
-    let result = '';
-    console.log(`${this.player_sequence.length},${this.sequence.length}`);
-    if (this.player_sequence.length === this.sequence.length) {
-      result = 'Sequence was ok';
-      let index = 0;
-      let keep_going = true;
-      for(index ; keep_going && index < this.sequence.length ; index++) {
-        if(this.player_sequence[index] !== this.sequence[index]){
-          this.player_succeeded = false;
-          keep_going = false;
-          result = 'Incorrect sequence. Go back';
-        }
-      }
-      }else {
-        result = 'Mismatching sequences.'; 
-        this.player_succeeded = false;
-      }
-      console.log(`${result}`);
+    if (this.playerSequence.length === this.sequence.length && this.playerSucceeded === true) {
+      this.playerSequence = [];
+      console.log('You can stay in the position');
+      this.buttonContainer.classList.add('unclickable');
+    }
+    setTimeout(() => {
+      this.checkPlayerSequence();
+    }, this.simon_time * 1000);
   }
-  
 
   handleClick(tile) {
-    const index = this.player_sequence.push(tile) - 1;
-    console.log(`${this.player_sequence.length}`);
+    const index = this.playerSequence.push(tile) - 1;
+    if (this.playerSequence[index] !== this.sequence[index]) {
+      this.playerSucceeded = false;
+      this.resetGame('Oops! You pressed the wrong button, go back.');
+    }
   }
 
-  setup() {
+  playerTurn() {
+    this.buttonContainer.classList.remove('unclickable');
     this.buttonContainer.addEventListener('click', (event) => {
       const buttonEvent = event.target.id;
       console.log(buttonEvent);
@@ -83,9 +83,6 @@ export default class SimonSays {
         this.activatebutton(color);
       }, (index + 1) * 600);
     });
-    setTimeout(() => {
-      buttonContainer.classList.remove('unclickable');
-    }, this.sequence.length * 1000);
   }
 
   generateSequenceIncremental() {
@@ -112,14 +109,13 @@ export default class SimonSays {
   }
 
   /*
-    Main function:
-    Generates sequence
-    User repeats the sequence
+  Main function:
+  Generates sequence
+  User repeats the sequence
   */
   startRound() {
-    
     this.generateSequence();
-    this.buttonContainer.classList.remove('unclickable');;
+    this.playerTurn(this.currentTurn);
     setTimeout(() => {
       this.checkPlayerSequence();
     }, this.simon_time * 1000);

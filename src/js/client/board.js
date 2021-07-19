@@ -64,16 +64,16 @@ export default class Board {
 
   check_result(active_player) {
     console.log('checking'+this.simon_says_module.simon_time);
- 
-    if (this.simon_says_module.player_succeeded === false) {
+
+    if (this.simon_says_module.playerSucceeded === false) {
       active_player.go_back();
     } else {
       if (active_player.position === this.board_info.length - 1){
-        //player won  
+        //player won
 
       }
     }
-    this.simon_says_module.resetGame('Hi!');
+    this.simon_says_module.reset();
   }
 
   begin_simon_says_sequence() {

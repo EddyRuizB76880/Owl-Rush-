@@ -6,6 +6,11 @@ export default class Board {
     this.board_info = document.getElementsByClassName('board_cell');
     this.sun_path_module = new SunManager(sc_gracetime, scb_initial_value);
     this.simon_says_module = new SimonSays(simon_gracetime);
+    //This DOM element will be used to display the player's cards.
+    this.player_hand = document.getElementById('player\'s_hand');
+    //This array will be used to store and have direct access to cards. This
+    //makes enabling and disabling cards much easier.
+    this.cards_array = [];
   }
 
   start_player_turn(new_card, active_player) {
@@ -14,19 +19,27 @@ export default class Board {
       this.sun_path_module.determine_sun_card_result();
     } else {
       this.append_card(new_card, active_player);
+      this.toggle_player_actions();
       this.empty_boost();
       console.log(`${new_card.value} es el valor de la nueva carta`);
     }
   }
 
-  append_card(new_card, active_player) {
-    const player_hand = document.getElementById('player\'s_hand');
+  toggle_player_actions(){
+    let index = 0;
+    for(index ; index < this.cards_array.length ; index++) {
+      this.cards_array[index].disabled =  !this.cards_array[index].disabled; 
+    }
+  }
+//
+  append_card(new_card, owner_player) {
+    this.cards_array.push(new_card);
     const hand_card = document.createElement('li');
     new_card.addEventListener('click', (event) => {
-      this.process_player_move(new_card, active_player);
+      this.process_player_move(new_card, owner_player);
     });
     hand_card.appendChild(new_card);
-    player_hand.appendChild(hand_card);
+    this.player_hand.appendChild(hand_card);
   }
 
   move_player(color, active_player) {
@@ -57,6 +70,7 @@ export default class Board {
     this.sun_path_module.update_sun_counter();
     const chosen_card_color = chosen_card.value;
     chosen_card.remove();
+    this.toggle_player_actions();
     this.move_player(chosen_card_color, active_player);
     setTimeout(() => { this.begin_simon_says_sequence(); }, 2500);
     setTimeout(() => { this.check_result(active_player); }, this.simon_says_module.simon_time * 1000 * 1.5);

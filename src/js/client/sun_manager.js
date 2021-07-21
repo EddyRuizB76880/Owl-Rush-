@@ -48,6 +48,10 @@ export default class SunManager{
       clearInterval(this.player_reaction_time_out);
       let sun_counter_progress = parseInt(this.sunCounter.value,10);
       sun_counter_progress += parseInt(this.sun_counter_boost.value, 10);
+      this.set_new_sun_counter_value(sun_counter_progress);
+    }
+//
+    set_new_sun_counter_value(sun_counter_progress) {
       this.sunCounter.value = `${sun_counter_progress}`;
       this.sun_counter_filling.innerHTML = `${sun_counter_progress}%`;
       this.sun_counter_boost.value = `${this.sun_counter_boost_initial_value}`;

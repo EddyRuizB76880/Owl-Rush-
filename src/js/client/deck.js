@@ -14,8 +14,8 @@ export default class Deck {
     }
 
     let rand_number = Math.floor(Math.random() * (this.colors_array.length - not_sun_included));
-
-    new_card.classList.add('disabled_button');
+    
+    new_card.disabled = true;//
     new_card.classList.add('buttonCardsSelection');
     color.className = 'color_circle';
 

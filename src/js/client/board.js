@@ -77,8 +77,6 @@ export default class Board {
       this.simon_says_module.checkPlayerSequence();
     }, this.simon_says_module.simon_time * 1000);
     console.log('checking'+this.simon_says_module.simon_time);
-<<<<<<< Updated upstream
-
     if (this.simon_says_module.playerSucceeded === false) {
       active_player.go_back();
     } else {
@@ -86,7 +84,6 @@ export default class Board {
         //player won
 
       }
-=======
     if (this.simon_says_module.playerSucceeded === false) {
       active_player.go_back();
     } else if (active_player.position === this.board_info.length - 1){
@@ -94,7 +91,6 @@ export default class Board {
     } else if (this.sun_path_module.currentSunPosition === this.sunSize) {
       // game is lost
       console.log('game is lost');
->>>>>>> Stashed changes
     }
     this.simon_says_module.reset();
   }

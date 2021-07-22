@@ -18,6 +18,7 @@ export default class Board {
     console.log(`${new_card.value}`);
     if (new_card.value === 'SOL') {
       this.sun_path_module.determine_sun_card_result();
+      // TODO: activar el maso para poder darle click
     } else {
       this.append_card(new_card, active_player);
       this.toggle_player_actions();
@@ -44,6 +45,7 @@ export default class Board {
   }
 
   move_player(color, active_player) {
+    this.player_hand.classList.add('hidden');
     // ToDo: Create getPosition method in player
     let new_player_position = active_player.position + 1;
     // Get cell's color
@@ -75,6 +77,7 @@ export default class Board {
     this.move_player(chosen_card_color, active_player);
     setTimeout(() => { this.begin_simon_says_sequence(); }, 2500);
     setTimeout(() => { this.check_result(active_player); }, this.simon_says_module.simon_time * 1000);
+    // TODO: quitar simon dice, habiltar cartas again (las dos cartas)
   }
 
   check_result(active_player) {

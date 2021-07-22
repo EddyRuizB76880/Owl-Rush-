@@ -116,8 +116,5 @@ export default class SimonSays {
   startRound() {
     this.generateSequence();
     this.playerTurn(this.currentTurn);
-    setTimeout(() => {
-      this.checkPlayerSequence();
-    }, this.simon_time * 1000);
   }
 }

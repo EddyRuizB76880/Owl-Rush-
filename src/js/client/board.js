@@ -6,11 +6,7 @@ export default class Board {
     this.board_info = document.getElementsByClassName('board_cell');
     this.sun_path_module = new SunManager(sc_gracetime, scb_initial_value);
     this.simon_says_module = new SimonSays(simon_gracetime);
-    //This DOM element will be used to display the player's cards.
-    this.player_hand = document.getElementById('player\'s_hand');
-    //This array will be used to store and have direct access to cards. This
-    //makes enabling and disabling cards much easier.
-    this.cards_array = [];
+    this.sunSize = 9;
   }
 
   start_player_turn(new_card, active_player) {
@@ -28,7 +24,7 @@ export default class Board {
   toggle_player_actions(){
     let index = 0;
     for(index ; index < this.cards_array.length ; index++) {
-      this.cards_array[index].disabled =  !this.cards_array[index].disabled; 
+      this.cards_array[index].disabled =  !this.cards_array[index].disabled;
     }
   }
 //
@@ -73,11 +69,15 @@ export default class Board {
     this.toggle_player_actions();
     this.move_player(chosen_card_color, active_player);
     setTimeout(() => { this.begin_simon_says_sequence(); }, 2500);
-    setTimeout(() => { this.check_result(active_player); }, this.simon_says_module.simon_time * 1000 * 1.5);
+    setTimeout(() => { this.check_result(active_player); }, this.simon_says_module.simon_time * 1000);
   }
 
   check_result(active_player) {
+    setTimeout(() => {
+      this.simon_says_module.checkPlayerSequence();
+    }, this.simon_says_module.simon_time * 1000);
     console.log('checking'+this.simon_says_module.simon_time);
+<<<<<<< Updated upstream
 
     if (this.simon_says_module.playerSucceeded === false) {
       active_player.go_back();
@@ -86,6 +86,15 @@ export default class Board {
         //player won
 
       }
+=======
+    if (this.simon_says_module.playerSucceeded === false) {
+      active_player.go_back();
+    } else if (active_player.position === this.board_info.length - 1){
+        //player won
+    } else if (this.sun_path_module.currentSunPosition === this.sunSize) {
+      // game is lost
+      console.log('game is lost');
+>>>>>>> Stashed changes
     }
     this.simon_says_module.reset();
   }

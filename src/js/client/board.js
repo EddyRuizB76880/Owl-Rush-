@@ -6,6 +6,11 @@ export default class Board {
     this.board_info = document.getElementsByClassName('board_cell');
     this.sun_path_module = new SunManager(sc_gracetime, scb_initial_value);
     this.simon_says_module = new SimonSays(simon_gracetime);
+    //This DOM element will be used to display the player's cards.
+    this.player_hand = document.getElementById('player\'s_hand');
+    //This array will be used to store and have direct access to cards. This
+    //makes enabling and disabling cards much easier.
+    this.cards_array = [];
     this.sunSize = 9;
   }
 

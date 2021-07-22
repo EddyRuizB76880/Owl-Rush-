@@ -2,10 +2,12 @@ import SimonSays from './simon_says.js';
 import SunManager from './sun_manager.js';
 
 export default class Board {
-  constructor(sc_gracetime, scb_initial_value, simon_gracetime) {
+  constructor(sc_gracetime, scb_initial_value, simon_gracetime, socket) {
     this.board_info = document.getElementsByClassName('board_cell');
     this.sun_path_module = new SunManager(sc_gracetime, scb_initial_value);
     this.simon_says_module = new SimonSays(simon_gracetime);
+    this.client_socket = socket;
+    this.think_fast = document.getElementById('think_fast');
     //This DOM element will be used to display the player's cards.
     this.player_hand = document.getElementById('player\'s_hand');
     //This array will be used to store and have direct access to cards. This
@@ -17,6 +19,7 @@ export default class Board {
   start_player_turn(new_card, active_player) {
     console.log(`${new_card.value}`);
     if (new_card.value === 'SOL') {
+      this.client_socket.send_message('{"type":"sun"}');
       this.sun_path_module.determine_sun_card_result();
       // TODO: activar el maso para poder darle click
     } else {
@@ -45,7 +48,7 @@ export default class Board {
   }
 
   move_player(color, active_player) {
-    this.player_hand.classList.add('hidden');
+    this.think_fast.classList.add('hidden');
     // ToDo: Create getPosition method in player
     let new_player_position = active_player.position + 1;
     // Get cell's color
@@ -70,20 +73,23 @@ export default class Board {
   }
 
   process_player_move(chosen_card, active_player) {
+    this.think_fast.style.display = 'none';
     this.sun_path_module.update_sun_counter();
     const chosen_card_color = chosen_card.value;
     chosen_card.remove();
     this.toggle_player_actions();
     this.move_player(chosen_card_color, active_player);
     setTimeout(() => { this.begin_simon_says_sequence(); }, 2500);
-    setTimeout(() => { this.check_result(active_player); }, this.simon_says_module.simon_time * 1000);
+    setTimeout(() => { this.check_result(active_player , chosen_card_color); }, this.simon_says_module.simon_time * 1000);
     // TODO: quitar simon dice, habiltar cartas again (las dos cartas)
   }
 
-  check_result(active_player) {
+  check_result(active_player, chosen_card_color) {
     setTimeout(() => {
       this.simon_says_module.checkPlayerSequence();
     }, this.simon_says_module.simon_time * 1000);
+    let turn_result = `{"type":"turn_result","sun_counter":"${this.sun_path_module.sunCounter.value}","ss_success":${Number(this.simon_says_module.playerSucceeded)},"color":"${chosen_card_color}"}`;
+    this.client_socket.send_message(turn_result);
     console.log('checking'+this.simon_says_module.simon_time);
     if (this.simon_says_module.playerSucceeded === false) {
       active_player.go_back();
@@ -95,6 +101,8 @@ export default class Board {
       // game is lost
       console.log('game is lost');
     }
+    //ToDo: Make classList.add work so no css code is mixed with js
+    this.think_fast.style.display = 'flex';
     this.simon_says_module.reset();
   }
 

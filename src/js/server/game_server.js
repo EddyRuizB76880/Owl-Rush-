@@ -13,7 +13,8 @@ app.disable('x-powered-by');
 
 
 const wsPlayers = new Map(); // socket -> new Player()
-let playerCount = 0;
+let player_count = 0;
+let active_player_position = 0;
 
 const playerSessions = new Map(); // socket -> sessionId
 const sessions = new Map(); // sessionId -> new Session()
@@ -23,11 +24,11 @@ const sessions = new Map(); // sessionId -> new Session()
 // events that come in.
 const wsServer = new ws.Server({ noServer: true });
 wsServer.on('connection', (socket) => {
-  wsPlayers.set(socket, `Player${++playerCount}`);
+  wsPlayers.set(socket, `Player${++player_count}`);
   console.log(`${wsPlayers.get(socket)} connected`);
   socket.on('message', (message) => {
     console.log(`${wsPlayers.get(socket)} sent ${message}`);
-    process_message(message , socket);
+    process_message(message , socket , wsPlayers.get(socket));
   });
   socket.on('close', () => {
     console.log(`${wsPlayers.get(socket)} closed the connection`);
@@ -37,9 +38,11 @@ wsServer.on('connection', (socket) => {
 //ToDo: separate and make sure that game server only receives and sends messages
 //, and serves pages.
 
-function broadcast(message) {
+function broadcast(message, origin_id) {
   for (const [key, value] of wsPlayers) {
-    key.send(message);
+    if(value !== origin_id){
+      key.send(message);
+    }
   }
 }
 
@@ -56,17 +59,23 @@ function get_guests() {
   //ToDo include icon chosen by each of the players
 }
 
-function select_starting_player() {
+function select_active_player(active_position) {
   let list_of_players = JSON.parse(get_guests()).list;
-  const random = Math.floor(Math.random() * list_of_players.length);
-  let active_player_message = `{"type":"active_id","id":"${list_of_players[random]}"}`;
+  active_player_position = active_position;
+  let active_player_message = `{"type":"active_id","id":"${list_of_players[active_position]}"}`;
   console.log(active_player_message);
-  broadcast(active_player_message);
+  broadcast(active_player_message, '');
 }
 
-function process_message(message , socket) {
-  const message_from_server = JSON.parse(message);
-  switch(message_from_server.type) {
+function re_roll(message , sender_id) {
+  broadcast(message , sender_id);
+  active_player_position = (active_player_position + 1) % wsPlayers.size;
+  select_active_player(active_player_position);
+}
+
+function process_message(message , socket , sender_id) {
+  const message_from_client = JSON.parse(message);
+  switch(message_from_client.type) {
     case 'create_session':
       // create unique session id and send it to host. Save the sender of the 
       // message as the host. Await this socket to send begin
@@ -74,20 +83,24 @@ function process_message(message , socket) {
       
     case 'new_guest':
       // Temporarily, this case will assign an id to the new guest
-      console.log(`sending {"type":"my_id","id":"${wsPlayers.get(socket)}"}`);
-      const guest_id = `{"type":"my_id","id":"${wsPlayers.get(socket)}"}` ;
+      console.log(`sending {"type":"my_id","id":"${sender_id}"}`);
+      const guest_id = `{"type":"my_id","id":"${sender_id}"}` ;
       socket.send(guest_id);
       socket.send(get_guests());
       // ToDo: Indicate which icon was chosen by incoming guest
-      broadcast( `{"type":"new_guest","id":"${wsPlayers.get(socket)}"}`);
-      // ToDo: execute when host starts match
-      select_starting_player();
+      broadcast( `{"type":"new_guest","guest_id":"${sender_id}"}` , sender_id);
+      // ToDo: execute this line only when host starts match
+      select_active_player(Math.floor(Math.random() * wsPlayers.size));
       break;
     case 'turn_result':
-
+      re_roll(message , sender_id);
+      break;
+    case 'sun':
+      re_roll();
       break;
     default:
-      //broadcast
+      broadcast(message, sender_id);
+      break;
   }
 }
 

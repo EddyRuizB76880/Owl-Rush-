@@ -6,7 +6,6 @@ export default class ClientSocket {
     }
 
     setup_events() {
-        
         this.client.addEventListener('open', () => {
             // Causes the server to print "Hello"
            console.log('Sending message to mf server');

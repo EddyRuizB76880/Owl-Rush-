@@ -21,6 +21,15 @@
     <hr/>
     <main id="main_content_home_page">
       <img id="home_page_image" class="center" src="../img/favicon.svg" alt="Logo de Owl Rush!" height="500"/>
+      <form action="game_session" method="post">
+        <fieldset>
+          <label for="nickname">Nombre de Jugador:</label>
+
+          <input type="text" name="nickname" id="jugadorId" required="required"/>
+        </fieldset>
+           
+      </form>
+
       <a href="lobby.xhtml" id="start_button" class="continue_button"> Iniciar sesión </a>
       <a href="lobby_guestview.xhtml" id="join_button" class="continue_button"> Unirse a una sesión </a>
     </main>
@@ -31,4 +40,6 @@
     </footer>
   </body>
   <script src="js/client/client_socket.js" type="module"></script>
+  <script src="js/client/session.js" type="module"></script>
+
 </html>

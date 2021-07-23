@@ -7,13 +7,14 @@ export default class Board {
     this.sun_path_module = new SunManager(sc_gracetime, scb_initial_value);
     this.simon_says_module = new SimonSays(simon_gracetime);
     this.client_socket = socket;
-    this.think_fast = document.getElementById('think_fast');
     //This DOM element will be used to display the player's cards.
     this.player_hand = document.getElementById('player\'s_hand');
     //This array will be used to store and have direct access to cards. This
     //makes enabling and disabling cards much easier.
     this.cards_array = [];
     this.sunSize = 9;
+    this.totalNumberPlayers = 1; // TODO: get value when host starts the game.
+    this.playersArrivedFinish = 0;
   }
 
   start_player_turn(new_card, active_player) {
@@ -21,7 +22,6 @@ export default class Board {
     if (new_card.value === 'SOL') {
       this.client_socket.send_message('{"type":"sun"}');
       this.sun_path_module.determine_sun_card_result();
-      // TODO: activar el maso para poder darle click
     } else {
       this.append_card(new_card, active_player);
       this.toggle_player_actions();
@@ -30,13 +30,31 @@ export default class Board {
     }
   }
 
+  hideThinkFast() {
+    const thinkFastBar = document.getElementById('sun_counter_boost');
+    const thinkFastText = document.getElementById('think_fast_text');
+    thinkFastBar.classList.add('hidden');
+    thinkFastText.classList.add('hidden');
+  }
+
+  showThinkFast() {
+    const thinkFastBar = document.getElementById('sun_counter_boost');
+    const thinkFastText = document.getElementById('think_fast_text');
+    thinkFastBar.classList.remove('hidden');
+    thinkFastText.classList.remove('hidden');
+  }
+
+  hideSimonSays() {
+    document.getElementById('main_content_simon_dice').className = 'hidden';
+  }
+
   toggle_player_actions(){
     let index = 0;
     for(index ; index < this.cards_array.length ; index++) {
       this.cards_array[index].disabled =  !this.cards_array[index].disabled;
     }
   }
-//
+
   append_card(new_card, owner_player) {
     this.cards_array.push(new_card);
     const hand_card = document.createElement('li');
@@ -48,7 +66,6 @@ export default class Board {
   }
 
   move_player(color, active_player) {
-    this.think_fast.classList.add('hidden');
     // ToDo: Create getPosition method in player
     let new_player_position = active_player.position + 1;
     // Get cell's color
@@ -73,15 +90,19 @@ export default class Board {
   }
 
   process_player_move(chosen_card, active_player) {
-    this.think_fast.style.display = 'none';
     this.sun_path_module.update_sun_counter();
     const chosen_card_color = chosen_card.value;
     chosen_card.remove();
     this.toggle_player_actions();
     this.move_player(chosen_card_color, active_player);
+    this.hideThinkFast();
     setTimeout(() => { this.begin_simon_says_sequence(); }, 2500);
-    setTimeout(() => { this.check_result(active_player , chosen_card_color); }, this.simon_says_module.simon_time * 1000);
-    // TODO: quitar simon dice, habiltar cartas again (las dos cartas)
+    setTimeout(() => {
+      this.check_result(active_player , chosen_card_color);
+      this.toggle_player_actions();
+      this.showThinkFast();
+      this.hideSimonSays();
+    }, this.simon_says_module.simon_time * 1000);
   }
 
   check_result(active_player, chosen_card_color) {
@@ -96,13 +117,14 @@ export default class Board {
     } else if (this.simon_says_module.playerSucceeded === false) {
       active_player.go_back();
     } else if (active_player.position === this.board_info.length - 1){
-        //player won
+      this.playersArrivedFinish += 1;
+      if (this.playersArrivedFinish === this.totalNumberPlayers) {
+        console.log('game is won'); 
+      }
     } else if (this.sun_path_module.currentSunPosition === this.sunSize) {
       // game is lost
       console.log('game is lost');
     }
-    //ToDo: Make classList.add work so no css code is mixed with js
-    this.think_fast.style.display = 'flex';
     this.simon_says_module.reset();
   }
 

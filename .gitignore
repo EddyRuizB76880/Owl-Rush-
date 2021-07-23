@@ -1,3 +1,5 @@
 node_modules
-*.json
 src/js/server/log.tsv
+.style*
+.eslint*
+package-lock.json

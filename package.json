@@ -1,0 +1,30 @@
+{
+  "name": "web2021a-edluciajuan",
+  "version": "1.0.1",
+  "description": "![Pantalla de tablero del juego](design/img/Tablero.svg)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.ucr.ac.cr/LUCIA.ELIZONDOSANCHO/web2021a-edluciajuan.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.26.1",
+    "@typescript-eslint/parser": "^4.26.1",
+    "eslint": "^7.28.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.23.4"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "pug": "^3.0.2",
+    "typescript": "^4.3.2",
+    "websocket": "^1.0.34",
+    "ws": "^7.5.3"
+  }
+}

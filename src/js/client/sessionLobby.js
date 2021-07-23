@@ -1,7 +1,30 @@
  //Identifica y guarda el valor de configuraciones del lobby
 function sessionMain() {
+    //Al inicio revisara el nombre asignado
+    const playerName = document.getElementById('jugadorId');
+    
+    //Al inicio revisara la seleccion de avatar en home page para asignar la imagen
+    const avatarJugador1 = document.getElementById('avatarJugador1');
+    
+    console.assert(avatarJugador1);
+    const avatar1 = window.localStorage.getItem('selectionofAvatars');
+    
+    //console.log(`avatar  value ${avatar1}`);
+    if(avatar1 == "buffalo"){
+        avatarJugador1.src= "img/048-buffalo.svg" ;
+    }
+
+    if(avatar1 == "tigre"){
+        avatarJugador1.src= "img/050-tiger-1.svg" ;
+    }
+
+    if(avatar1 == "ardilla"){
+        avatarJugador1.src= "img/003-chipmunk.svg" ;
+    }
+    
 
 
+    //Se mantiene la sesion de las configuraciones en el lobby
     const sunCounterGracetime = document.getElementById('sun_counter_gracetime');
     const sunCounterSlider = document.getElementById('sun_counter_slider');
     const simonSaysGracetime = document.getElementById('simon_says_gracetime');

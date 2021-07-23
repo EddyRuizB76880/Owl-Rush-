@@ -13,6 +13,8 @@ export default class Board {
     //makes enabling and disabling cards much easier.
     this.cards_array = [];
     this.sunSize = 9;
+    this.totalNumberPlayers = 1; // TODO: get value when host starts the game.
+    this.playersArrivedFinish = 0;
   }
 
   start_player_turn(new_card, active_player) {
@@ -115,7 +117,10 @@ export default class Board {
     } else if (this.simon_says_module.playerSucceeded === false) {
       active_player.go_back();
     } else if (active_player.position === this.board_info.length - 1){
-        //player won
+      this.playersArrivedFinish += 1;
+      if (this.playersArrivedFinish === this.totalNumberPlayers) {
+        console.log('game is won'); 
+      }
     } else if (this.sun_path_module.currentSunPosition === this.sunSize) {
       // game is lost
       console.log('game is lost');

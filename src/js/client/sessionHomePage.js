@@ -1,6 +1,6 @@
 function sessionMain() {
 
-    //Identifica y guarda el valor del input para el nombre del jugador
+    //Identifica y guarda el valor del input para el nombre del jugador y seleccción de avatar
     const nickNameElement = document.getElementById('jugadorId');
     const avatarElement = document.getElementById('selectionofAvatars');
 

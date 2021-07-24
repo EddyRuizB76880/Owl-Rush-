@@ -13,6 +13,15 @@ export default class SimonSays {
     this.playerSucceeded = true;
     this.simon_time = simon_says_gracetime;
     this.buttonContainer = document.getElementById('buttons_simon_says');
+    this.setupEvents();
+  }
+
+  setupEvents() {
+    this.buttonContainer.addEventListener('click', (event) => {
+      const buttonEvent = event.target.id;
+      console.log(buttonEvent);
+      if (buttonEvent) this.handleClick(buttonEvent);
+    });
   }
 
   reset() {
@@ -42,6 +51,7 @@ export default class SimonSays {
 
   handleClick(tile) {
     const index = this.playerSequence.push(tile) - 1;
+   console.log(`${this.playerSequence[index]} vs ${this.sequence[index]}, lengths:${this.playerSequence.length} vs ${this.sequence.length}`);
     if (this.playerSequence[index] !== this.sequence[index]) {
       this.playerSucceeded = false;
       this.resetGame('Oops! You pressed the wrong button, go back.');
@@ -50,11 +60,6 @@ export default class SimonSays {
 
   playerTurn() {
     this.buttonContainer.classList.remove('unclickable');
-    this.buttonContainer.addEventListener('click', (event) => {
-      const buttonEvent = event.target.id;
-      console.log(buttonEvent);
-      if (buttonEvent) this.handleClick(buttonEvent);
-    });
   }
 
   nextStep() {

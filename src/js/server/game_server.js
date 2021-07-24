@@ -15,6 +15,7 @@ app.disable('x-powered-by');
 const wsPlayers = new Map(); // socket -> new Player()
 let player_count = 0;
 let active_player_position = 0;
+let highest_sesion_id = 0;
 
 const playerSessions = new Map(); // socket -> sessionId
 const sessions = new Map(); // sessionId -> new Session()
@@ -77,8 +78,11 @@ function process_message(message , socket , sender_id) {
   const message_from_client = JSON.parse(message);
   switch(message_from_client.type) {
     case 'create_session':
-      // create unique session id and send it to host. Save the sender of the 
-      // message as the host. Await this socket to send begin
+      socket.send( JSON.stringify({type:'new_lobby', session_id: highest_sesion_id}));
+      
+      
+      highest_sesion_id += 1;
+      
       break;
       
     case 'new_guest':

@@ -99,7 +99,7 @@ export default class Board {
     setTimeout(() => { this.begin_simon_says_sequence(); }, 2500);
     setTimeout(() => {
       this.check_result(active_player , chosen_card_color);
-      this.toggle_player_actions();
+      //this.toggle_player_actions();
       this.showThinkFast();
       this.hideSimonSays();
     }, this.simon_says_module.simon_time * 1000);

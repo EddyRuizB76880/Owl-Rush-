@@ -28,8 +28,6 @@ export default class SimonSays {
     this.sequence = [];
     this.playerSequence = [];
     this.currentTurn = 0;
-    this.playerSucceeded = false;
-    buttonContainer.classList.add('unclickable');
   }
 
   checkPlayerSequence() {
@@ -40,9 +38,6 @@ export default class SimonSays {
       console.log('You can stay in the position');
       this.buttonContainer.classList.add('unclickable');
     }
-    setTimeout(() => {
-      this.checkPlayerSequence();
-    }, this.simon_time * 1000);
   }
 
   handleClick(tile) {

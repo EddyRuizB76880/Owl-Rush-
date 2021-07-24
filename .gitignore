@@ -3,3 +3,5 @@ src/js/server/log.tsv
 .style*
 .eslint*
 package-lock.json
+src/js/package.json
+src/js/server/log.tsv

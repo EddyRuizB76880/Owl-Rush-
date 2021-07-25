@@ -73,18 +73,22 @@ export default class Board {
     console.log(`Number total of players: ${this.total_num_players}`);
     // ToDo: Create getPosition method in player
     let new_player_position = active_player.position + 1;
-    // Get cell's color
-    let cell_styles = window.getComputedStyle(this.board_info[new_player_position]);
-
-    // Check cells until the first matching color is found
-    console.log(`${cell_styles.getPropertyValue('background-color')} vs ${color}`);
-    while (cell_styles.getPropertyValue('background-color').localeCompare(color) !== 0) {
-      new_player_position += 1;
-      cell_styles = window.getComputedStyle(this.board_info[new_player_position]);
-      console.log(`${cell_styles.getPropertyValue('background-color')} vs ${color}`);
+    try{
+      // Get cell's color
+      let cell_styles = window.getComputedStyle(this.board_info[new_player_position]);
+      while (cell_styles.getPropertyValue('background-color').localeCompare(color) !== 0) {
+        new_player_position += 1;
+        cell_styles = window.getComputedStyle(this.board_info[new_player_position]);
+        console.log(`${cell_styles.getPropertyValue('background-color')} vs ${color}`);
+      }
+    } catch(error){
+      // When a player is close to the end of the game board, it's possible 
+      // that some cards are useless to them due to lack of some color cells.
+      // This try-catch block will make sure that player always makes some advance
+      new_player_position = active_player.position + 1;
     }
-    // Give player the top and left values of the matching cell so they can move their
-    // Avatar
+      // Give player the top and left values of the matching cell so they can move their
+      // Avatar
     active_player.move_avatar(this.board_info[new_player_position].offsetLeft,
       this.board_info[new_player_position].offsetTop,
       new_player_position);

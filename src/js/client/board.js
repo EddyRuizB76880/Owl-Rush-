@@ -82,7 +82,7 @@ export default class Board {
         console.log(`${cell_styles.getPropertyValue('background-color')} vs ${color}`);
       }
     } catch(error){
-      // When a player is close to the end of the game board, it's possible 
+      // When a player is close to the end of the game board, it's possible
       // that some cards are useless to them due to lack of some color cells.
       // This try-catch block will make sure that player always makes some advance
       new_player_position = active_player.position + 1;
@@ -114,16 +114,25 @@ export default class Board {
   }
 
   players_win() {
+    const players_result_element = document.getElementById('players_result');
+    const game_board_element = document.getElementById('game_board');
+
     this.players_arrived_finish += 1;
     // TODO: quitarlo de los jugadores
+    console.log(`jugadores han llegado a la meta: ${this.players_arrived_finish}`);
     if (this.players_arrived_finish === this.total_num_players) {
-    // TODO: show in board result
+      game_board_element.classList.add('hidden');
+      players_result_element.classList.remove('hidden');
+      // send message to server players_win
     }
-    // send message to server players_win
   }
 
   sun_wins() {
     // TODO: resetear todo
+    const sun_result_element = document.getElementById('sun_result');
+    const game_board_element = document.getElementById('game_board');
+    game_board_element.classList.add('hidden');
+    players_result_element.classList.remove('hidden');
     // send message to server sun_wins
   }
 

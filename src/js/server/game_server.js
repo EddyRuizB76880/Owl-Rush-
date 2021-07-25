@@ -96,7 +96,7 @@ function process_message(message , socket , sender_id) {
       re_roll(message , sender_id);
       break;
     case 'sun':
-      re_roll();
+      re_roll(message , sender_id);
       break;
     default:
       broadcast(message, sender_id);

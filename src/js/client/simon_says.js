@@ -13,6 +13,15 @@ export default class SimonSays {
     this.playerSucceeded = true;
     this.simon_time = simon_says_gracetime;
     this.buttonContainer = document.getElementById('buttons_simon_says');
+    this.setupEvents();
+  }
+
+  setupEvents() {
+    this.buttonContainer.addEventListener('click', (event) => {
+      const buttonEvent = event.target.id;
+      console.log(buttonEvent);
+      if (buttonEvent) this.handleClick(buttonEvent);
+    });
   }
 
   reset() {
@@ -28,8 +37,6 @@ export default class SimonSays {
     this.sequence = [];
     this.playerSequence = [];
     this.currentTurn = 0;
-    this.playerSucceeded = false;
-    buttonContainer.classList.add('unclickable');
   }
 
   checkPlayerSequence() {
@@ -40,13 +47,11 @@ export default class SimonSays {
       console.log('You can stay in the position');
       this.buttonContainer.classList.add('unclickable');
     }
-    setTimeout(() => {
-      this.checkPlayerSequence();
-    }, this.simon_time * 1000);
   }
 
   handleClick(tile) {
     const index = this.playerSequence.push(tile) - 1;
+   console.log(`${this.playerSequence[index]} vs ${this.sequence[index]}, lengths:${this.playerSequence.length} vs ${this.sequence.length}`);
     if (this.playerSequence[index] !== this.sequence[index]) {
       this.playerSucceeded = false;
       this.resetGame('Oops! You pressed the wrong button, go back.');
@@ -55,11 +60,6 @@ export default class SimonSays {
 
   playerTurn() {
     this.buttonContainer.classList.remove('unclickable');
-    this.buttonContainer.addEventListener('click', (event) => {
-      const buttonEvent = event.target.id;
-      console.log(buttonEvent);
-      if (buttonEvent) this.handleClick(buttonEvent);
-    });
   }
 
   nextStep() {

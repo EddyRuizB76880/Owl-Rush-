@@ -51,8 +51,9 @@ export default class Game {
     }
 
   }
-  
+
   start_player_turn() {
+    this.game_board.set_num_players(this.player_list.length);
     this.deck_button.disabled = true;
     this.game_board.start_player_turn(this.deck.deal_card(true),
       this.player_list[0]
@@ -96,7 +97,7 @@ export default class Game {
         }
         break;
       case 'begin' :
-        // this actually must be the first case to happen. 
+        // this actually must be the first case to happen.
         // Use message's sc_grace, ss_grace, and ssb_value
         // attributes to set the game up
         break;
@@ -116,7 +117,7 @@ export default class Game {
 
         if(message_from_server.list.length > 0) {
           let index = 0;
-          
+
           for(index ; index < message_from_server.list.length ; index++ ) {
             if(message_from_server.list[index] !== this.my_id){
 
@@ -126,7 +127,7 @@ export default class Game {
               //line of code to retrieve guest's icon from message.icons[index]
               this.player_list.push(guest);
               this.player_ids.push(message_from_server.list[index]);}
-              
+
           }
         }
         break;

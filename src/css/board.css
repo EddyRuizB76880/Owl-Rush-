@@ -7,7 +7,6 @@ It was modified for its use
 
 @import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
 
-
 /*
 Variables for number of game board cells
 */
@@ -37,7 +36,7 @@ body {
 
 #starting_point,
 #finish_line {
- 
+
 }
 
 #page_content {
@@ -59,7 +58,6 @@ body {
 #players {
 }
 
-
 #game_board {
   height: 80%;
   order: 1;
@@ -75,8 +73,7 @@ body {
 }
 
 #row3,
-#row7
-{
+#row7 {
   flex-direction: row-reverse;
 }
 
@@ -94,12 +91,12 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  
 }
 
 .row {
   display: flex;
 }
+
 /*
   Code taken from an example foun on the W3 School website. Available at:
   https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_circles
@@ -112,10 +109,10 @@ body {
   display: inline-block;
 }
 
-
 .focused_element {
   filter: drop-shadow(5px 5px 5px gold);
 }
+
 /*
 Adjust the size and position of players in the game board matrix
 */
@@ -125,72 +122,80 @@ Adjust the size and position of players in the game board matrix
   top: calc((var(--board_row_count) - 8) * 100% / var(--board_row_count));
   transition: left 1s ease-out, top 1s;
 }
+
 /*
 .active_player {
   filter: drop-shadow(5px 5px 5px green);
 }
 */
 
-
 /*
 Acomoda elementos para hacerlos responsive segun un cambio de tamaño de pantalla
-
 */
 
 @media (max-width: 640px) {
   #page_content {
     flex-direction: column;
   }
+
   .board_cell,
   .board_cell_empty {
     min-width: 27px;
     min-height: 27px;
   }
-  #SunCounterProgressBar{
-    width:150px;
+
+  #SunCounterProgressBar {
+    width: 150px;
     transform: rotate(-180deg);
     margin-bottom: 10px;
     margin-right: 30px;
   }
-  #LadoIzquierdoTablero{
+
+  #LadoIzquierdoTablero {
     display: flex;
     flex-direction: column;
     order: 3;
   }
-  
-  #CentroTablero{
+
+  #CentroTablero {
     order: 2;
   }
-  
+
   #LadoDerechoTablero {
     order: 1;
     height: 70px;
   }
 
-  #footer{
+  #footer {
     width: 100%;
     order: 4;
   }
-  body{
+
+  body {
     height: unset;
   }
-  #SunCounterText{
+
+  #SunCounterText {
     flex-direction: row;
   }
-  #Sun-CounterTitle{
-    margin-right: 15px;
-  }
-  #Sun-CounterFilling{
+
+  #Sun-CounterTitle {
     margin-right: 15px;
   }
 
-  #Jugadores{
+  #Sun-CounterFilling {
+    margin-right: 15px;
+  }
+
+  #Jugadores {
     order: 2;
   }
-  #AccionesDeJuego{
+
+  #AccionesDeJuego {
     order: 1;
   }
-  #ReturnButtons{
+
+  #ReturnButtons {
     order: 3;
   }
 }

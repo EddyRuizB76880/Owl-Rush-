@@ -6,7 +6,6 @@ Stylizes the grid used for the vector where the sun will normally advance each t
 https://www.w3schools.com/css/css_grid.asp
 */
 .grid-containerSunVector {
-
   column-count: 7;
   background-color: #343148;
   padding: 10px;
@@ -53,17 +52,17 @@ Changes the size of the button that lets to take new cards
 It adjusts the positions to be vertical
 */
 .container-column {
- 
   align-items: center;
   flex-direction: column;
- 
 }
+
 /*
 Adjusts the position of the text of the percentage of filling of the sun counter progress bar
 */
-#SunCounterText{
-    display: flex;
+#SunCounterText {
+  display: flex;
 }
+
 /*
 It adjusts the positions to be horizontal
 */
@@ -71,10 +70,7 @@ It adjusts the positions to be horizontal
   display: flex;
   align-items: center;
   flex-direction: row;
-  
 }
-
-
 
 /*
 It adjusts the positions of image and text to be side by side
@@ -83,7 +79,6 @@ It adjusts the positions of image and text to be side by side
   display: flex;
   align-items: center;
   flex-direction: row;
-  
 }
 
 /*
@@ -145,25 +140,24 @@ Adjusts the size of the margin of the right for the button that ends the game se
 }
 
 /*
-Adjusts the position progress bar for the sun counter 
+Adjusts the position progress bar for the sun counter
 */
-#SunCounterProgressBar{
-      
-  width:250px; 
-  margin-bottom:150px;
+#SunCounterProgressBar {
+  width: 250px;
+  margin-bottom: 150px;
 }
+
 /*
 Adjusts the position of the sun on the vector it follows by turn
 */
 #Sun {
- /* position: absolute;*/
-/*  height: calc(100% / var(--board_column_count));*/
   top: calc((var(--board_column_count) - 8) * 100% / var(--board_column_count));
   transition: left 1s ease-out, top 1s;
 }
+
 /*
-Adjusts the size of the cells of the vector the sun goes through 
+Adjusts the size of the cells of the vector the sun goes through
 */
-#Sun_path  {
+#Sun_path {
   height: calc(100% / var(--board_column_count));
 }

@@ -1,6 +1,6 @@
 {
   "name": "web2021a-edluciajuan",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "![Pantalla de tablero del juego](design/img/Tablero.svg)",
   "main": "index.js",
   "scripts": {

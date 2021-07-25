@@ -10,13 +10,13 @@ h2 {
   font-size: 1.5vw;
 }
 
-  /*
-    These styles applies to all fieldset tags.
-  */
-  fieldset {
-    margin-left: 3%;
-    width: 60%;
-  }
+/*
+  These styles applies to all fieldset tags.
+*/
+fieldset {
+  margin-left: 3%;
+  width: 60%;
+}
 
 /*
  This block allows labels to indentate and create a space between a label and the
@@ -60,13 +60,13 @@ label {
   This block of code sets the font size for the checkmark boxes and sets
   flex as their display type.
 */
-#simon_says_punishment_for_failing{
-  display: flex ;
+#simon_says_punishment_for_failing {
+  display: flex;
   flex-direction: row;
   font-size: 0.8vw;
 }
 
-#simon_says_punishment_for_failing li{
+#simon_says_punishment_for_failing li {
   margin-left: 2%;
   text-align: center;
 }
@@ -105,7 +105,6 @@ label {
   filter: brightness(75%);
 }
 
-
 /*
   This block of code sets the dimensions of the small images on on the
   player list section.
@@ -119,10 +118,11 @@ label {
   margin-bottom: 2%;
 }
 
-.settings_menu_item{
+.settings_menu_item {
   display: flex;
   margin-bottom: 2%;
 }
+
 .settings_slider {
   margin-top: -6px;
   width: 20%;
@@ -138,7 +138,6 @@ input:disabled,
   color: white;
   cursor: not-allowed;
 }
-
 
 @media screen and (max-width: 751px) {
   h5,
@@ -178,7 +177,6 @@ input:disabled,
     font-size: 2vw;
   }
 
-
   #list_of_players {
     display: flex;
     flex-direction: column;
@@ -187,7 +185,7 @@ input:disabled,
     margin-left: 20%;
   }
 
-  #simon_says_punishment_for_failing{
+  #simon_says_punishment_for_failing {
     margin-left: -19%;
   }
 

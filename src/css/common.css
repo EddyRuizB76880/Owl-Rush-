@@ -5,8 +5,6 @@ html {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-
-
 /*
   This style arranges the whole page in rows. It allows us to stick the footer
   at the bottom of the page.
@@ -28,11 +26,16 @@ footer {
 }
 
 /*
+  Green color to both the footer and header.
+*/
+
+/*
   This style adjusts the upper part of the footer.
 */
 footer {
   margin-top: auto;
   border-top: solid;
+  background-color: #0cca4a;
 }
 
 /*
@@ -40,6 +43,7 @@ footer {
 */
 header {
   border-bottom: solid;
+  background-color: #0cca4a;
 }
 
 /*
@@ -47,14 +51,6 @@ header {
 */
 ul {
   list-style-type: none;
-}
-
-/*
-  It applies a green color to both the footer and header.
-*/
-header,
-footer {
-  background-color: #0cca4a;
 }
 
 /*
@@ -78,8 +74,8 @@ a {
   Class that centers by its margin left and margin right.
 */
 .center {
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
+  width: 50%;
 }
 
 /*

@@ -36,7 +36,7 @@ wsServer.on('connection', (socket) => {
   });
 });
 //ToDo: separate and make sure that game server only receives and sends messages
-//, and serves pages.
+//, and serves pages. linter extension en VS code
 
 function broadcast(message, origin_id) {
   for (const [key, value] of wsPlayers) {
@@ -46,7 +46,8 @@ function broadcast(message, origin_id) {
   }
 }
 
-function get_guests() {
+//Socket IO
+function get_guests() {//Json stringify
   let guest_list = '{"type":"guest_list","list":[';
   for (const [key, value] of wsPlayers) {
     console.log(value);

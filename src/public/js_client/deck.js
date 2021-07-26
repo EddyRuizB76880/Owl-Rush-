@@ -1,5 +1,5 @@
 export default class Deck {
-  
+  // RGB colors must be in this format because cell colors on board return this.
   constructor() {//         Blue                Green                 Red                 Yellow 
     this.colors_array = ['rgb(0, 0, 255)' , 'rgb(0, 255, 0)' , 'rgb(255, 0, 0)' , 'rgb(255, 255, 0)' , 'SOL'];
   }

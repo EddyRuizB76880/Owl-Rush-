@@ -69,10 +69,12 @@ function select_active_player(active_position) {
 
 function re_roll(message , sender_id) {
   broadcast(message , sender_id);
+  //Todo: Separate these 2 lines in a separate method.
   active_player_position = (active_player_position + 1) % wsPlayers.size;
   select_active_player(active_player_position);
 }
 
+//ToDo: Follow teacher's advice on switch.
 function process_message(message , socket , sender_id) {
   const message_from_client = JSON.parse(message);
   switch(message_from_client.type) {
@@ -98,6 +100,9 @@ function process_message(message , socket , sender_id) {
     case 'sun':
       re_roll(message , sender_id);
       break;
+    case 'IAW':
+      // ToDo: Avoid broadcasting this
+      re_roll(message , sender_id);  
     default:
       broadcast(message, sender_id);
       break;

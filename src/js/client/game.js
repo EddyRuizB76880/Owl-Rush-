@@ -85,7 +85,12 @@ export default class Game {
         console.log(`pos ${this.player_ids.indexOf(message_from_server.id)}`);
         console.log(`list ${this.player_ids}`);
         if(message_from_server.id === this.my_id) {
-          this.deck_button.disabled = false;
+          if(this.game_board.iaw === false){
+            this.deck_button.disabled = false;
+          }else{
+            //IAW stands for I already won
+            this.client_socket.send_message(JSON.stringify({type:'IAW'}));
+          }
         }else {
           this.deck_button.disabled = true;
         }
@@ -131,6 +136,8 @@ export default class Game {
           }
         }
         break;
+        case 'player_reached':
+          this.game_board.player_won();
     }
   }
 

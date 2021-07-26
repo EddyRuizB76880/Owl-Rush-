@@ -13,6 +13,8 @@ export default class SunManager{
       this.currentSunPosition = 0;
       this.currentCell = this.sunpath.rows[0].cells[0];
       this.currentCell.appendChild(this.sun);
+      // ToDo: find a way to get the total cells of sun path
+      this.sun_size = 9;
       this.player_reaction_time_out;
     }
 
@@ -21,10 +23,22 @@ export default class SunManager{
         this.currentSunPosition += 1;
         this.currentCell= this.sunpath.rows[0].cells[this.currentSunPosition];
         this.currentCell.appendChild(this.sun);
+      if (this.currentSunPosition === this.sun_size) {
+          this.sun_wins();
+      }
      } else {
         this.sunCounter.value = "0";
         this.sun_counter_filling.innerHTML= this.sunCounter.value+"%";
      }
+    }
+
+    sun_wins() {
+      // TODO: resetear todo
+      const sun_result_element = document.getElementById('sun_result');
+      const game_board_element = document.getElementById('game_board');
+      game_board_element.classList.add('hidden');
+      players_result_element.classList.remove('hidden');
+      // send message to server sun_wins
     }
 
     empty_boost() {

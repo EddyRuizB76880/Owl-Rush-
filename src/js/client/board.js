@@ -12,7 +12,7 @@ export default class Board {
     // This array will be used to store and have direct access to cards. This
     // makes enabling and disabling cards much easier.
     this.cards_array = [];
-    this.sun_size = 9;
+    this.iaw = false;
     this.total_num_players = 0;
     this.players_arrived_finish = 0;
   }
@@ -113,7 +113,7 @@ export default class Board {
     }, this.simon_says_module.simon_time * 1000);
   }
 
-  players_win() {
+  player_won() {
     const players_result_element = document.getElementById('players_result');
     const game_board_element = document.getElementById('game_board');
 
@@ -125,15 +125,6 @@ export default class Board {
       players_result_element.classList.remove('hidden');
       // send message to server players_win
     }
-  }
-
-  sun_wins() {
-    // TODO: resetear todo
-    const sun_result_element = document.getElementById('sun_result');
-    const game_board_element = document.getElementById('game_board');
-    game_board_element.classList.add('hidden');
-    players_result_element.classList.remove('hidden');
-    // send message to server sun_wins
   }
 
   check_result(active_player, chosen_card_color) {
@@ -148,10 +139,10 @@ export default class Board {
     } else if (this.simon_says_module.playerSucceeded === false) {
       active_player.go_back();
     } else if (active_player.position === this.board_info.length - 1) {
-      this.players_win();
-    } else if (this.sun_path_module.currentSunPosition === this.sun_size) {
-      this.sun_wins();
-    }
+      this.player_won();
+      this.iaw = true;
+      this.client_socket.send_message(JSON.stringify({type:'player_reached'}));
+    } 
     this.simon_says_module.reset();
   }
 

@@ -33,12 +33,10 @@ export default class SunManager{
     }
 
     sun_wins() {
-      // TODO: resetear todo
       const sun_result_element = document.getElementById('sun_result');
       const game_board_element = document.getElementById('game_board');
       game_board_element.classList.add('hidden');
-      players_result_element.classList.remove('hidden');
-      // send message to server sun_wins
+      sun_result_element.classList.remove('hidden');
     }
 
     empty_boost() {

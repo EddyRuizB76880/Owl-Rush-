@@ -147,12 +147,14 @@ Adjusts the position progress bar for the sun counter
   margin-bottom: 150px;
 }
 
-/*
-Adjusts the position of the sun on the vector it follows by turn
-*/
-#Sun {
-  top: calc((var(--board_column_count) - 8) * 100% / var(--board_column_count));
-  transition: left 1s ease-out, top 1s;
+.sunItem {
+  left: 0;
+  transition: ease-in 3s;
+}
+
+.sunItem.move {
+  left: 8%;
+  transform: translate(100%, 0);
 }
 
 /*

@@ -10,7 +10,7 @@ export default class SunManager{
       this.sun_counter_boost.value = `${scb_initial_value}`;
       this.sun_counter_boost_gracetime = sc_gracetime;
       this.sun_counter_boost_initial_value = scb_initial_value;
-      this.currentSunPosition = 0;
+      this.currentSunPosition = -1;
       this.currentCell = this.sunpath.rows[0].cells[0];
       this.currentCell.appendChild(this.sun);
       // ToDo: find a way to get the total cells of sun path
@@ -20,9 +20,15 @@ export default class SunManager{
 
     determine_sun_card_result() {
       if (this.sunCounter.value != "100") {
+        this.sun.className = 'sunItem';
         this.currentSunPosition += 1;
         this.currentCell= this.sunpath.rows[0].cells[this.currentSunPosition];
+
+        setTimeout( () => {
+          this.sun.className += ' move';
+        }, 300);
         this.currentCell.appendChild(this.sun);
+
       if (this.currentSunPosition === this.sun_size) {
           this.sun_wins();
       }

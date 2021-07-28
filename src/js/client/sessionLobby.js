@@ -1,47 +1,27 @@
-import ClientSocket from './client_socket.js'
-//Identifica y guarda el valor de configuraciones del lobby
-const port = 3000;
-const ip = 'localhost';
-const connection_message = JSON.stringify({type: 'create_session'
-                                          ,host: window.localStorage.getItem('jugadorId'
-                                            )
-                                          ,icon: window.localStorage.getItem('selectionofAvatars')
-                                        });
-const client_socket = new ClientSocket(ip , port , connection_message);
-client_socket.addEventListener('message', (event) => {
-    process_message(event.data);
-});
-
-//ToDo: Find a way to not make redundant code in switches.
-function process_message(message) {
-    const message_from_server = JSON.parse(message);
-    switch(message_from_server.type) {
-        case 'new_guest':
-            //display new guest icon and name
-            break;
-
-        case 'player_left':
-            //remove guest icon and name
-            break;
-
-        case 'new_lobby':
-            window.localStorage.setItem('my_session_id',message_from_server.session_id);
-            console.log(`${message_from_server.session_id}`);
-            break;
-    }
-
-}
-
+ //Identifica y guarda el valor de configuraciones del lobby
 function sessionMain() {
     //Al inicio revisara el nombre asignado
     const playerName = document.getElementById('jugadorId');
     
     //Al inicio revisara la seleccion de avatar en home page para asignar la imagen
     const avatarJugador1 = document.getElementById('avatarJugador1');
-   
-
+    
     console.assert(avatarJugador1);
-    avatarJugador1.src = window.localStorage.getItem('selectionofAvatars');
+    const avatar1 = window.localStorage.getItem('selectionofAvatars');
+    
+    //console.log(`avatar  value ${avatar1}`);
+    if(avatar1 == "buffalo"){
+        avatarJugador1.src= "img/048-buffalo.svg" ;
+    }
+
+    if(avatar1 == "tigre"){
+        avatarJugador1.src= "img/050-tiger-1.svg" ;
+    }
+
+    if(avatar1 == "ardilla"){
+        avatarJugador1.src= "img/003-chipmunk.svg" ;
+    }
+    
 
 
     //Se mantiene la sesion de las configuraciones en el lobby
@@ -80,11 +60,11 @@ function sessionMain() {
    sunCounterSlider.value= conf2 ;
    simonSaysGracetime.value= conf3 ;
    simonSaysSteps.value= conf4 ;
-/*
+
    punishmentLosingSunCounterBoost.checked= conf5.checked ;
    punishmentSunStep.checked= conf6.checked ;
    punishmentLosingTurn.checked= conf7.checked ;
-*/
+
    sunCounterGracetime.addEventListener('input', () =>{
         window.localStorage.setItem('sun_counter_gracetime',sunCounterGracetime.value);
     })

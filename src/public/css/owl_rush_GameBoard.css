@@ -117,6 +117,7 @@ https://stackoverflow.com/questions/45507970/how-can-i-change-the-color-of-a-pro
 */
 
 .progressVertical::-webkit-progress-value {
+  transition: width 1s;
   background: black;
 }
 
@@ -149,7 +150,7 @@ Adjusts the position progress bar for the sun counter
 
 .sunItem {
   left: 0;
-  transition: ease-in 3s;
+  transition: ease-in 1s;
 }
 
 .sunItem.move {

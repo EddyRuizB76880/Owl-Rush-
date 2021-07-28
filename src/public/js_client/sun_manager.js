@@ -17,7 +17,8 @@ export default class SunManager {
   }
 
   determine_sun_card_result() {
-    if (this.sunCounter.value !== '100') {
+    console.log(`sunCounter width: ${this.sunCounter.style.width}`);
+    if (this.sunCounter.style.width !== '100%') {
       this.sun.className = 'sunItem';
       this.currentSunPosition += 1;
       this.currentCell = this.sunpath.rows[0].cells[this.currentSunPosition];
@@ -31,8 +32,8 @@ export default class SunManager {
         this.sun_wins();
       }
     } else {
-      this.sunCounter.value = '0';
-      this.sun_counter_filling.innerHTML = `${this.sunCounter.value}%`;
+      this.sunCounter.style.width = '0%';
+      this.sun_counter_filling.innerHTML = `${this.sunCounter.style.width}`;
     }
   }
 
@@ -64,7 +65,6 @@ export default class SunManager {
 
   //
   set_new_sun_counter_value(sun_counter_progress) {
-
     setTimeout(() => {
       this.sunCounter.style.width = `${sun_counter_progress}%` ;
     }, 1000)

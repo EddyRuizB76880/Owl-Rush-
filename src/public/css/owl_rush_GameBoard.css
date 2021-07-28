@@ -54,6 +54,7 @@ It adjusts the positions to be vertical
 .container-column {
   align-items: center;
   flex-direction: column;
+  margin-bottom: 15vh;
 }
 
 /*
@@ -114,7 +115,6 @@ Progress bar isnt standard so the vendor prefixes -webkit-progress-value y webki
 
  Code taken and slightly modified from an example found in stackoverflow website. Available at:
 https://stackoverflow.com/questions/45507970/how-can-i-change-the-color-of-a-progress-bar-value-in-html
-*/
 
 .progressVertical::-webkit-progress-value {
   transition: width 1s;
@@ -123,6 +123,24 @@ https://stackoverflow.com/questions/45507970/how-can-i-change-the-color-of-a-pro
 
 .progressVertical::-webkit-progress-bar {
   background: gray;
+}
+*/
+.progressbarWrapper {
+  width: 100%;
+  height: 1em;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  margin: 12vh;
+}
+
+.progressbarSun {
+  width: 0;
+  background: blue;
+  height: 1em;
+  transition-property: width;
+  transition-duration: 2s;
+  transition-timing-function: linear;
+  transition-delay: 1s;
 }
 
 /*

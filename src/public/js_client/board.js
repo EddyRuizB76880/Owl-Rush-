@@ -140,7 +140,7 @@ export default class Board {
     setTimeout(() => {
       this.simon_says_module.checkPlayerSequence();
     }, this.simon_says_module.simon_time * 1000);
-    const turn_result = `{"type":"turn_result","sun_counter":"${this.sun_path_module.sunCounter.value}","ss_success":${Number(this.simon_says_module.playerSucceeded)},"color":"${chosen_card_color}"}`;
+    const turn_result = `{"type":"turn_result","sun_counter":"${this.sun_path_module.sunCounter.style.width}","ss_success":${Number(this.simon_says_module.playerSucceeded)},"color":"${chosen_card_color}"}`;
     this.client_socket.send_message(turn_result);
     console.log(`checking${this.simon_says_module.simon_time}`);
     if (this.simon_says_module.playerSucceeded === false) {
@@ -148,9 +148,9 @@ export default class Board {
     } else if (this.simon_says_module.playerSucceeded === false) {
       active_player.go_back();
     } else if (active_player.position === this.board_info.length - 1) {
-      this.players_win();
-    } else if (this.sun_path_module.currentSunPosition === this.sun_size) {
-      this.sun_wins();
+      this.player_won();
+      this.iaw = true;
+      this.client_socket.send_message(JSON.stringify({type:'player_reached'}));
     }
     this.simon_says_module.reset();
   }

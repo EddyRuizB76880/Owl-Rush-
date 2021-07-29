@@ -1,263 +1,266 @@
 <!DOCTYPE html>
-  <html xmlns="http://www.w3.org/1999/xhtml" id="owl-rush-game-board" lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="author" content="Juan Manuel Torres Vega"/>
-    <meta name="generator" content="Juan Manuel Torres Vega"/>
-    <meta name="keywords" content="game board"/>
-    <title>Tablero de juego</title>
-    <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
-    <link rel="stylesheet" media="screen" href="css/common.css" />
-    <link rel="stylesheet" media="screen" href="css/owl_rush_GameBoard.css" />
-    <link rel="stylesheet" media="screen" href="css/board.css" />
-    <link rel="stylesheet" media="screen" href="css/simon_says.css" />
-  </head>
-  <body>
-    <header id="website_header">
-      <img id="website_logo" src="../img/favicon.svg" alt="Logo de Owl Rush!" height="50"/>
-      <h1 id="website_title">Owl Rush!</h1>
-      <p id="current_page">Tablero de Juego</p>
-      <a href="instructions_game_board.xhtml" class="secondary_button"> Instrucciones </a>
+<html xmlns="http://www.w3.org/1999/xhtml" id="owl-rush-game-board" lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Juan Manuel Torres Vega"/>
+  <meta name="generator" content="Juan Manuel Torres Vega"/>
+  <meta name="keywords" content="game board"/>
+  <title>Tablero de juego</title>
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
+  <link rel="stylesheet" media="screen" href="css/common.css" />
+  <link rel="stylesheet" media="screen" href="css/owl_rush_GameBoard.css" />
+  <link rel="stylesheet" media="screen" href="css/board.css" />
+  <link rel="stylesheet" media="screen" href="css/simon_says.css" />
+</head>
+<body>
+  <header id="website_header">
+    <img id="website_logo" src="../img/favicon.svg" alt="Logo de Owl Rush!" height="50"/>
+    <h1 id="website_title">Owl Rush!</h1>
+    <p id="current_page">Tablero de Juego</p>
+    <a href="instructions_game_board.xhtml" class="secondary_button"> Instrucciones </a>
 
   </header>
- <hr/>
- <fieldset id = "player_alerts" class = 'hidden'>
+  <hr/>
+  <fieldset id = "player_alerts" class = 'hidden'>
 
-</fieldset>
- <!-- Game Board -->
-    <main id="page_content">
-          <!-- Player´s actions -->
-          <div id="LadoIzquierdoTablero" class="box">
-                <!-- Other player´s cards -->
-                <fieldset id="Jugadores" >
-                  <h1 >Jugadores(3)</h1>
+  </fieldset>
+  <!-- Game Board -->
+  <main id="page_content">
+    <!-- Player´s actions -->
+    <div id="LadoIzquierdoTablero" class="box">
+      <!-- Other player´s cards -->
+      <fieldset id="Jugadores" >
+        <h1 >Jugadores(3)</h1>
 
-                  <div  class="image-txt-container">
-                        <img  src="img/048-buffalo.svg" alt="Ficha de Jugador" height="25" />
-                        <p style="color: rgb(63, 230, 13)">JuanT (Anfitrión)</p>
-                  </div>
+        <div  class="image-txt-container">
+          <img  src="img/048-buffalo.svg" alt="Ficha de Jugador" height="25" />
+          <p style="color: rgb(63, 230, 13)">JuanT (Anfitrión)</p>
+        </div>
 
-                  <div  class="image-txt-container">
-                        <img id="player1Avatar" src="img/050-tiger-1.svg" alt="Ficha de Jugador" height="25" />
-                        <p id="player1Name">Eddy </p>
-                        <img  src="img/CartaConColor-1.svg" alt="Carta para Juego" height="25" />
-                        <img  src="img/CartaConColor-2.svg" alt="Carta para Juego" height="25" />
-                        <img  src="img/CartaConColor-3.svg" alt="Carta para Juego" height="25" />
-                  </div>
+        <div  class="image-txt-container">
+          <img  src="img/050-tiger-1.svg" alt="Ficha de Jugador" height="25" />
+          <p>Eddy </p>
+          <img  src="img/CartaConColor-1.svg" alt="Carta para Juego" height="25" />
+          <img  src="img/CartaConColor-2.svg" alt="Carta para Juego" height="25" />
+          <img  src="img/CartaConColor-3.svg" alt="Carta para Juego" height="25" />
+        </div>
 
-                  <div  class="image-txt-container">
-                        <img  src="img/003-chipmunk.svg" alt="Ficha de Jugador" height="25" />
-                        <p>Lucia </p>
-                        <img  src="img/CartaConColor-3.svg" alt="Carta para Juego" height="25" />
-                        <img  src="img/CartaConColor-4.svg" alt="Carta para Juego" height="25" />
-                        <img  src="img/CartaConColor-1.svg" alt="Carta para Juego" height="25" />
-                  </div>
+        <div  class="image-txt-container">
+          <img  src="img/003-chipmunk.svg" alt="Ficha de Jugador" height="25" />
+          <p>Lucia </p>
+          <img  src="img/CartaConColor-3.svg" alt="Carta para Juego" height="25" />
+          <img  src="img/CartaConColor-4.svg" alt="Carta para Juego" height="25" />
+          <img  src="img/CartaConColor-1.svg" alt="Carta para Juego" height="25" />
+        </div>
 
-                </fieldset>
+      </fieldset>
 
-                <fieldset id="AccionesDeJuego" class="container-row" >
-                        <!--Cards stack  -->
-                        <div class="image-txt-container">
-                          <p>Tomar Carta </p>
-                          <button id="cardsGetStack" type="button" value = "myimage">
-                            <img class="img-center" src='img/Maso.svg' alt="Pila de cartas"/></button>
-                      </div>
-                      <div id="main_content_simon_dice" class="hidden">
-                        <div id="buttons_simon_says" class="unclickable">
-                          <button type="button" id="red_button">Rojo</button>
-                          <button type="button" id="yellow_button">Amarillo</button>
-                          <button type="button" id="blue_button">Azul</button>
-                          <button type="button" id="green_button">Verde</button>
-                        </div>
+      <fieldset id="AccionesDeJuego" class="container-row" >
+        <!--Cards stack  -->
+        <div class="image-txt-container">
+          <p>Tomar Carta </p>
+          <button id="cardsGetStack" type="button" value = "myimage">
+            <img class="img-center" src='img/Maso.svg' alt="Pila de cartas"/></button>
+          </div>
+          <div id="main_content_simon_dice" class="hidden">
+            <div id="buttons_simon_says" class="unclickable">
+              <button type="button" id="red_button">Rojo</button>
+              <button type="button" id="yellow_button">Amarillo</button>
+              <button type="button" id="blue_button">Azul</button>
+              <button type="button" id="green_button">Verde</button>
+            </div>
 
-                      </div>
-
-                      <div class="image-txt-container" id = "think_fast">
-                        <progress id="sun_counter_boost" class="progressVertical" value="100" max="100" style="width:85px; " > </progress>
-                        <p id="think_fast_text">Piensa rápido! </p>
-                      </div>
-
-                      <!-- Current player hand -->
-                      <ul id="player's_hand">
-
-                      </ul>
-
-                </fieldset>
-
-                <!-- Buttons to return to main page and return to lobby  -->
-                <fieldset id="ReturnButtons" class="container-column" >
-                  <a id="VolverSalaDeEspera" href="lobby.xhtml" class="go_back_button" style="margin:15px">Volver a Sala de Espera</a>
-                  <a id="endSession" href="home_page.xhtml" class="go_back_button" style="margin:15px">Finalizar Sesión</a>
-                </fieldset>
           </div>
 
-          <div id="CentroTablero" class="container-column box" >
-                <!-- Sun-Counter -->
-                <fieldset class="box">
-                  <table id="sun_path" class="box">
-                    <tr id="row1"  class="grid-containerSunVector" >
-                      <td class="board_cell grid-itemSun" />
-                      <td class="board_cell grid-itemSun" />
-                      <td class="board_cell grid-itemSun" >
-
-                        <img id="Sun" src="../img/068-sun-1.svg" alt="Sol que avanza por turno" height="70" /></td>
-
-                        <td class="board_cell grid-itemSun" />
-                      <td class="board_cell grid-itemSun" />
-                      <td class="board_cell grid-itemSun" />
-                      <td class="board_cell grid-itemSun" />
-                      <td class="board_cell grid-itemSun" />
-                      <td class="board_cell grid-itemSun" />
-                      <td class="board_cell grid-itemSun" />
-                    </tr>
-
-                  </table>
-                </fieldset>
-
-                <!--Board Game elements -->
-                <fieldset id="BoardElements" class="box">
-
-
-                  <!-- Board -->
-                  <table id="game_board" class="box" >
-                    <tr class="row" id="row1">
-                      <td id="starting_point" class="board_cell" style="background-color:red" />
-                      <td class="board_cell" style="background-color:lime"/>
-                      <td class="board_cell" style="background-color:red"/>
-                      <td class="board_cell" style="background-color:yellow"/>
-                      <td class="board_cell" style="background-color:blue"/>
-                      <td class="board_cell" style="background-color:yellow"/>
-                      <td class="board_cell" style="background-color:lime"/>
-                      <td class="board_cell" style="background-color:yellow"/>
-                      <td class="board_cell" style="background-color:red" />
-                      <td class="board_cell" style="background-color:blue"/>
-                    </tr>
-                    <tr class="row" id="row2">
-                      <td class="board_cell_empty" />
-                      <td class="board_cell_empty" />
-                      <td class="board_cell_empty" />
-                      <td class="board_cell_empty" />
-                      <td class="board_cell_empty" />
-                      <td class="board_cell_empty" />
-                      <td class="board_cell_empty" />
-                      <td class="board_cell_empty" />
-                      <td class="board_cell_empty" />
-
-                      <td class="board_cell" style="background-color:red"/>
-
-                    </tr>
-                    <tr class="row" id="row3">
-                      <td class="board_cell"  style="background-color:lime"/>
-                      <td class="board_cell" style="background-color:blue"/>
-                      <td class="board_cell"  style="background-color:yellow"/>
-                      <td class="board_cell" style="background-color:red"/>
-                      <td class="board_cell" style="background-color:blue"/>
-                      <td class="board_cell"  style="background-color:lime"/>
-                      <td class="board_cell" style="background-color:red"/>
-                      <td class="board_cell"  style="background-color:lime"/>
-                      <td class="board_cell" style="background-color:yellow"/>
-                      <td class="board_cell" style="background-color:blue"/>
-                    </tr>
-                    <tr class="row" id="row4">
-                      <td class="board_cell" style="background-color:blue"/>
-                      <td class="board_cell_empty" />
-                      <td class="board_cell_empty" />
-                      <td class="board_cell_empty" />
-                      <td class="board_cell_empty" />
-                      <td class="board_cell_empty" />
-                      <td class="board_cell_empty" />
-                      <td class="board_cell_empty" />
-                      <td class="board_cell_empty" />
-                      <td class="board_cell_empty" />
-                    </tr>
-                    <tr class="row" id="row5">
-                      <td class="board_cell"  style="background-color:red"/>
-                      <td class="board_cell" style="background-color:yellow"/>
-                      <td class="board_cell"  style="background-color:blue"/>
-                      <td class="board_cell" style="background-color:lime"/>
-                      <td class="board_cell" style="background-color:yellow"/>
-                      <td class="board_cell"  style="background-color:red"/>
-                      <td class="board_cell" style="background-color: lime"/>
-                      <td class="board_cell" style="background-color:yellow"/>
-                      <td class="board_cell" style="background-color:blue"/>
-                      <td class="board_cell"  style="background-color:red"/>
-                    </tr>
-                    <tr class="row" id="row6">
-                      <td class="board_cell_empty" />
-                      <td class="board_cell_empty" />
-                      <td class="board_cell_empty" />
-                      <td class="board_cell_empty" />
-                      <td class="board_cell_empty" />
-                      <td class="board_cell_empty" />
-                      <td class="board_cell_empty" />
-                      <td class="board_cell_empty" />
-                      <td class="board_cell_empty" />
-                      <td class="board_cell" style="background-color:lime"/>
-                    </tr>
-                    <tr class="row" id="row7">
-                      <td class="board_cell"  style="background-color:red"/>
-                      <td class="board_cell"  style="background-color:lime"/>
-                      <td class="board_cell"  style="background-color:red"/>
-                      <td class="board_cell"  style="background-color:blue"/>
-                      <td class="board_cell" style="background-color:yellow"/>
-                      <td class="board_cell"  style="background-color:red"/>
-                      <td class="board_cell"  style="background-color:lime"/>
-                      <td class="board_cell"  style="background-color:red"/>
-                      <td class="board_cell" style="background-color:yellow"/>
-                      <td class="board_cell" style="background-color:blue"/>
-
-                        <!-- <img id="player1" class="player" src="./My Game2_files/pawn.svg" alt="Pawn by Thomas Hirter from the Noun Project" />-->
-                    </tr>
-                    <tr class="row" id="row8">
-                      <td id="finish_line" class="board_cell" style="background-color:yellow"></td>
-                      <td class="board_cell_empty" />
-                      <td class="board_cell_empty" />
-                      <td class="board_cell_empty" />
-                      <td class="board_cell_empty" />
-                      <td class="board_cell_empty" />
-                      <td class="board_cell_empty" />
-                      <td class="board_cell_empty" />
-                      <td class="board_cell_empty" />
-                      <td class="board_cell_empty" />
-                    </tr>
-                 <!--  ToDo: Create img elements from js/>-->
-                    <img  id="Player1"  class= "player" src="img/048-buffalo.svg" alt="Ficha de Jugador" height="25" />
-                  <img  id="Player2"  class= "player" src="img/050-tiger-1.svg" alt="Ficha de Jugador" height="25" />
-                  <img  id="Player3"   class= "player" src="img/003-chipmunk.svg" alt="Ficha de Jugador" height="25" />
-                  </table>
-                </fieldset>
-
-                <fieldset id="players_result" class="hidden">
-                  <div class="center">
-                    <h2>¡Felicidades!</h2>
-                    <p>Has vencido al sol.</p>
-                  </div>
-                </fieldset>
-
-                <fieldset id="sun_result" class="hidden">
-                  <div class="center">
-                    <h2>¡Perdiste!</h2>
-                    <p>El sol ha amanecido.</p>
-                  </div>
-                </fieldset>
+          <div class="image-txt-container" id = "think_fast">
+            <progress id="sun_counter_boost" class="progressVertical" value="100" max="100" style="width:85px; " > </progress>
+            <p id="think_fast_text">Piensa rápido! </p>
           </div>
 
+          <!-- Current player hand -->
+          <ul id="player's_hand">
 
-          <!-- Progress bar used for  Sun-Counter  and the counter to think fast the move for the turn  -->
-          <fieldset id="LadoDerechoTablero"  class="container-row box">
-               <div id="SunCounterText" class="container-column" >
-                    <progress id="SunCounterProgressBar" class="progressVertical"  value="0" max="100"  > 0 </progress>
-                    <p id="Sun-CounterTitle">Sun-Counter </p>
-                    <p id="Sun-CounterFilling"> 0% </p>
-               </div>
+          </ul>
+
+        </fieldset>
+
+        <!-- Buttons to return to main page and return to lobby  -->
+        <fieldset id="ReturnButtons" class="container-column" >
+          <a id="VolverSalaDeEspera" href="lobby.xhtml" class="go_back_button" style="margin:15px">Volver a Sala de Espera</a>
+          <a id="endSession" href="home_page.xhtml" class="go_back_button" style="margin:15px">Finalizar Sesión</a>
+        </fieldset>
+      </div>
+
+      <div id="CentroTablero" class="container-column box" >
+        <!-- Sun-Counter -->
+        <fieldset class="box">
+          <table id="sun_path" class="box">
+            <tr id="row1"  class="grid-containerSunVector" >
+              <td class="board_cell grid-itemSun" />
+              <td class="board_cell grid-itemSun" />
+              <td class="board_cell grid-itemSun" >
+
+                <img id="Sun" src="../img/068-sun-1.svg" alt="Sol que avanza por turno" height="70" /></td>
+
+                <td class="board_cell grid-itemSun" />
+                <td class="board_cell grid-itemSun" />
+                <td class="board_cell grid-itemSun" />
+                <td class="board_cell grid-itemSun" />
+                <td class="board_cell grid-itemSun" />
+                <td class="board_cell grid-itemSun" />
+                <td class="board_cell grid-itemSun" />
+              </tr>
+
+            </table>
           </fieldset>
 
-    </main>
-    <footer id="footer">
-      <p id="footer_elementA">Basado en Hoot, Owl, Hoot!</p>
-      <p id="footer_elementB">Desarrollo de aplicaciones web</p>
-    </footer>
-    <script src="js_client/main.js" type="module" defer="defer"></script>
-  </body>
-</html>
+          <!--Board Game elements -->
+          <fieldset id="BoardElements" class="box">
+
+
+            <!-- Board -->
+            <table id="game_board" class="box" >
+              <tr class="row" id="row1">
+                <td id="starting_point" class="board_cell" style="background-color:red" />
+                <td class="board_cell" style="background-color:lime"/>
+                <td class="board_cell" style="background-color:red"/>
+                <td class="board_cell" style="background-color:yellow"/>
+                <td class="board_cell" style="background-color:blue"/>
+                <td class="board_cell" style="background-color:yellow"/>
+                <td class="board_cell" style="background-color:lime"/>
+                <td class="board_cell" style="background-color:yellow"/>
+                <td class="board_cell" style="background-color:red" />
+                <td class="board_cell" style="background-color:blue"/>
+              </tr>
+              <tr class="row" id="row2">
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+
+                <td class="board_cell" style="background-color:red"/>
+
+              </tr>
+              <tr class="row" id="row3">
+                <td class="board_cell"  style="background-color:lime"/>
+                <td class="board_cell" style="background-color:blue"/>
+                <td class="board_cell"  style="background-color:yellow"/>
+                <td class="board_cell" style="background-color:red"/>
+                <td class="board_cell" style="background-color:blue"/>
+                <td class="board_cell"  style="background-color:lime"/>
+                <td class="board_cell" style="background-color:red"/>
+                <td class="board_cell"  style="background-color:lime"/>
+                <td class="board_cell" style="background-color:yellow"/>
+                <td class="board_cell" style="background-color:blue"/>
+              </tr>
+              <tr class="row" id="row4">
+                <td class="board_cell" style="background-color:blue"/>
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+              </tr>
+              <tr class="row" id="row5">
+                <td class="board_cell"  style="background-color:red"/>
+                <td class="board_cell" style="background-color:yellow"/>
+                <td class="board_cell"  style="background-color:blue"/>
+                <td class="board_cell" style="background-color:lime"/>
+                <td class="board_cell" style="background-color:yellow"/>
+                <td class="board_cell"  style="background-color:red"/>
+                <td class="board_cell" style="background-color: lime"/>
+                <td class="board_cell" style="background-color:yellow"/>
+                <td class="board_cell" style="background-color:blue"/>
+                <td class="board_cell"  style="background-color:red"/>
+              </tr>
+              <tr class="row" id="row6">
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell" style="background-color:lime"/>
+              </tr>
+              <tr class="row" id="row7">
+                <td class="board_cell"  style="background-color:red"/>
+                <td class="board_cell"  style="background-color:lime"/>
+                <td class="board_cell"  style="background-color:red"/>
+                <td class="board_cell"  style="background-color:blue"/>
+                <td class="board_cell" style="background-color:yellow"/>
+                <td class="board_cell"  style="background-color:red"/>
+                <td class="board_cell"  style="background-color:lime"/>
+                <td class="board_cell"  style="background-color:red"/>
+                <td class="board_cell" style="background-color:yellow"/>
+                <td class="board_cell" style="background-color:blue"/>
+
+                <!-- <img id="player1" class="player" src="./My Game2_files/pawn.svg" alt="Pawn by Thomas Hirter from the Noun Project" />-->
+              </tr>
+              <tr class="row" id="row8">
+                <td id="finish_line" class="board_cell" style="background-color:yellow"></td>
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+                <td class="board_cell_empty" />
+              </tr>
+              <!--  ToDo: Create img elements from js/>-->
+              <img  id="Player1"  class= "player" src="img/048-buffalo.svg" alt="Ficha de Jugador" height="25" />
+              <img  id="Player2"  class= "player" src="img/050-tiger-1.svg" alt="Ficha de Jugador" height="25" />
+              <img  id="Player3"   class= "player" src="img/003-chipmunk.svg" alt="Ficha de Jugador" height="25" />
+            </table>
+          </fieldset>
+
+          <fieldset id="players_result" class="hidden">
+            <div class="center">
+              <h2>¡Felicidades!</h2>
+              <p>Has vencido al sol.</p>
+            </div>
+          </fieldset>
+
+          <fieldset id="sun_result" class="hidden">
+            <div class="center">
+              <h2>¡Perdiste!</h2>
+              <p>El sol ha amanecido.</p>
+            </div>
+          </fieldset>
+        </div>
+
+
+        <!-- Progress bar used for  Sun-Counter  and the counter to think fast the move for the turn  -->
+        <fieldset id="LadoDerechoTablero"  class="container-row box">
+          <div id="SunCounterText" class="container-column" >
+            <div id="SunCounterProgressBar" class="progressbarWrapper progressVertical">
+              <div id="SunCounterProgressBarColor" class="progressbarSun">
+              </div>
+            </div>
+            <p id="Sun-CounterTitle">Sun-Counter </p>
+            <p id="Sun-CounterFilling"> 0% </p>
+          </div>
+        </fieldset>
+
+      </main>
+      <footer id="footer">
+        <p id="footer_elementA">Basado en Hoot, Owl, Hoot!</p>
+        <p id="footer_elementB">Desarrollo de aplicaciones web</p>
+      </footer>
+      <script src="js_client/main.js" type="module" defer="defer"></script>
+    </body>
+    </html>

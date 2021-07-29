@@ -5,7 +5,9 @@ import router from './router.js';
 import Session from './session.js';
 //------------------------game_server-------------------------
 const app = express();
-const port = 8000;
+
+const port = 8085;
+
 // app.set('x-powered-by', false);
 app.disable('x-powered-by');
 
@@ -41,6 +43,10 @@ function process_message(message , socket) {
   console.log(`${message}`);
   const message_from_client = JSON.parse(message);
   const session = sessions_history.get(parseInt(message_from_client.session_id));
+  if(session === undefined) {
+    console.log("Creating new");
+    message_from_client.type = 'create_session';
+  }
   switch(message_from_client.type) {
     case 'create_session':
       create_session(message_from_client , socket);

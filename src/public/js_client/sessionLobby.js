@@ -1,8 +1,8 @@
 import ClientSocket from './client_socket.js'
 
 //Identifica y guarda el valor de configuraciones del lobby
-const port = 8000;
-const ip = '172.16.202.55';
+
+const ip = window.location.host;
 //Aquí para crear invitados en lobby.
 const player_list = [];
 const player_icons = [];
@@ -35,12 +35,10 @@ const guest_connection_message = JSON.stringify({type: 'new_guest'
 let connection_message = guest_connection_message;
 window.sessionStorage.setItem('i_am_host' , '0');
 if (window.sessionStorage.getItem('session_id') === '-1') {
-    window.sessionStorage.removeItem('i_am_host');
-    window.sessionStorage.setItem('i_am_host' , '1');
     connection_message = host_connection_message;
 }
 console.log(connection_message);
-const client_socket = new ClientSocket(ip , port , connection_message);
+const client_socket = new ClientSocket(ip , connection_message);
 client_socket.addEventListener('message', (event) => {
     process_message(event.data);
 });
@@ -66,7 +64,8 @@ function process_message(message) {
            guest_list(message_from_server);
            break;
         case 'new_lobby':
-            
+            window.sessionStorage.removeItem('i_am_host');
+            window.sessionStorage.setItem('i_am_host' , '1');
             window.sessionStorage.removeItem('session_id');
             window.sessionStorage.setItem('session_id',message_from_server.session_id);
             console.log(`The new id is${message_from_server.session_id}`);

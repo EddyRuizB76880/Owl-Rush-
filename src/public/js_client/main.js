@@ -11,8 +11,7 @@ function main() {
                         session_id: window.sessionStorage.getItem('session_id')
                     });
                     const ip = window.location.host;
-                    const port = 8085;
-        const client_socket = new ClientSocket(ip , port , connection_message);
+        const client_socket = new ClientSocket(ip , connection_message);
     }
     const game = new Game();
     const nickname = window.sessionStorage.getItem('jugadorId');

@@ -1,7 +1,6 @@
 import ClientSocket from './client_socket.js'
 //Identifica y guarda el valor de configuraciones del lobby
 const ip = window.location.host;
-const port = 8085;
 //Aquí para crear invitados en lobby.
 const player_list = [];
 const player_icons = [];
@@ -22,7 +21,7 @@ if (window.sessionStorage.getItem('session_id') === '-1') {
     connection_message = host_connection_message;
 }
 console.log(connection_message);
-const client_socket = new ClientSocket(ip , port , connection_message);
+const client_socket = new ClientSocket(ip , connection_message);
 client_socket.addEventListener('message', (event) => {
     process_message(event.data);
 });

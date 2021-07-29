@@ -1,9 +1,9 @@
 export default class ClientSocket {
 
  
-    constructor(ip , listeningPort , starting_message) {
+    constructor(host_information , starting_message) {
         console.log(window.location.host);
-        this.client = new WebSocket(`ws://${ip}:${listeningPort}`);
+        this.client = new WebSocket(`ws://${host_information}`);
         this.setup_events();
         this.starting_message = starting_message;
     }

@@ -16,12 +16,11 @@ export default class Game {
 //
   setup_game() {
     const ip = window.location.host;
-    const port = 8085;
     const reconnection_message = JSON.stringify({type: 'reconnect' , 
     session_id: window.sessionStorage.getItem('session_id'), 
     id: window.sessionStorage.getItem('jugadorId')
   });
-    this.client_socket = new ClientSocket(ip , port , reconnection_message);
+    this.client_socket = new ClientSocket(ip , reconnection_message);
     this.client_socket.addEventListener('message', (event) => {
       this.process_message(event.data);
     });

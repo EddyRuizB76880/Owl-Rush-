@@ -12,8 +12,6 @@ app.disable('x-powered-by');
 // Set Eta as view engine
 //app.engine('eta', eta.renderFile);
 
-let player_count = 0;
-let active_player_position = 0;
 let highest_sesion_id = 0;
 const sessions_history = new Map(); // sessionId -> new Session()
 
@@ -22,9 +20,9 @@ const sessions_history = new Map(); // sessionId -> new Session()
 // events that come in.
 const wsServer = new ws.Server({ noServer: true });
 wsServer.on('connection', (socket) => {
-  console.log(`${wsPlayers.get(socket)} connected`);
+  console.log(`New socket connected`);
   socket.on('message', (message) => {
-    console.log(`${wsPlayers.get(socket)} sent ${message}`);
+    //console.log(`${wsPlayers.get(socket)} sent ${message}`);
     process_message(message , socket);
   });
   socket.on('close', () => {
@@ -43,25 +41,24 @@ function create_session(message_from_client) {
 
 function process_message(message , socket) {
   const message_from_client = JSON.parse(message);
+  const session = sessions_history.get(message_from_client.session_id);
   switch(message_from_client.type) {
     case 'create_session':
       create_session(message_from_client);
       break;
       
     case 'new_guest':
-      const session = sessions_history.get(message_from_client.session_id);
       session.new_guest_protocol(message_from_client , socket);
       break;
     case 'turn_result':
-      const session = sessions_history.get(message_from_client.session_id);
       session.re_roll(message , message_from_client.id);
       
       break;
     case 'sun':
-      re_roll(message , message_from_client.id);
+      session.re_roll(message , message_from_client.id);
       break;
     default:
-      broadcast(message, message_from_client.id);
+      session.broadcast(message, message_from_client.id);
       break;
   }
 }

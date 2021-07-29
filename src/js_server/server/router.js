@@ -11,7 +11,7 @@ import homepage from './controllers/homepage.js';
 import log from './controllers/log.js';
 
 const router = express.Router();
-const publicMiddleware = express.static(path.join(process.cwd(), '../../../src'));
+const publicMiddleware = express.static(path.join(process.cwd(), '../../public'));
 
 //console.log(`${path.join(process.cwd(),'..html')}`);
 //app.use('/', log);
@@ -28,19 +28,19 @@ router.post('/game_session', (req, res, next) => {
 
 // http://localhost:3000/game_session/18891
 router.get('/home_page.xhtml', (req, res, next) => {
-  res.sendFile(path.resolve('../../html/home_page.xhtml'));
+  res.sendFile(path.resolve('../../public/html/home_page.xhtml'));
   //res.setHeader();
 });
 //ToDo: Discard redundant code
 
 
 router.get('/game_board.xhtml', (req, res, next) => {
-    res.sendFile(path.resolve('../../html/game_board.xhtml'));
+    res.sendFile(path.resolve('../../public/html/game_board.xhtml'));
     //res.setHeader();
   });
 
 router.get('/lobby.xhtml', (req, res, next) => {
-    res.sendFile(path.resolve('../../html/lobby.xhtml'));
+    res.sendFile(path.resolve('../../public/html/lobby.xhtml'));
     //res.setHeader();
 });
 

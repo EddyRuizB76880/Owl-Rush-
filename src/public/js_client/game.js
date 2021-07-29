@@ -11,7 +11,7 @@ export default class Game {
     this.player_ids = [];
     this.active_player = 0;
     const port = 3000;
-    this.client_socket = new ClientSocket('localhost' , port);
+    this.client_socket = new ClientSocket('localhost' , port , JSON.stringify({Type: 'Hello'}));
     this.client_socket.addEventListener('message', (event) => {
       this.process_message(event.data);
     });

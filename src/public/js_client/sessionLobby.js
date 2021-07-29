@@ -1,6 +1,6 @@
 import ClientSocket from './client_socket.js'
 //Identifica y guarda el valor de configuraciones del lobby
-const port = 3000;
+const port = 8000;
 const ip = 'localhost';
 //Aquí para crear invitados en lobby.
 const player_list = [];

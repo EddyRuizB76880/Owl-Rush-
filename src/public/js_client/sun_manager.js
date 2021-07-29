@@ -50,7 +50,7 @@ export default class SunManager {
     this.player_reaction_time_out = setInterval(() => {
       progress_value -= this.sun_counter_boost_initial_value / this.sun_counter_boost_gracetime;
       this.sun_counter_boost.value = `${progress_value}`;
-    }, 3000);
+    }, 8000);
   }
 
   update_sun_counter() {

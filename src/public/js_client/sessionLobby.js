@@ -90,6 +90,11 @@ function new_guest(message_from_server) {
     player_list.push(message_from_server.id);
     window.sessionStorage.setItem('guests_info', 
                                 JSON.stringify({icons: player_icons , guests: player_list}));
+
+     newPlayer.innerHTML= newPlayer.innerHTML+"<li class=\"player_name\">"  + "<img id=\"avatarJugador" +"\" src=\""+message_from_server.icon+"\" alt=\"player_icon\" class=\"player_icon\" ></img>"+ message_from_server.id + "</li>";
+
+
+
 }
 
 function guest_list(message_from_server){

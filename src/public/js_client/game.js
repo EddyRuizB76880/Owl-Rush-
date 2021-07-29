@@ -50,6 +50,16 @@ export default class Game {
     this.alert_manager.alert_player('Cuando estés listo, presiona la baraja de cartas. Si necesitas hacer algún ajuste, puedes regresar al menu principal antes de empezar la partida'
       , 'ff', ['Entendido', '4']); // To add more buttons, just add more tuples after ff
 
+      let newPlayer = document.getElementById('Jugadores');
+      newPlayer.innerHTML= "";
+      newPlayer.innerHTML="<h1 >Jugadores</h1>";
+
+      let indexP = 0;
+      for(indexP ; indexP < this.player_list.length ; indexP++ ) {
+          let pos=indexP+1;
+          newPlayer.innerHTML= newPlayer.innerHTML+"<div  class=\"image-txt-container\"><img  src=\""+ this.player_list[indexP].avatar.src +"\" alt=\"Ficha de Jugador\" height=\"25\" /><p style=\"color: rgb(63, 230, 13)\">"+  this.player_list[indexP].id+ "</p> </div>"; 
+      }
+
   }
 // Aqui metodo para generar lista de participantes
   retrieve_players () {

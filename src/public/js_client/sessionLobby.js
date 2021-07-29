@@ -1,10 +1,26 @@
 import ClientSocket from './client_socket.js'
+
 //Identifica y guarda el valor de configuraciones del lobby
 const port = 3000;
 const ip = 'localhost';
 //Aquí para crear invitados en lobby.
 const player_list = [];
 const player_icons = [];
+
+player_list.push(window.sessionStorage.getItem('jugadorId'));
+player_icons.push(window.sessionStorage.getItem('selectionofAvatars'));
+
+let newPlayer = document.getElementById('list_of_players');
+newPlayer.innerHTML= "";
+newPlayer.innerHTML="<li id=\"list_of_players_header\">Jugadores</li>";
+
+let indexP = 0;
+for(indexP ; indexP < player_list.length ; indexP++ ) {
+    let pos=indexP+1;
+    newPlayer.innerHTML= newPlayer.innerHTML+"<li class=\"player_name\">"  + "<img id=\"avatarJugador"+pos +"\" src=\""+player_icons[indexP]+"\" alt=\"player_icon\" class=\"player_icon\" ></img>"+ player_list[indexP] + "</li>";
+}
+
+console.log(player_list);
 const host_connection_message = JSON.stringify({type: 'create_session'
                                           ,id: `${window.sessionStorage.getItem('jugadorId')}`
                                           ,icon: `${window.sessionStorage.getItem('selectionofAvatars')}`
@@ -173,5 +189,6 @@ function sessionMain() {
     })
    
 }
+
 
 window.addEventListener('load', sessionMain);

@@ -15,8 +15,8 @@ export default class Game {
   }
 //
   setup_game() {
-    const port = 3000;
-    const ip = 'localhost';
+    const ip = window.location.host;
+    const port = 8085;
     const reconnection_message = JSON.stringify({type: 'reconnect' , 
     session_id: window.sessionStorage.getItem('session_id'), 
     id: window.sessionStorage.getItem('jugadorId')

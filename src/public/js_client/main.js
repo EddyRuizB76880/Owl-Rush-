@@ -10,7 +10,9 @@ function main() {
                         scb_value: window.sessionStorage.getItem('sun_counter_slider'),
                         session_id: window.sessionStorage.getItem('session_id')
                     });
-        const client_socket = new ClientSocket('localhost' , 3000 , connection_message);
+                    const ip = window.location.host;
+                    const port = 8085;
+        const client_socket = new ClientSocket(ip , port , connection_message);
     }
     const game = new Game();
     const nickname = window.sessionStorage.getItem('jugadorId');

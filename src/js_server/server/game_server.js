@@ -5,7 +5,7 @@ import router from './router.js';
 import Session from './session.js';
 //------------------------game_server-------------------------
 const app = express();
-const port = 3000;
+const port = 8085;
 // app.set('x-powered-by', false);
 app.disable('x-powered-by');
 

@@ -10,8 +10,9 @@ export default class Game {
     //this array will be used to retrieve a given player's index position on player_list using their id
     this.player_ids = [];
     this.active_player = 0;
-    const port = 3000;
-    this.client_socket = new ClientSocket('localhost' , port);
+    this.ip = window.location.host;
+    const port = 8085;
+    this.client_socket = new ClientSocket(ip , port);
     this.client_socket.addEventListener('message', (event) => {
       this.process_message(event.data);
     });

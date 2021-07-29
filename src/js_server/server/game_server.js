@@ -4,7 +4,7 @@ import ws from 'ws';
 import router from './router.js';
 //------------------------game_server-------------------------
 const app = express();
-const port = 3000;
+const port = 8085;
 // app.set('x-powered-by', false);
 app.disable('x-powered-by');
 
@@ -80,10 +80,10 @@ function process_message(message , socket , sender_id) {
   const message_from_client = JSON.parse(message);
   switch(message_from_client.type) {
     case 'create_session':
-      // create unique session id and send it to host. Save the sender of the 
+      // create unique session id and send it to host. Save the sender of the
       // message as the host. Await this socket to send begin
       break;
-      
+
     case 'new_guest':
       // Temporarily, this case will assign an id to the new guest
       console.log(`sending {"type":"my_id","id":"${sender_id}"}`);
@@ -103,7 +103,7 @@ function process_message(message , socket , sender_id) {
       break;
     case 'IAW':
       // ToDo: Avoid broadcasting this
-      re_roll(message , sender_id);  
+      re_roll(message , sender_id);
     default:
       broadcast(message, sender_id);
       break;

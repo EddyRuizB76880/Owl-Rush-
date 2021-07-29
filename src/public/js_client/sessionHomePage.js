@@ -5,6 +5,10 @@ function sessionMain() {
     const avatarElement = document.getElementById('selectionofAvatars');
     const session_id_element = document.getElementById('session_id');
 
+    window.sessionStorage.setItem('jugadorId' , nickNameElement.value);
+    window.sessionStorage.setItem('selectionofAvatars' , avatarElement.value);
+    window.sessionStorage.setItem('session_id', session_id_element.value);
+
     console.assert(nickNameElement);
     console.assert(avatarElement);
     console.assert(session_id);

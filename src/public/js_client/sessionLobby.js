@@ -19,8 +19,6 @@ const guest_connection_message = JSON.stringify({type: 'new_guest'
 let connection_message = guest_connection_message;
 window.sessionStorage.setItem('i_am_host' , '0');
 if (window.sessionStorage.getItem('session_id') === '-1') {
-    window.sessionStorage.removeItem('i_am_host');
-    window.sessionStorage.setItem('i_am_host' , '1');
     connection_message = host_connection_message;
 }
 console.log(connection_message);
@@ -50,7 +48,8 @@ function process_message(message) {
            guest_list(message_from_server);
            break;
         case 'new_lobby':
-            
+            window.sessionStorage.removeItem('i_am_host');
+            window.sessionStorage.setItem('i_am_host' , '1');
             window.sessionStorage.removeItem('session_id');
             window.sessionStorage.setItem('session_id',message_from_server.session_id);
             console.log(`The new id is${message_from_server.session_id}`);

@@ -38,10 +38,13 @@
           </select>
         </fieldset>
            
-  
-
       <a href="lobby.xhtml" id="start_button" class="continue_button"> Iniciar sesión </a>
-      <a href="lobby_guestview.xhtml" id="join_button" class="continue_button"> Unirse a una sesión </a>
+      
+      <fieldset>
+        <label for="nickname">ID de la sesión a unirse:</label>
+        <input type="text" value= '-1' name="session" id="session_id" required="required"/>
+      </fieldset>
+      <a href="lobby.xhtml" id="join_button" class="continue_button"> Unirse a una sesión </a>
     </main>
     <footer id="footer_content">
       <p id="footer_elementA">Basado en Hoot, Owl, Hoot!</p>
@@ -49,7 +52,6 @@
       <a href="credits.xhtml" class="secondary_button"> Créditos </a>
     </footer>
   </body>
-  <script src="js/client/client_socket.js" type="module"></script>
-  <script src="js/client/sessionHomePage.js" type="module"></script>
+  <script src="js_client/sessionHomePage.js" type="module"></script>
 
 </html>

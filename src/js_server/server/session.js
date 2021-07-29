@@ -4,6 +4,7 @@ export default class Session {
         this.host = host;
         this.guests = [];
         this.icons = [];
+        this.active_player = 0;
         this.wsPlayers = new Map(); // socket -> new Player()
     }
 
@@ -14,13 +15,14 @@ export default class Session {
 
     new_guest_protocol(message_from_client , socket) {
         socket.send(this.get_guests());
-        this.broadcast( `{"type":"new_guest","guest_id":"${message_from_client.id}"}` , 
+        this.broadcast( `{"type":"new_guest","id":"${message_from_client.id}","icon": "${message_from_client.icon}"}` , 
                                                             message_from_client.id);
-        this.set_new_guest(message_from_client.id , message_from_client.icon);  
+        this.set_new_guest(message_from_client.id , message_from_client.icon);
+        this.map_player_with_socket(message_from_client.id , socket);  
     }
 
     get_guests() {
-        let guest_list = '{"type":"guest_list","list":[';
+        let guest_list = '{"type":"guest_list","guest_list":[';
         let icons_list = '"icons":[';
         let index = 0;
         for (index ; index < this.guests.length ; index++) {
@@ -35,28 +37,39 @@ export default class Session {
     }
 
     broadcast(message, origin_id) {
+        console.log(`Broadcast: sending to ${this.wsPlayers.size} players`);
         for (const [key, value] of this.wsPlayers) {
           if(key !== origin_id){
+              console.log(`Broadcast: sending to ${key}`);
             value.send(message);
           }
         }
     }
     
     select_active_player(active_position) {
-        active_player_position = active_position;
+        this.active_player = active_position;
         let active_player_message = `{"type":"active_id","id":"${this.guests[active_position]}"}`;
         console.log(active_player_message);
-        broadcast(active_player_message, '');
+        this.broadcast(active_player_message, '');
     }
       
     re_roll(message , sender_id) {
-        broadcast(message , sender_id);
-        active_player_position = (active_player_position + 1) % wsPlayers.size;
-        select_active_player(active_player_position);
+        this.broadcast(message , sender_id);
+        this.active_player = (this.active_player + 1) % this.wsPlayers.size;
+        this.select_active_player(this.active_player);
+    }
+
+    who_goes_first() {
+        const active_player_position = Math.floor(Math.random() * this.wsPlayers.size);
+        this.select_active_player(active_player_position);
     }
 
     map_player_with_socket(player_id , socket) {
         this.wsPlayers.set(player_id , socket);
+        socket.on ('close', () => {
+            console.log(`session:${player_id} closed the connection`);
+            this.wsPlayers.delete(player_id);
+        });
     }
 
 }

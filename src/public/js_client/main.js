@@ -1,35 +1,26 @@
-
 import Game from './game.js';
+import ClientSocket from './client_socket.js'
+
 function main() {
+    console.log(window.sessionStorage.getItem('i_am_host'));
+    if(window.sessionStorage.getItem('i_am_host') === '1'){
+        const connection_message = JSON.stringify({type: "begin" , 
+                        sc_grace: window.sessionStorage.getItem('sun_counter_gracetime'),
+                        ss_grace: window.sessionStorage.getItem('simon_says_gracetime'),
+                        scb_value: window.sessionStorage.getItem('sun_counter_slider'),
+                        session_id: window.sessionStorage.getItem('session_id')
+                    });
+        const client_socket = new ClientSocket('localhost' , 3000 , connection_message);
+    }
     const game = new Game();
-    //game.setup
-
-    //Se asigna para un jugador la selección de nombre y avatar
-
-    const nickname = window.localStorage.getItem('jugadorId');
-    const avatar = window.localStorage.getItem('selectionofAvatars');
+    const nickname = window.sessionStorage.getItem('jugadorId');
+    const avatar = window.sessionStorage.getItem('selectionofAvatars');
 
     const player1Name = document.getElementById('player1Name');//Name of player
     const avatarJugador1 = document.getElementById('player1Avatar');//Avatar at the side of the name of the player
-    const jugador1 = document.getElementById('Player1');//Token of player
-
+   
     player1Name.innerHTML=nickname;
-    
-    //Se verifica y asigna el avatar seleccionado  *tal vez sirva más guardar y llamar las imagenes desde localStorage
-    if(avatar == "buffalo"){
-        avatarJugador1.src= "img/048-buffalo.svg" ;
-        jugador1.src= "img/048-buffalo.svg" ;
-    }
-
-    if(avatar == "tigre"){
-        avatarJugador1.src= "img/050-tiger-1.svg" ;
-        jugador1.src= "img/050-tiger-1.svg" ;
-    }
-
-    if(avatar == "ardilla"){
-        avatarJugador1.src= "img/003-chipmunk.svg" ;
-        jugador1.src= "img/003-chipmunk.svg" ;
-    }
+    avatarJugador1.src= avatar ;
 }
 
 window.addEventListener('load', main);

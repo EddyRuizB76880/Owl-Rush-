@@ -2,9 +2,15 @@
   Code based on teacher's example.
 */ 
 export default class Player {
-  constructor(id) {
+  constructor(id , av_src) {
     this.id = id;
-    this.avatar = document.getElementById(id);
+    this.avatar = document.createElement('img');
+    const board = document.getElementById('game_board');
+    this.avatar.id = this.id;
+    this.avatar.classList.add('player');
+    this.avatar.src = av_src;
+    this.avatar.height = '25';
+    board.appendChild(this.avatar);
     this.position = 10;
     // Attributes needed to make player return to their previous position if
     // they fail the SS sequence

@@ -9,38 +9,61 @@ export default class Game {
     this.player_list = [];
     //this array will be used to retrieve a given player's index position on player_list using their id
     this.player_ids = [];
+    this.player_icons = [];
     this.active_player = 0;
+    this.setup_game();
+  }
+//
+  setup_game() {
     const port = 3000;
-    this.client_socket = new ClientSocket('localhost' , port , JSON.stringify({Type: 'Hello'}));
+    const ip = 'localhost';
+    const reconnection_message = JSON.stringify({type: 'reconnect' , 
+    session_id: window.sessionStorage.getItem('session_id'), 
+    id: window.sessionStorage.getItem('jugadorId')
+  });
+    this.client_socket = new ClientSocket(ip , port , reconnection_message);
     this.client_socket.addEventListener('message', (event) => {
       this.process_message(event.data);
     });
-  }
-//
-  setup_game(id) {
-    this.my_id = id;
-    const sun_counter_grace = 5;
-    const sun_counter_boost = 100;
-    const simon_gracetime = 12;
+    this.my_id = window.sessionStorage.getItem('jugadorId');;
+    const sun_counter_grace = window.sessionStorage.getItem('sun_counter_gracetime');
+    const sun_counter_boost = window.sessionStorage.getItem('sun_counter_slider');
+    const simon_gracetime = window.sessionStorage.getItem('simon_says_gracetime');
     const starting_cards_amount = 2;
     this.deck_button = document.getElementById('cardsGetStack');
     this.deck_button.disabled = true;
     this.deck_button.addEventListener('click', (event) => { this.start_player_turn(); });
-    this.player_1 = new Player(this.my_id);
-    this.game_board = new Board(sun_counter_grace,
-                                sun_counter_boost,
-                                simon_gracetime,
+    this.player_1 = new Player(this.my_id ,  
+                                window.sessionStorage.getItem('selectionofAvatars'));
+    this.game_board = new Board(parseInt(sun_counter_grace),
+                                parseInt(sun_counter_boost),
+                                parseInt(simon_gracetime),
                                 this.client_socket);
     this.deck = new Deck();
     this.alert_manager = new AlertManager();
     this.player_list.push(this.player_1);//
     this.player_ids.push(this.my_id);
+    this.retrieve_players();
     this.active_player = -1;
     this.generate_starting_cards(starting_cards_amount);
     // deck_button.classList.add('focused_element');
     this.alert_manager.alert_player('Cuando estés listo, presiona la baraja de cartas. Si necesitas hacer algún ajuste, puedes regresar al menu principal antes de empezar la partida'
       , 'ff', ['Entendido', '4']); // To add more buttons, just add more tuples after ff
 
+  }
+// Aqui metodo para generar lista de participantes
+  retrieve_players () {
+  
+  const guest_info = JSON.parse(window.sessionStorage.getItem('guests_info'));
+  if(guest_info !== null){  
+    let index = 0;
+      for (index ; index < guest_info.guests.length ; index ++) {
+        console.log(`${guest_info.guests[index]} , and ${guest_info.icons[index]}`);
+        const player = new Player(guest_info.guests[index] , guest_info.icons[index]);
+        this.player_list.push(player);
+        this.player_ids.push(guest_info.guests[index]);
+      }
+    }
   }
 
   generate_starting_cards(limit) {
@@ -70,9 +93,6 @@ export default class Game {
       case 'host_ended' :
         // get redirected to main page
         break;
-      case 'gameover' :
-        // trigger endgame result from message.result
-        break;
       case 'host_restarted' :
         // get redirected to lobby
         break;
@@ -85,7 +105,11 @@ export default class Game {
         console.log(`pos ${this.player_ids.indexOf(message_from_server.id)}`);
         console.log(`list ${this.player_ids}`);
         if(message_from_server.id === this.my_id) {
-          this.deck_button.disabled = false;
+          if(this.game_board.iaw === false){
+            this.deck_button.disabled = false;
+          }else {
+            this.client_socket.send_message(JSON.stringify({type:"IAW",session_id: window.sessionStorage.getItem('session_id')}));
+          }
         }else {
           this.deck_button.disabled = true;
         }
@@ -96,41 +120,10 @@ export default class Game {
           this.game_board.move_player(message_from_server.color , this.active_player);
         }
         break;
-      case 'begin' :
-        // this actually must be the first case to happen.
-        // Use message's sc_grace, ss_grace, and ssb_value
-        // attributes to set the game up
-        break;
-      case 'my_id':
-        // This case is to be removed when lobby's ws and persistent data works on the server
-        console.log(`setting up ${message_from_server.id}`);
-        this.setup_game(message_from_server.id);
-        break;
-      case 'new_guest':
-        // This case is to be removed when lobby's ws and persistent data works on the server
-          let new_player = new Player(message_from_server.guest_id);
-          this.player_list.push(new_player);
-          this.player_ids.push(message_from_server.guest_id);
-        break;
-      case 'guest_list':
-        // This case is to be removed when lobby's ws and persistent data works on the server
 
-        if(message_from_server.list.length > 0) {
-          let index = 0;
-
-          for(index ; index < message_from_server.list.length ; index++ ) {
-            if(message_from_server.list[index] !== this.my_id){
-
-              let guest = new Player (message_from_server.list[index]);
-              console.log(`Guest from guestlist${guest.id}`);
-              console.log(`from list ${message_from_server.list[index]}`);
-              //line of code to retrieve guest's icon from message.icons[index]
-              this.player_list.push(guest);
-              this.player_ids.push(message_from_server.list[index]);}
-
-          }
-        }
-        break;
+      case 'player_reached':
+        this.game_board.players_win();
+   
     }
   }
 

@@ -15,6 +15,7 @@ export default class Board {
     this.sun_size = 9;
     this.total_num_players = 0;
     this.players_arrived_finish = 0;
+    this.iaw = false;
   }
 
   set_num_players(num_players) {
@@ -24,7 +25,7 @@ export default class Board {
   start_player_turn(new_card, active_player) {
     console.log(`${new_card.value}`);
     if (new_card.value === 'SOL') {
-      this.client_socket.send_message('{"type":"sun"}');
+      this.client_socket.send_message(`{"type":"sun","id":"${window.sessionStorage.getItem('jugadorId')}","session_id": ${window.sessionStorage.getItem('session_id')}}`);
       this.sun_path_module.determine_sun_card_result();
     } else {
       this.append_card(new_card, active_player);
@@ -127,20 +128,11 @@ export default class Board {
     }
   }
 
-  sun_wins() {
-    // TODO: resetear todo
-    const sun_result_element = document.getElementById('sun_result');
-    const game_board_element = document.getElementById('game_board');
-    game_board_element.classList.add('hidden');
-    players_result_element.classList.remove('hidden');
-    // send message to server sun_wins
-  }
-
   check_result(active_player, chosen_card_color) {
     setTimeout(() => {
       this.simon_says_module.checkPlayerSequence();
     }, this.simon_says_module.simon_time * 1000);
-    const turn_result = `{"type":"turn_result","sun_counter":"${this.sun_path_module.sunCounter.style.width}","ss_success":${Number(this.simon_says_module.playerSucceeded)},"color":"${chosen_card_color}"}`;
+    const turn_result = `{"type":"turn_result","id":"${window.sessionStorage.getItem('jugadorId')}","session_id":${window.sessionStorage.getItem('session_id')},"sun_counter":"${this.sun_path_module.sunCounter.style.width}","ss_success":${Number(this.simon_says_module.playerSucceeded)},"color":"${chosen_card_color}"}`;
     this.client_socket.send_message(turn_result);
     console.log(`checking${this.simon_says_module.simon_time}`);
     if (this.simon_says_module.playerSucceeded === false) {
@@ -148,9 +140,9 @@ export default class Board {
     } else if (this.simon_says_module.playerSucceeded === false) {
       active_player.go_back();
     } else if (active_player.position === this.board_info.length - 1) {
-      this.player_won();
+      this.players_win();
       this.iaw = true;
-      this.client_socket.send_message(JSON.stringify({type:'player_reached'}));
+      this.client_socket.send_message(JSON.stringify({type:'player_reached',session_id:window.sessionStorage.getItem('session_id')}));
     }
     this.simon_says_module.reset();
   }

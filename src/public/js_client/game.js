@@ -56,7 +56,7 @@ export default class Game {
       newPlayer.innerHTML= "";
       newPlayer.innerHTML="<h1 >Jugadores</h1>";
 
-      let indexP = 1;
+      let indexP = 0;
       
       for(indexP ; indexP < this.player_list.length ; indexP++ ) {
           let pos=indexP+1;

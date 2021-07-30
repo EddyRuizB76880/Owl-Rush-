@@ -54,7 +54,6 @@ It adjusts the positions to be vertical
 .container-column {
   align-items: center;
   flex-direction: column;
-  margin-bottom: 15vh;
 }
 
 /*
@@ -116,15 +115,14 @@ Progress bar isnt standard so the vendor prefixes -webkit-progress-value y webki
  Code taken and slightly modified from an example found in stackoverflow website. Available at:
 https://stackoverflow.com/questions/45507970/how-can-i-change-the-color-of-a-progress-bar-value-in-html
 */
+
 .progressVertical::-webkit-progress-value {
-  transition: width 1s;
   background: black;
 }
 
 .progressVertical::-webkit-progress-bar {
   background: gray;
 }
-
 
 /*
 Adjusts the sizes of the buttons for the cards of the user´s hand and the button to pick a new card
@@ -149,14 +147,12 @@ Adjusts the position progress bar for the sun counter
   margin-bottom: 150px;
 }
 
-.sunItem {
-  left: 0;
-  transition: ease-in 1s;
-}
-
-.sunItem.move {
-  left: 8%;
-  transform: translate(100%, 0);
+/*
+Adjusts the position of the sun on the vector it follows by turn
+*/
+#Sun {
+  top: calc((var(--board_column_count) - 8) * 100% / var(--board_column_count));
+  transition: left 1s ease-out, top 1s;
 }
 
 /*

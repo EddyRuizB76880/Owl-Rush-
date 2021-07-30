@@ -28,17 +28,6 @@ body {
   margin: 0;
 }
 
-.box {
-}
-
-#site_header {
-}
-
-#starting_point,
-#finish_line {
-
-}
-
 #page_content {
   height: 100%;
   flex-grow: 1;
@@ -48,14 +37,8 @@ body {
   align-content: stretch;
 }
 
-#site_footer {
-}
-
 #game_state {
   order: 2;
-}
-
-#players {
 }
 
 #game_board {

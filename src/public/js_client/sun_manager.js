@@ -2,7 +2,7 @@ export default class SunManager {
   constructor(sc_gracetime, scb_initial_value) {
     this.sunpath = document.getElementById('sun_path');
     this.sun = document.getElementById('Sun');
-    this.sunCounter = document.getElementById('SunCounterProgressBarColor');
+    this.sunCounter = document.getElementById('SunCounterProgressBar');
     this.sun_counter_filling = document.getElementById('Sun-CounterFilling');
     this.sun_counter_boost = document.getElementById('sun_counter_boost');
     this.sun_counter_boost.value = `${scb_initial_value}`;
@@ -18,7 +18,7 @@ export default class SunManager {
 
   determine_sun_card_result() {
     console.log(`sunCounter width: ${this.sunCounter.style.width}`);
-    if (this.sunCounter.style.width !== '100%') {
+    if (this.sunCounter.value != "100") {
       this.sun.className = 'sunItem';
       this.currentSunPosition += 1;
       this.currentCell = this.sunpath.rows[0].cells[this.currentSunPosition];
@@ -32,8 +32,8 @@ export default class SunManager {
         this.sun_wins();
       }
     } else {
-      this.sunCounter.style.width = '0%';
-      this.sun_counter_filling.innerHTML = `${this.sunCounter.style.width}`;
+      this.sunCounter.value = "0";
+      this.sun_counter_filling.innerHTML = `${this.sunCounter.value}`;
     }
   }
 
@@ -55,7 +55,7 @@ export default class SunManager {
 
   update_sun_counter() {
     clearInterval(this.player_reaction_time_out);
-    let sun_counter_progress = parseInt(this.sunCounter.offsetWidth, 10);
+    let sun_counter_progress = parseInt(this.sunCounter.value, 10);
     sun_counter_progress += parseInt(this.sun_counter_boost.value, 10);
     if (sun_counter_progress > 100) {
       sun_counter_progress = 100;
@@ -65,10 +65,10 @@ export default class SunManager {
 
   //
   set_new_sun_counter_value(sun_counter_progress) {
-    setTimeout(() => {
-      this.sunCounter.style.width = `${sun_counter_progress}%` ;
-    }, 1000)
-    this.sun_counter_filling.innerHTML = `${sun_counter_progress}%`;
-    this.sun_counter_boost.value = `${this.sun_counter_boost_initial_value}`;
+    
+      this.sunCounter.value = `${sun_counter_progress}`;
+      this.sun_counter_filling.innerHTML = `${sun_counter_progress}%`;
+      this.sun_counter_boost.value = `${this.sun_counter_boost_initial_value}`;
+
   }
 }

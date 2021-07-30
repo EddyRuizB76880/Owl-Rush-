@@ -73,7 +73,7 @@ export default class Board {
   move_player(color, active_player) {
     console.log(`Number total of players: ${this.total_num_players}`);
     // ToDo: Create getPosition method in player
-    let new_player_position = active_player.position + 1;
+    let new_player_position = active_player.position + 39;
     try{
       // Get cell's color
       let cell_styles = window.getComputedStyle(this.board_info[new_player_position]);
@@ -132,7 +132,7 @@ export default class Board {
     setTimeout(() => {
       this.simon_says_module.checkPlayerSequence();
     }, this.simon_says_module.simon_time * 1000);
-    const turn_result = `{"type":"turn_result","id":"${window.sessionStorage.getItem('jugadorId')}","session_id":${window.sessionStorage.getItem('session_id')},"sun_counter":"${this.sun_path_module.sunCounter.style.width}","ss_success":${Number(this.simon_says_module.playerSucceeded)},"color":"${chosen_card_color}"}`;
+    const turn_result = `{"type":"turn_result","id":"${window.sessionStorage.getItem('jugadorId')}","session_id":${window.sessionStorage.getItem('session_id')},"sun_counter":"${this.sun_path_module.sunCounter.value}","ss_success":${Number(this.simon_says_module.playerSucceeded)},"color":"${chosen_card_color}"}`;
     this.client_socket.send_message(turn_result);
     console.log(`checking${this.simon_says_module.simon_time}`);
     if (this.simon_says_module.playerSucceeded === false) {

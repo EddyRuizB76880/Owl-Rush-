@@ -47,6 +47,7 @@ export default class Game {
     this.player_ids.push(this.my_id);
     this.retrieve_players();
     this.active_player = -1;
+    this.game_board.set_num_players(this.player_list.length);
     this.generate_starting_cards(starting_cards_amount);
     // deck_button.classList.add('focused_element');
     this.alert_manager.alert_player('Cuando estés listo, presiona la baraja de cartas. Si necesitas hacer algún ajuste, puedes regresar al menu principal antes de empezar la partida'

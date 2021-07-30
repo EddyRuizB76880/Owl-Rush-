@@ -56,7 +56,8 @@ export default class Game {
       newPlayer.innerHTML= "";
       newPlayer.innerHTML="<h1 >Jugadores</h1>";
 
-      let indexP = 0;
+      let indexP = 1;
+      
       for(indexP ; indexP < this.player_list.length ; indexP++ ) {
           let pos=indexP+1;
           newPlayer.innerHTML= newPlayer.innerHTML+"<div  class=\"image-txt-container\"><img  src=\""+ this.player_list[indexP].avatar.src +"\" alt=\"Ficha de Jugador\" height=\"25\" /><p style=\"color: rgb(63, 230, 13)\">"+  this.player_list[indexP].id+ "</p> </div>"; 

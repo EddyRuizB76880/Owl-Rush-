@@ -6,7 +6,7 @@ const ip = window.location.host;
 //Aquí para crear invitados en lobby.
 const player_list = [];
 const player_icons = [];
-
+/*
 player_list.push(window.sessionStorage.getItem('jugadorId'));
 player_icons.push(window.sessionStorage.getItem('selectionofAvatars'));
 
@@ -20,7 +20,13 @@ for(indexP ; indexP < player_list.length ; indexP++ ) {
     newPlayer.innerHTML= newPlayer.innerHTML+"<li class=\"player_name\">"  + "<img id=\"avatarJugador"+pos +"\" src=\""+player_icons[indexP]+"\" alt=\"player_icon\" class=\"player_icon\" ></img>"+ player_list[indexP] + "</li>";
 }
 
-console.log(player_list);
+console.log(player_list);*/
+let newPlayer = document.getElementById('list_of_players');
+newPlayer.innerHTML= "";
+newPlayer.innerHTML="<li id=\"list_of_players_header\">Jugadores</li>";
+newPlayer.innerHTML= newPlayer.innerHTML+"<li class=\"player_name\">"  + "<img id=\"avatarJugador1"/*+pos*/ +"\" src=\""+window.sessionStorage.getItem('selectionofAvatars')+"\" alt=\"player_icon\" class=\"player_icon\" ></img>"+window.sessionStorage.getItem('jugadorId') + "</li>";
+
+
 const host_connection_message = JSON.stringify({type: 'create_session'
                                           ,id: `${window.sessionStorage.getItem('jugadorId')}`
                                           ,icon: `${window.sessionStorage.getItem('selectionofAvatars')}`
@@ -53,6 +59,9 @@ function process_message(message) {
         case 'new_guest':
             //display new guest icon and name
             new_guest(message_from_server);
+
+            newPlayer.innerHTML= newPlayer.innerHTML+"<li class=\"player_name\">"  + "<img id=\"avatarJugador" +"\" src=\""+message_from_server.icon+"\" alt=\"player_icon\" class=\"player_icon\" ></img>"+ message_from_server.id + "</li>";
+
             break;
 
         case 'player_left':
@@ -62,6 +71,11 @@ function process_message(message) {
         case 'guest_list':
             // ToDo:Display list of guests
            guest_list(message_from_server);
+           let indexP = 0;
+            for(indexP ; indexP < player_list.length ; indexP++ ) {
+                let pos=indexP+1;
+                newPlayer.innerHTML= newPlayer.innerHTML+"<li class=\"player_name\">"  + "<img id=\"avatarJugador"+pos +"\" src=\""+player_icons[indexP]+"\" alt=\"player_icon\" class=\"player_icon\" ></img>"+player_list[indexP] + "</li>";
+            }
            break;
         case 'new_lobby':
             window.sessionStorage.removeItem('i_am_host');
@@ -69,6 +83,12 @@ function process_message(message) {
             window.sessionStorage.removeItem('session_id');
             window.sessionStorage.setItem('session_id',message_from_server.session_id);
             console.log(`The new id is${message_from_server.session_id}`);
+
+            
+          
+            console.log(message_from_server);
+            
+
             break;
         
         case 'begin':
@@ -91,7 +111,6 @@ function new_guest(message_from_server) {
     window.sessionStorage.setItem('guests_info', 
                                 JSON.stringify({icons: player_icons , guests: player_list}));
 
-     newPlayer.innerHTML= newPlayer.innerHTML+"<li class=\"player_name\">"  + "<img id=\"avatarJugador" +"\" src=\""+message_from_server.icon+"\" alt=\"player_icon\" class=\"player_icon\" ></img>"+ message_from_server.id + "</li>";
 
 
 

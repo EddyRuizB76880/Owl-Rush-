@@ -18,6 +18,14 @@
 - Comodín que permitiera al jugador mover 2 búho al mismo tiempo.
 - Comodín que otorgue recarga para sun counter.
 
+### Para ejecutar el servidor de Owl Rush!: 
+Tu máquina requiere:
+- Nodejs, versión 14 o superior
+- Express.
+Localiza la carpeta src/js_server/server y ejecuta node game_server.js. A partir de ese punto, el servidor aceptará conexiones. 
+RECOMENDABLE: Accede al menú principal incluyendo home.page.xhtml en el buscador de tu preferencia.
+AVISO: El juego sólo está funcional para navegador Firefox
+
 ### Desarrolladores: <a name="Developers"></a>
 - Eddy Ruiz
 - Lucía Elizondo

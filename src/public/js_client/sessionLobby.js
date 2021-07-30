@@ -21,6 +21,9 @@ for(indexP ; indexP < player_list.length ; indexP++ ) {
 }
 
 console.log(player_list);*/
+let id = document.getElementById('invitation_link');
+id.innerHTML="";
+
 let newPlayer = document.getElementById('list_of_players');
 newPlayer.innerHTML= "";
 newPlayer.innerHTML="<li id=\"list_of_players_header\">Jugadores</li>";
@@ -71,7 +74,10 @@ function process_message(message) {
         case 'guest_list':
             // ToDo:Display list of guests
            guest_list(message_from_server);
+           id.innerHTML="Id de sesión: "+window.sessionStorage.getItem('session_id');
+
            let indexP = 0;
+           
             for(indexP ; indexP < player_list.length ; indexP++ ) {
                 let pos=indexP+1;
                 newPlayer.innerHTML= newPlayer.innerHTML+"<li class=\"player_name\">"  + "<img id=\"avatarJugador"+pos +"\" src=\""+player_icons[indexP]+"\" alt=\"player_icon\" class=\"player_icon\" ></img>"+player_list[indexP] + "</li>";
@@ -83,6 +89,7 @@ function process_message(message) {
             window.sessionStorage.removeItem('session_id');
             window.sessionStorage.setItem('session_id',message_from_server.session_id);
             console.log(`The new id is${message_from_server.session_id}`);
+            id.innerHTML="Id de sesión: "+message_from_server.session_id;
 
             
           
@@ -93,6 +100,7 @@ function process_message(message) {
         
         case 'begin':
             begin(message_from_server);
+
             break;
     }
 

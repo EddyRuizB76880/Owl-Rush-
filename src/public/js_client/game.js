@@ -137,7 +137,7 @@ export default class Game {
 
       case 'player_reached':
         this.game_board.players_win();
-   
+        break;
     }
   }
 

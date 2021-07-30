@@ -73,7 +73,7 @@ export default class Board {
   move_player(color, active_player) {
     console.log(`Number total of players: ${this.total_num_players}`);
     // ToDo: Create getPosition method in player
-    let new_player_position = active_player.position + 39;
+    let new_player_position = active_player.position + 1;
     try{
       // Get cell's color
       let cell_styles = window.getComputedStyle(this.board_info[new_player_position]);

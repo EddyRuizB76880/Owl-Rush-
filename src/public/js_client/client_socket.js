@@ -2,7 +2,7 @@ export default class ClientSocket {
 
  
     constructor(host_information , starting_message) {
-        console.log(window.location.host);
+         (window.location.host);
         this.client = new WebSocket(`ws://${host_information}`);
         this.setup_events();
         this.starting_message = starting_message;
@@ -11,7 +11,7 @@ export default class ClientSocket {
     setup_events() {
         this.client.addEventListener('open', () => {
             // Causes the server to print "Hello"
-           console.log('Sending message to mf server');
+            ('Sending message to mf server');
             this.client.send(this.starting_message);
         })
     }

@@ -23,7 +23,7 @@ export default class Board {
   }
 
   start_player_turn(new_card, active_player) {
-    console.log(`${new_card.value}`);
+     (`${new_card.value}`);
     if (new_card.value === 'SOL') {
       this.client_socket.send_message(`{"type":"sun","id":"${window.sessionStorage.getItem('jugadorId')}","session_id": ${window.sessionStorage.getItem('session_id')}}`);
       this.sun_path_module.determine_sun_card_result();
@@ -31,7 +31,7 @@ export default class Board {
       this.append_card(new_card, active_player);
       this.toggle_player_actions();
       this.empty_boost();
-      console.log(`${new_card.value} es el valor de la nueva carta`);
+       (`${new_card.value} es el valor de la nueva carta`);
     }
   }
 
@@ -71,7 +71,7 @@ export default class Board {
   }
 
   move_player(color, active_player) {
-    console.log(`Number total of players: ${this.total_num_players}`);
+     (`Number total of players: ${this.total_num_players}`);
     // ToDo: Create getPosition method in player
     let new_player_position = active_player.position + 1;
     try{
@@ -80,7 +80,7 @@ export default class Board {
       while (cell_styles.getPropertyValue('background-color').localeCompare(color) !== 0) {
         new_player_position += 1;
         cell_styles = window.getComputedStyle(this.board_info[new_player_position]);
-        console.log(`${cell_styles.getPropertyValue('background-color')} vs ${color}`);
+         (`${cell_styles.getPropertyValue('background-color')} vs ${color}`);
       }
     } catch(error){
       // When a player is close to the end of the game board, it's possible
@@ -120,7 +120,7 @@ export default class Board {
 
     this.players_arrived_finish += 1;
     // TODO: quitarlo de los jugadores
-    console.log(`jugadores han llegado a la meta: ${this.players_arrived_finish}`);
+     (`jugadores han llegado a la meta: ${this.players_arrived_finish}`);
     if (this.players_arrived_finish === this.total_num_players) {
       game_board_element.classList.add('hidden');
       players_result_element.classList.remove('hidden');
@@ -134,7 +134,7 @@ export default class Board {
     }, this.simon_says_module.simon_time * 1000);
     const turn_result = `{"type":"turn_result","id":"${window.sessionStorage.getItem('jugadorId')}","session_id":${window.sessionStorage.getItem('session_id')},"sun_counter":"${this.sun_path_module.sunCounter.value}","ss_success":${Number(this.simon_says_module.playerSucceeded)},"color":"${chosen_card_color}"}`;
     this.client_socket.send_message(turn_result);
-    console.log(`checking${this.simon_says_module.simon_time}`);
+     (`checking${this.simon_says_module.simon_time}`);
     if (this.simon_says_module.playerSucceeded === false) {
       active_player.go_back();
     } else if (this.simon_says_module.playerSucceeded === false) {

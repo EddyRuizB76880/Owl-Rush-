@@ -15,12 +15,9 @@ export default class Game {
   }
 //
   setup_game() {
-
-
     const ip = window.location.host;
-
-    const reconnection_message = JSON.stringify({type: 'reconnect' , 
-    session_id: window.sessionStorage.getItem('session_id'), 
+    const reconnection_message = JSON.stringify({type: 'reconnect' ,
+    session_id: window.sessionStorage.getItem('session_id'),
     id: window.sessionStorage.getItem('jugadorId')
   });
     this.client_socket = new ClientSocket(ip , reconnection_message);
@@ -35,7 +32,7 @@ export default class Game {
     this.deck_button = document.getElementById('cardsGetStack');
     this.deck_button.disabled = true;
     this.deck_button.addEventListener('click', (event) => { this.start_player_turn(); });
-    this.player_1 = new Player(this.my_id ,  
+    this.player_1 = new Player(this.my_id ,
                                 window.sessionStorage.getItem('selectionofAvatars'));
     this.game_board = new Board(parseInt(sun_counter_grace),
                                 parseInt(sun_counter_boost),
@@ -58,21 +55,21 @@ export default class Game {
       newPlayer.innerHTML="<h1 >Jugadores</h1>";
 
       let indexP = 0;
-      
+
       for(indexP ; indexP < this.player_list.length ; indexP++ ) {
           let pos=indexP+1;
-          newPlayer.innerHTML= newPlayer.innerHTML+"<div  class=\"image-txt-container\"><img  src=\""+ this.player_list[indexP].avatar.src +"\" alt=\"Ficha de Jugador\" height=\"25\" /><p style=\"color: rgb(63, 230, 13)\">"+  this.player_list[indexP].id+ "</p> </div>"; 
+          newPlayer.innerHTML= newPlayer.innerHTML+"<div  class=\"image-txt-container\"><img  src=\""+ this.player_list[indexP].avatar.src +"\" alt=\"Ficha de Jugador\" height=\"25\" /><p style=\"color: rgb(63, 230, 13)\">"+  this.player_list[indexP].id+ "</p> </div>";
       }
 
   }
 // Aqui metodo para generar lista de participantes
   retrieve_players () {
-  
+
   const guest_info = JSON.parse(window.sessionStorage.getItem('guests_info'));
-  if(guest_info !== null){  
+  if(guest_info !== null){
     let index = 0;
       for (index ; index < guest_info.guests.length ; index ++) {
-        console.log(`${guest_info.guests[index]} , and ${guest_info.icons[index]}`);
+         (`${guest_info.guests[index]} , and ${guest_info.icons[index]}`);
         const player = new Player(guest_info.guests[index] , guest_info.icons[index]);
         this.player_list.push(player);
         this.player_ids.push(guest_info.guests[index]);
@@ -98,7 +95,7 @@ export default class Game {
   }
 
   process_message(message) {
-    console.log(`message from server ${message}`);
+     (`message from server ${message}`);
     const message_from_server = JSON.parse(message);
     switch(message_from_server.type) {
       case 'player_left':
@@ -115,9 +112,9 @@ export default class Game {
         break;
       case 'active_id' :
         this.active_player = this.player_list[this.player_ids.indexOf(message_from_server.id)];
-        console.log(`id from server ${message_from_server.id}`);
-        console.log(`pos ${this.player_ids.indexOf(message_from_server.id)}`);
-        console.log(`list ${this.player_ids}`);
+         (`id from server ${message_from_server.id}`);
+         (`pos ${this.player_ids.indexOf(message_from_server.id)}`);
+         (`list ${this.player_ids}`);
         if(message_from_server.id === this.my_id) {
           if(this.game_board.iaw === false){
             this.deck_button.disabled = false;

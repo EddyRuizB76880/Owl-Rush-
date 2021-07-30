@@ -23,7 +23,7 @@ export default class Player {
    this.previous_position = this.position;
    this.previous_top = this.avatar.offsetTop;
    this.previous_left = this.avatar.offsetLeft;
-   console.log(`${this.previous_top} , ${this.previous_left}`);
+    (`${this.previous_top} , ${this.previous_left}`);
    this.avatar.style.top = `${next_position_top}px`;
    this.avatar.style.left = `${next_position_left}px`;
    this.position = new_postion;

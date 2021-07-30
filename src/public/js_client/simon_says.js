@@ -19,7 +19,7 @@ export default class SimonSays {
   setupEvents() {
     this.buttonContainer.addEventListener('click', (event) => {
       const buttonEvent = event.target.id;
-      console.log(buttonEvent);
+       (buttonEvent);
       if (buttonEvent) this.handleClick(buttonEvent);
     });
   }
@@ -33,7 +33,7 @@ export default class SimonSays {
 
   resetGame(text) {
     const buttonContainer = document.getElementById('buttons_simon_says');
-    console.log(text);
+     (text);
     this.sequence = [];
     this.playerSequence = [];
     this.currentTurn = 0;
@@ -44,14 +44,14 @@ export default class SimonSays {
     const buttonContainer = document.getElementById('buttons_simon_says');
     if (this.playerSequence.length === this.sequence.length && this.playerSucceeded === true) {
       this.playerSequence = [];
-      console.log('You can stay in the position');
+       ('You can stay in the position');
       this.buttonContainer.classList.add('unclickable');
     }
   }
 
   handleClick(tile) {
     const index = this.playerSequence.push(tile) - 1;
-   console.log(`${this.playerSequence[index]} vs ${this.sequence[index]}, lengths:${this.playerSequence.length} vs ${this.sequence.length}`);
+    (`${this.playerSequence[index]} vs ${this.sequence[index]}, lengths:${this.playerSequence.length} vs ${this.sequence.length}`);
     if (this.playerSequence[index] !== this.sequence[index]) {
       this.playerSucceeded = false;
       this.resetGame('Oops! You pressed the wrong button, go back.');

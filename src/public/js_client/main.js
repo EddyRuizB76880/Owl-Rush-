@@ -2,7 +2,7 @@ import Game from './game.js';
 import ClientSocket from './client_socket.js'
 
 function main() {
-    console.log(window.sessionStorage.getItem('i_am_host'));
+     (window.sessionStorage.getItem('i_am_host'));
     if(window.sessionStorage.getItem('i_am_host') === '1'){
         const connection_message = JSON.stringify({type: "begin" , 
                         sc_grace: window.sessionStorage.getItem('sun_counter_gracetime'),

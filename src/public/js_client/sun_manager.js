@@ -17,7 +17,7 @@ export default class SunManager {
   }
 
   determine_sun_card_result() {
-    console.log(`sunCounter width: ${this.sunCounter.style.width}`);
+     (`sunCounter width: ${this.sunCounter.style.width}`);
     if (this.sunCounter.value != "100") {
       this.sun.className = 'sunItem';
       this.currentSunPosition += 1;

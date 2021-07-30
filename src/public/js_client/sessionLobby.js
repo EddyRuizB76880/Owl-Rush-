@@ -20,7 +20,7 @@ for(indexP ; indexP < player_list.length ; indexP++ ) {
     newPlayer.innerHTML= newPlayer.innerHTML+"<li class=\"player_name\">"  + "<img id=\"avatarJugador"+pos +"\" src=\""+player_icons[indexP]+"\" alt=\"player_icon\" class=\"player_icon\" ></img>"+ player_list[indexP] + "</li>";
 }
 
-console.log(player_list);*/
+ (player_list);*/
 let id = document.getElementById('invitation_link');
 id.innerHTML="";
 
@@ -46,7 +46,7 @@ window.sessionStorage.setItem('i_am_host' , '0');
 if (window.sessionStorage.getItem('session_id') === '-1') {
     connection_message = host_connection_message;
 }
-console.log(connection_message);
+ (connection_message);
 const client_socket = new ClientSocket(ip , connection_message);
 client_socket.addEventListener('message', (event) => {
     process_message(event.data);
@@ -54,10 +54,10 @@ client_socket.addEventListener('message', (event) => {
 
 //ToDo: Find a way to not make redundant code in switches.
 function process_message(message) {
-    console.log(`${message}`);
-    console.log(`I am ${window.sessionStorage.getItem('jugadorId')}, and my icon is ${window.sessionStorage.getItem('selectionofAvatars')}`);
+     (`${message}`);
+     (`I am ${window.sessionStorage.getItem('jugadorId')}, and my icon is ${window.sessionStorage.getItem('selectionofAvatars')}`);
     const message_from_server = JSON.parse(message);
-    console.log(`${message_from_server.type}`);
+     (`${message_from_server.type}`);
     switch(message_from_server.type) {
         case 'new_guest':
             //display new guest icon and name
@@ -88,12 +88,12 @@ function process_message(message) {
             window.sessionStorage.setItem('i_am_host' , '1');
             window.sessionStorage.removeItem('session_id');
             window.sessionStorage.setItem('session_id',message_from_server.session_id);
-            console.log(`The new id is${message_from_server.session_id}`);
+             (`The new id is${message_from_server.session_id}`);
             id.innerHTML="Id de sesión: "+message_from_server.session_id;
 
             
           
-            console.log(message_from_server);
+             (message_from_server);
             
 
             break;

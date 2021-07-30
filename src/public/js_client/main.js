@@ -19,11 +19,11 @@ function main() {
     const nickname = window.sessionStorage.getItem('jugadorId');
     const avatar = window.sessionStorage.getItem('selectionofAvatars');
 
-    const player1Name = document.getElementById('player1Name');//Name of player
-    const avatarJugador1 = document.getElementById('player1Avatar');//Avatar at the side of the name of the player
+    //const player1Name = document.getElementById('player1Name');//Name of player
+    //const avatarJugador1 = document.getElementById('player1Avatar');//Avatar at the side of the name of the player
    
-    player1Name.innerHTML=nickname;
-    avatarJugador1.src= avatar ;
+    //player1Name.innerHTML=nickname;
+    //avatarJugador1.src= avatar ;
 }
 
 window.addEventListener('load', main);

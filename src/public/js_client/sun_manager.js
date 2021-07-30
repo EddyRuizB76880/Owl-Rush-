@@ -66,9 +66,9 @@ export default class SunManager {
   //
   set_new_sun_counter_value(sun_counter_progress) {
     setTimeout(() => {
-      this.sunCounter.style.width = `${sun_counter_progress}` ;
+      this.sunCounter.style.width = `${sun_counter_progress}%` ;
     }, 1000)
-    this.sun_counter_filling.innerHTML = `${sun_counter_progress}`;
+    this.sun_counter_filling.innerHTML = `${sun_counter_progress}%`;
     this.sun_counter_boost.value = `${this.sun_counter_boost_initial_value}`;
   }
 }
